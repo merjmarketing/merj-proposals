@@ -54,6 +54,14 @@
   .opts small{display:block; color:var(--mid); font-size:12px}
   .opts.four{grid-template-columns:repeat(4,1fr)}
   .hp{position:absolute; left:-9999px}
+  .known{margin-top:28px; border:1px solid rgba(0,146,138,.35); background:#e9f5f4; border-radius:12px; padding:14px 18px; font-size:13.5px}
+  .known .kh{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px}
+  .known .kh b{font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal)}
+  .known .kh button{background:none; border:1px solid var(--teal); color:var(--teal); border-radius:6px; padding:4px 10px; font:inherit; font-size:12px; font-weight:700; cursor:pointer}
+  .known .kv{display:grid; grid-template-columns:repeat(3,1fr); gap:4px 16px}
+  .known .kv span{color:var(--mid)} .known .kv span b{color:var(--ink); font-weight:600; font-family:inherit; font-size:13.5px; letter-spacing:0; text-transform:none}
+  .prefilled-hide{display:none!important}
+  @media(max-width:760px){.known .kv{grid-template-columns:1fr}}
   .btn{display:inline-block; background:var(--grad-merge); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:14px 26px; border-radius:10px; border:0; cursor:pointer}
   .btn:disabled{opacity:.5; cursor:default}
   .submit{margin-top:32px; display:flex; gap:16px; align-items:center; flex-wrap:wrap}
@@ -102,15 +110,22 @@ const CONFIG = {
       <input type="hidden" name="submitted_at_utc" id="h-when">
       <input type="hidden" name="entry_source" id="h-src">
 
-      <section class="sec">
+      <div class="known" id="known" hidden>
+        <div class="kh"><b>From your form</b><button type="button" id="known-edit">Edit these</button></div>
+        <div class="kv" id="known-list"></div>
+      </div>
+
+      <section class="sec" id="sec-you">
         <h2><span class="step">01</span>You and your business</h2>
-        <div class="grid">
+        <div class="grid" id="you-contact">
           <label class="f">Your name <span class="req">*</span><input type="text" name="contact_name" required autocomplete="name"></label>
           <label class="f">Your role<input type="text" name="contact_role" placeholder="Owner, Marketing Director, CEO"></label>
           <label class="f">Email <span class="req">*</span><input type="email" name="contact_email" required autocomplete="email"></label>
           <label class="f">Phone<input type="tel" name="contact_phone" autocomplete="tel"></label>
           <label class="f">Company <span class="req">*</span><input type="text" name="company" required autocomplete="organization"></label>
           <label class="f">Website<input type="url" name="website" placeholder="https://"></label>
+        </div>
+        <div class="grid" style="margin-top:14px">
           <label class="f">Industry <span class="req">*</span><input type="text" name="industry" required placeholder="Home services, healthcare, restaurant, nonprofit"></label>
           <label class="f">City and service area<input type="text" name="location" placeholder="San Antonio and surrounding"></label>
           <label class="f">Company size
@@ -124,14 +139,14 @@ const CONFIG = {
         <h2><span class="step">02</span>Fit</h2>
         <div class="lede">Four quick answers so we recommend the right size of engagement.</div>
         <div class="grid">
-          <div class="wide"><label class="f">Monthly marketing budget you have in mind <span class="req">*</span></label>
+          <div class="wide" id="fit-budget"><label class="f">Monthly marketing budget you have in mind <span class="req">*</span></label>
             <div class="opts four" style="margin-top:6px">
               <label><input type="radio" name="budget" value="Under $2,800" required> Under $2,800</label>
               <label><input type="radio" name="budget" value="$2,800 to $5,499"> $2,800 to $5,499</label>
               <label><input type="radio" name="budget" value="$5,500 to $9,499"> $5,500 to $9,499</label>
               <label><input type="radio" name="budget" value="$9,500+"> $9,500+</label>
             </div><small style="color:var(--mid);font-size:12px">Retainer only. Ad spend paid to Google or Meta is separate.</small></div>
-          <div><label class="f">When do you want this running? <span class="req">*</span></label>
+          <div id="fit-timeline"><label class="f">When do you want this running? <span class="req">*</span></label>
             <div class="opts" style="grid-template-columns:1fr;margin-top:6px">
               <label><input type="radio" name="timeline" value="ASAP" required> As soon as possible</label>
               <label><input type="radio" name="timeline" value="1 to 3 months"> In the next 1 to 3 months</label>
@@ -143,7 +158,7 @@ const CONFIG = {
               <label><input type="radio" name="decision" value="I decide with partners"> I decide with partners or a board</label>
               <label><input type="radio" name="decision" value="Someone else decides"> Someone else decides</label>
             </div></div>
-          <div class="wide"><label class="f">Which of these matter most right now? <span class="req">*</span> <span style="font-weight:400">(pick all that apply)</span></label>
+          <div class="wide" id="fit-services"><label class="f">Which of these matter most right now? <span class="req">*</span> <span style="font-weight:400">(pick all that apply)</span></label>
             <div class="opts" style="margin-top:6px">
               <label><input type="checkbox" name="services" value="Strategy"> Overall strategy<small>A plan before the work</small></label>
               <label><input type="checkbox" name="services" value="Social media"> Social media<small>Posting, video, engagement</small></label>
@@ -231,13 +246,29 @@ const CONFIG = {
 <script>
 (function(){
   const $=id=>document.getElementById(id); const form=$('q');
-  // Prefill from the URL (Calendly confirmation redirect or the free-audit landing page):
-  // ?name=&email=&company=&website=&phone=&source=free-audit   (Calendly passes invitee_full_name, invitee_email, answer_1)
+  // Prefill from the URL. Sources: the free-audit landing page (after booking) or the Calendly confirmation redirect.
+  // Params: name, email, phone, company, website, budget, timeline, services (comma list), pain, source
+  // Calendly passes invitee_full_name, invitee_email, answer_1 (Company). Prefilled blocks collapse into "From your form".
   try{ const u=new URLSearchParams(location.search); const pick=(...k)=>{ for(const x of k){ const v=u.get(x); if(v) return v; } return ''; };
-    const map={contact_name:pick('name','invitee_full_name','invitee_first_name'), contact_email:pick('email','invitee_email'), company:pick('company','answer_1'), website:pick('website'), contact_phone:pick('phone','invitee_phone')};
+    const map={contact_name:pick('name','invitee_full_name','invitee_first_name'), contact_email:pick('email','invitee_email'), company:pick('company','answer_1'), website:pick('website'), contact_phone:pick('phone','invitee_phone'), pain_points:pick('pain','obstacle')};
+    if(map.website&&!/^https?:\/\//i.test(map.website)) map.website='https://'+map.website.replace(/^\/+/,'');
     for(const [k,v] of Object.entries(map)){ const el=form.elements[k]; if(el&&v&&!el.value) el.value=v; }
     const src=pick('source','utm_source'); $('h-src').value=src||document.referrer||'direct';
-    if(src==='free-audit'){ const k=document.querySelector('.cover .k'); if(k) k.textContent='Before your free audit'; const t=document.querySelector('.cover .time'); if(t) t.textContent='You are booked. Eight minutes here and the audit is about you, not about us catching up.'; }
+    // budget: accept our band labels or the landing-page labels
+    const bRaw=pick('budget'); const bMap={'under $2,800':'Under $2,800','$2,800 to $5,499':'$2,800 to $5,499','$5,500 to $9,499':'$5,500 to $9,499','$9,500+':'$9,500+','$2k to $5k per month':'$2,800 to $5,499','$5k to $15k per month':'$5,500 to $9,499','over $15k per month':'$9,500+'};
+    const bVal=bMap[bRaw.trim().toLowerCase()]; if(bVal){ const r=form.querySelector(`input[name=budget][value="${bVal}"]`); if(r) r.checked=true; }
+    const tRaw=pick('timeline','start').trim().toLowerCase(); const tMap={'asap':'ASAP','as soon as possible':'ASAP','within 30 days':'ASAP','1 to 3 months':'1 to 3 months','exploring':'Exploring','just exploring':'Exploring'};
+    const tVal=tMap[tRaw]; if(tVal){ const r=form.querySelector(`input[name=timeline][value="${tVal}"]`); if(r) r.checked=true; }
+    const sMap={'strategy':'Strategy','one-time strategy':'Strategy','social':'Social media','social media':'Social media','content':'Content & blog','content & blog':'Content & blog','email & sms':'Email & SMS','ads':'Paid ads','paid ads':'Paid ads','online reputation':'Reviews & reputation','reviews & reputation':'Reviews & reputation','websites':'Website & search','website & search':'Website & search','video & photo production':'Video & photo production'};
+    const sList=pick('services','interests').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean); let sHit=0; sList.forEach(s=>{ const v=sMap[s]; if(v){ const c=form.querySelector(`input[name=services][value="${v}"]`); if(c){ c.checked=true; sHit++; } } });
+    // collapse what we already have
+    const have=[]; const hide=[];
+    if(map.contact_name&&map.contact_email&&map.company){ hide.push('you-contact'); have.push(['Name',map.contact_name],['Email',map.contact_email],['Company',map.company]); if(map.website) have.push(['Website',map.website]); if(map.contact_phone) have.push(['Phone',map.contact_phone]); }
+    if(bVal){ hide.push('fit-budget'); have.push(['Budget',bVal]); }
+    if(tVal){ hide.push('fit-timeline'); have.push(['Timeline',tVal]); }
+    if(sHit){ hide.push('fit-services'); have.push(['Interested in',sList.map(s=>sMap[s]).filter(Boolean).join(', ')]); }
+    if(have.length){ $('known').hidden=false; $('known-list').innerHTML=have.map(x=>`<span>${x[0]}: <b>${x[1].replace(/[<>&]/g,'')}</b></span>`).join(''); hide.forEach(id=>$(id).classList.add('prefilled-hide')); $('known-edit').onclick=()=>{ hide.forEach(id=>$(id).classList.remove('prefilled-hide')); $('known').hidden=true; }; }
+    if(src==='free-audit'){ const k=document.querySelector('.cover .k'); if(k) k.textContent='Before your free audit'; const h=document.querySelector('.cover h1'); if(h) h.textContent='You are booked. A few more answers and the audit is about you.'; const t=document.querySelector('.cover .time'); if(t) t.textContent=have.length?'We kept what you already told us. About five minutes for the rest.':'About eight minutes. We read every answer before the call.'; const p=document.querySelector('.cover p'); if(p) p.textContent='Your answers become the agenda for the audit and the starting point for your three fixes.'; document.querySelector('.bar .in span:last-child').textContent='Audit prep · about 5 minutes'; }
   }catch(e){}
   function budgetMin(v){ return v==='Under $2,800'?0 : v==='$2,800 to $5,499'?2800 : v==='$5,500 to $9,499'?5500 : 9500; }
   function score(fd){
@@ -270,6 +301,8 @@ const CONFIG = {
       res.innerHTML=`<h3>Thanks, ${name}. Let's start with strategy.</h3><p>Our monthly packages start at $${CONFIG.floor.toLocaleString()}. Below that, the best value is a one-time strategy engagement: we build the full plan and walkthrough, your team runs it. Book a 20-minute call and we will walk you through it.</p><a class="btn" href="${cal(CONFIG.strategyCalendly)}" target="_blank" rel="noopener">Book a strategy consult</a>`;
     } else if(r.t==='Exploring'){
       res.innerHTML=`<h3>Thanks, ${name}. We saved your answers.</h3><p>No pressure while you are exploring. When you are ready to move in the next few months, book a discovery call below and we pick up right where you left off. We will check in once, in 30 days.</p><a class="btn" href="${cal(CONFIG.discoveryCalendly)}" target="_blank" rel="noopener">Book a discovery call when ready</a>`;
+    } else if($('h-src').value==='free-audit'){
+      res.innerHTML=`<h3>Thanks, ${name}. You are all set.</h3><p>Your audit is booked and we have what we need. We will read every answer before the call and bring your three fixes with us. Watch for the calendar invitation from Calendly.</p>`;
     } else {
       res.innerHTML=`<h3>Thanks, ${name}. Pick a time for your discovery call.</h3><p>45 minutes with a Merj founder. ${r.d==='Someone else decides'?'Bring whoever makes the final decision so we can answer their questions on the same call. ':''}We read every answer before we get on.</p><div class="cal"><iframe src="${cal(CONFIG.discoveryCalendly)}&hide_gdpr_banner=1" title="Book your discovery call" loading="lazy"></iframe></div>`;
     }
