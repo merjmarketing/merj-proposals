@@ -100,6 +100,7 @@ const CONFIG = {
       <input type="hidden" name="suggested_tier" id="h-tier">
       <input type="hidden" name="priority" id="h-pri">
       <input type="hidden" name="submitted_at_utc" id="h-when">
+      <input type="hidden" name="entry_source" id="h-src">
 
       <section class="sec">
         <h2><span class="step">01</span>You and your business</h2>
@@ -230,6 +231,14 @@ const CONFIG = {
 <script>
 (function(){
   const $=id=>document.getElementById(id); const form=$('q');
+  // Prefill from the URL (Calendly confirmation redirect or the free-audit landing page):
+  // ?name=&email=&company=&website=&phone=&source=free-audit   (Calendly passes invitee_full_name, invitee_email, answer_1)
+  try{ const u=new URLSearchParams(location.search); const pick=(...k)=>{ for(const x of k){ const v=u.get(x); if(v) return v; } return ''; };
+    const map={contact_name:pick('name','invitee_full_name','invitee_first_name'), contact_email:pick('email','invitee_email'), company:pick('company','answer_1'), website:pick('website'), contact_phone:pick('phone','invitee_phone')};
+    for(const [k,v] of Object.entries(map)){ const el=form.elements[k]; if(el&&v&&!el.value) el.value=v; }
+    const src=pick('source','utm_source'); $('h-src').value=src||document.referrer||'direct';
+    if(src==='free-audit'){ const k=document.querySelector('.cover .k'); if(k) k.textContent='Before your free audit'; const t=document.querySelector('.cover .time'); if(t) t.textContent='You are booked. Eight minutes here and the audit is about you, not about us catching up.'; }
+  }catch(e){}
   function budgetMin(v){ return v==='Under $2,800'?0 : v==='$2,800 to $5,499'?2800 : v==='$5,500 to $9,499'?5500 : 9500; }
   function score(fd){
     const b=budgetMin(fd.get('budget')), t=fd.get('timeline'), d=fd.get('decision'), services=fd.getAll('services');
