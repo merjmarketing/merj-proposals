@@ -419,7 +419,7 @@ const PROPOSAL = {
     lede: "",
     paragraphs: [
       "Restore trains more than 1,000 adults a year across 11 career pathways, GED, ESL and College Readiness. The site underneath that story was built for a smaller organization. Ten career pathways share one long page, class schedules live inside image flyers that Google and AI tools cannot read, and no page tells a search engine what Restore is or where its campuses are.",
-      "The 2025 refresh fixed the navigation. This rebuild fixes the foundation: one page per program, schedules as real text, a clean blog, structured data on every page, and a lighter WordPress build on Restore's own GoDaddy hosting, next to CPPDC and Restore TECH Academy."
+      "This rebuild fixes the foundation: one page per program, schedules as real text, a clean blog, structured data on every page, and a lighter WordPress build on Restore's own GoDaddy hosting, next to CPPDC and Restore TECH Academy."
     ],
     stats: [
       { value: "1", label: "page holding all 10 current career pathways" },
@@ -500,25 +500,25 @@ const PROPOSAL = {
         includes: ["12 new core pages on a new WordPress theme", "11 career pathway pages", "117 posts migrated, tags consolidated, redirects", "Schema, GA4 and Restore TECH Academy entry points", "Move to Restore's GoDaddy hosting", "Partnerships, Impact, Donate and ACE Alliance carried in"],
         note: "Pages launch with existing brand assets and stock photography. The video library can be added later by change order." }
     ],
-    tax: { rate: 8.25, label: "Texas sales tax (8.25%)", packageTaxable: false, onboardingTaxable: false,
-           note: "Web design and video production are taxable in Texas. If Restore holds a Texas sales tax exemption, send the certificate and tax comes off every invoice." },
+    tax: { rate: 0, label: "Sales tax", packageTaxable: false, onboardingTaxable: false,
+           note: "No sales tax billed. Restore Education's Texas nonprofit exemption certificate is on file." },
     includeOnboarding: false,
     onboardingFee: null,
     monthlyExtras: [],
     oneTime: [
-      { name: "Website build, full (12 core pages)", shortName: "Website build, 12 core pages", price: 10000, qty: 1, taxable: true,
+      { name: "Website build, full (12 core pages)", shortName: "Website build, 12 core pages", price: 10000, qty: 1,
         desc: "New WordPress theme on Restore's GoDaddy hosting, 12 page designs, schema, analytics, Restore TECH Academy entry points.",
         plain: "The new design system and every main page of the site, built on Restore's own hosting.",
         bullets: ["Home, Programs hub, ESL, GED / High School Equivalency, College Readiness, Career Training hub", "Become a Student, Student Stories & Alumni, About, Get Involved, Contact & Locations, Newsroom templates", "Organization, campus, FAQ and program schema on every page, GA4 and conversion events", "Migration from Seale Studios to Restore's GoDaddy account, email records protected at cutover", "Restore TECH Academy link in the main nav, homepage band and Programs hub card"] },
-      { name: "Career pathway pages (11)", shortName: "Career pathway pages", price: 450, qty: 11, taxable: true,
+      { name: "Career pathway pages (11)", shortName: "Career pathway pages", price: 450, qty: 11,
         desc: "One shared template, filled 11 times with unique copy, schedules, certifications and FAQ.",
         plain: "A page for every career pathway, so each program can rank and be cited on its own.",
         bullets: ["Bookkeeping, CNA with Phlebotomy, Child Development Associate, Customer Service for Financial Services", "Entrepreneurship, Medical Assistant with Phlebotomy, Medical Front Office, Paraprofessional Educator", "Pharmacy Technician, Commercial Driver's License, EMT", "Class schedules as real text instead of image flyers, with program schema"] },
-      { name: "Content migration, tag cleanup and redirects", shortName: "Migration and cleanup", price: 1500, qty: 1, taxable: true,
+      { name: "Content migration, tag cleanup and redirects", shortName: "Migration and cleanup", price: 1500, qty: 1,
         desc: "117 posts migrated, 161 tags consolidated to about 20, redirect map, alt text on every image.",
         plain: "Everything Restore has published comes across clean, and no old link breaks.",
         bullets: ["117 blog posts moved into the new Newsroom", "161 tag pages consolidated to about 20 topics", "Redirects for every retired URL, including the old partner and giving pages", "Alt text written for images across the site"] },
-      { name: "Program video library (2 full-day shoots)", shortName: "Program video library", price: 3500, qty: 2, taxable: true, option: "full", badge: "Option 1 only",
+      { name: "Program video library (2 full-day shoots)", shortName: "Program video library", price: 3500, qty: 2, option: "full", badge: "Option 1 only",
         desc: "One day at Main Campus, one at Eastside Center. Films, vertical cutdowns and photo sets for every program.",
         plain: "Real classrooms and real students on every program page, instead of stock photos.",
         bullets: ["Pre-production, shot lists and class-schedule coordination", "One 60 to 90 second overview film per program (14), plus a homepage film", "One vertical cutdown per program for social", "8 to 10 edited photos per program, captioned video on Restore's YouTube channel"] },
@@ -533,9 +533,10 @@ const PROPOSAL = {
       { label: "Video payments", option: "full", text: "50% at signing ($3,500), 50% on delivery of the library ($3,500). NET 10." },
       { label: "Revisions", text: "Two rounds of revisions per page template included. More at $150 per hour." },
       { label: "Hosting and licenses", text: "Restore's GoDaddy account. Hosting, domain and any plugin licenses are paid by Restore at cost." },
+      { label: "Sales tax", text: "None billed. Restore Education's Texas nonprofit exemption certificate is on file." },
       { label: "Not included", text: "Spanish page translation (GTranslate stays in place), the Restore TECH Academy website, talent or location fees, and new pages beyond the sitemap." }
     ],
-    summaryNote: "Totals follow the option selected above. Tax applies to web and video work only and comes off entirely with a Texas exemption certificate. Your monthly retainer is not part of this project and does not change."
+    summaryNote: "Totals follow the option selected above. No sales tax is billed under Restore's nonprofit exemption. Your monthly retainer is not part of this project and does not change."
   },
 
   timeline: [
@@ -989,7 +990,7 @@ const PRICING = {
     box.innerHTML=OPTS.map(o=>{ const on=o.key===S.opt; return `<button type="button" class="optcard${on?' on':''}" role="radio" aria-checked="${on}" data-opt="${esc(o.key)}">
       <div class="oh"><span class="on-l gradtext">${esc(o.name)}</span>${o.recommended?'<span class="rec">Recommended</span>':''}</div>
       <h4>${esc(o.title)}</h4><div>${esc(o.lede||'')}</div>
-      <div class="op">${money(optTotal(o.key))}<small>before tax · ${money(o.due)} due at signing</small></div>
+      <div class="op">${money(optTotal(o.key))}<small>${money(o.due)} due at signing</small></div>
       <ul>${(o.includes||[]).map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
       <div class="onote">${esc(o.note||'')}</div>
       <div class="pick">${on?'Selected':'Select '+esc(o.name)}</div></button>`; }).join('');
@@ -1039,7 +1040,7 @@ const PRICING = {
   function renderSummary(){
     const t=totals(); const T=P.investment.tax||{}; const taxLabel=T.label||`Sales tax (${T.rate||0}%)`;
     const later=P.investment.retainerStart;
-    if(P.investment.projectOnly){ const due=OPTS.length?curOpt().due:P.investment.dueAtSigning; const pr=[['Option',OPTS.length?curOpt().name+(curOpt().recommended?', recommended':''):'Fixed-price project'],['Project total',money(t.onceNet)]]; if(t.onceTax>0) pr.push([taxLabel,money(t.onceTax)]); if(due!=null) pr.push(['Due at signing, before tax',money(due)]); pr.push(['Project total with tax',money(t.once)]);
+    if(P.investment.projectOnly){ const due=OPTS.length?curOpt().due:P.investment.dueAtSigning; const taxed=t.onceTax>0; const pr=[['Option',OPTS.length?curOpt().name+(curOpt().recommended?', recommended':''):'Fixed-price project']]; if(taxed){ pr.push(['Project total',money(t.onceNet)],[taxLabel,money(t.onceTax)]); if(due!=null) pr.push(['Due at signing, before tax',money(due)]); pr.push(['Project total with tax',money(t.once)]); } else { if(due!=null) pr.push(['Due at signing',money(due)]); pr.push(['Project total',money(t.once)]); }
       $('sum-rows').innerHTML=pr.map((x,i)=>`<div class="row${i===pr.length-1?' total':''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join(''); $('sum-note').textContent=P.investment.summaryNote||''; renderAccept(); return; }
     const r=[['Package',R.tiers[S.tier].name],[later?`Monthly retainer, from ${later}`:'Monthly retainer',money(t.monthlyNet)+' /mo']];
     if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']);
@@ -1119,7 +1120,7 @@ const PRICING = {
   function renderAgreement(){
     const {monthly,once}=totals(); const addons=addonNames();
     $('ag-meta').innerHTML=`Effective <b>${esc(AG.effectiveDate||'the date signed below')}</b><br>Proposal dated <b>${esc(P.meta.date)}</b> · Agreement v${esc(AG.version||'1.0')}`;
-    $('ag-scope').innerHTML=(P.investment.projectOnly?[['Option',optLabel()||'Fixed-price project'],['Project total',money(once)],['Due at signing, before tax',money((OPTS.length?curOpt().due:P.investment.dueAtSigning)||once)],['Add-ons',addons.length?addons.join(', '):'None']]:[['Package',R.tiers[S.tier].name],['Monthly retainer',money(monthly)],['Due at signing',money(once)],['Add-ons',addons.length?addons.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
+    $('ag-scope').innerHTML=(P.investment.projectOnly?[['Option',optLabel()||'Fixed-price project'],['Project total',money(once)],['Due at signing',money((OPTS.length?curOpt().due:P.investment.dueAtSigning)||once)],['Add-ons',addons.length?addons.join(', '):'None']]:[['Package',R.tiers[S.tier].name],['Monthly retainer',money(monthly)],['Due at signing',money(once)],['Add-ons',addons.length?addons.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
     $('ag-body').innerHTML=(AG.clauses||[]).map((c,i)=>`<h4><span class="n">${i+1}.</span>${esc(c.title)}</h4>${String(fill(c.text)).split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join('')}`).join('');
   }
   // read gate: enable signing once the client reaches the end of the agreement
@@ -1179,7 +1180,7 @@ const PRICING = {
   const NOTE_SOURCES=()=>[{key:'heard',label:'What we heard'},...R.lines.map(l=>({key:l.key,label:l.name})),{key:'invest',label:'Investment'}];
   function renderAccept(){
     const {monthly,once}=totals(); const notes=noteList(); const inc=includedLines(); const okN=inc.filter(l=>S.ok[l.key]).length; const addonNamesL=addonNames();
-    $('fb-sum').innerHTML=(P.investment.projectOnly?[['Option',optLabel()||'Fixed-price project'],['Project total',money(once)],['Due at signing, before tax',money((OPTS.length?curOpt().due:P.investment.dueAtSigning)||once)]]:[['Package',R.tiers[S.tier].name],['Monthly',money(monthly)+' /mo'],['Due at signing',money(once)]]).concat([['Add-ons',addonNamesL.length?addonNamesL.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
+    $('fb-sum').innerHTML=(P.investment.projectOnly?[['Option',optLabel()||'Fixed-price project'],['Project total',money(once)],['Due at signing',money((OPTS.length?curOpt().due:P.investment.dueAtSigning)||once)]]:[['Package',R.tiers[S.tier].name],['Monthly',money(monthly)+' /mo'],['Due at signing',money(once)]]).concat([['Add-ons',addonNamesL.length?addonNamesL.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
     const active=NOTE_SOURCES().filter(src=>(S.notes[src.key]||'').trim() || (src.key==='invest'&&S.q.invest));
     const anchor={heard:'#heard',invest:'#investment'};
     $('fb-list').innerHTML = active.length ? active.map(src=>`<div class="nrow"><b>${esc(src.label)}</b><span class="nt">${esc((S.notes[src.key]||'').trim()||(src.key==='invest'?'Has questions':''))}</span><a class="rm" href="${anchor[src.key]||'#package'}">Edit</a></div>`).join('')
