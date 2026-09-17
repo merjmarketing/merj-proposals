@@ -912,7 +912,7 @@ const PRICING = {
   if (auditRows.length){ $('found-lede').textContent=AU.lede||''; const cls={strong:'strong','needs work':'work',missing:'missing','not assessed':'na'};
     $('audit').innerHTML=auditRows.map(l=>{ const a=AUF[l.key]; return `<div><b>${esc(l.name)}</b><span class="chip ${cls[(a.status||'').toLowerCase()]||'work'}">${esc(a.status||'needs work')}</span><p>${esc(a.finding)}</p></div>`; }).join(''); }
   else $('found').style.display='none';
-  if (P.heard.audioUrl){ $('walk').innerHTML=`<div class="ic">▶</div><div><b>${esc(P.heard.audioTitle||'Hear the walkthrough')}</b><small>${esc(P.heard.audioNote||'Three minutes on the thinking behind this proposal, from Merj.')}</small><audio controls preload="none" src="${esc(P.heard.audioUrl)}"></audio></div>`; } else $('walk').style.display='none';
+  if (P.heard.audioUrl){ $('walk').innerHTML=`<div><b>${esc(P.heard.audioTitle||'Hear the walkthrough')}</b><small>${esc(P.heard.audioNote||'Three minutes on the thinking behind this proposal, from Merj.')}</small><audio controls preload="none" src="${esc(P.heard.audioUrl)}"></audio></div>`; document.querySelector('#heard .heard').insertAdjacentElement('beforebegin', $('walk')); $('walk').style.marginBottom='18px'; } else $('walk').style.display='none';
   const v=$('video');
   if (P.heard.loomUrl){ const id=(P.heard.loomUrl.match(/loom\.com\/(?:share|embed)\/([a-zA-Z0-9]+)/)||[])[1];
     v.innerHTML = id ? `<iframe src="https://www.loom.com/embed/${id}" title="Proposal walkthrough" allowfullscreen loading="lazy"></iframe>` : `<div class="ph">Walkthrough video: <a href="${esc(P.heard.loomUrl)}" target="_blank" rel="noopener">open</a></div>`;
