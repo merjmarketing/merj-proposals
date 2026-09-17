@@ -175,7 +175,22 @@
   .pk .inner .rationale{margin:0 22px; padding:16px 0}
   .pk .actions{margin:0 22px}
   .pk.alt .inner .switch{margin:0 22px}
-  .rationale{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px}
+  .blk{margin:0 22px 18px; border:2px solid var(--black); border-radius:12px; overflow:hidden; background:#fff}
+.blk.mon{border-color:var(--line)}
+.blkhd{padding:16px 20px; border-bottom:2px solid var(--black); background:var(--soft)}
+.blk.mon .blkhd{border-bottom-color:var(--line)}
+.blkhd .k{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; font-family:'Poppins',sans-serif; display:block; margin-bottom:4px}
+.blkhd h3{font-size:20px; font-weight:800; letter-spacing:-.01em; margin:0}
+.blkhd .meta{font-size:13px; font-weight:700; color:var(--mid); margin-top:2px}
+.blkhd p{margin:8px 0 0; font-size:14.5px; max-width:none}
+.blk .line{padding-right:20px; border-bottom:1px solid var(--line)}
+.blk .line:last-child{border-bottom:0}
+.summary .grp{margin-top:16px; padding-top:12px; border-top:1px solid rgba(255,255,255,.28); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:#bdbdbd; font-family:'Poppins',sans-serif}
+.summary .grp:first-child{margin-top:0; padding-top:0; border-top:0}
+.summary .row.sub{border-bottom:0; padding-top:10px; font-family:'Poppins',sans-serif}
+.summary .row.sub span:first-child{font-weight:700}
+.summary .row.sub span:last-child{font-size:20px; font-weight:800; letter-spacing:-.02em}
+.rationale{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px}
   .rationale .k{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; font-family:'Poppins',sans-serif; white-space:nowrap; padding-top:3px}
   .rationale p{margin:0; max-width:none}
   .line{display:grid; grid-template-columns:230px 1fr 190px; gap:0 18px; padding:0 22px 0 0; border-bottom:1px solid var(--line)}
@@ -383,7 +398,7 @@
 
 <!-- Merj proposal template v2.0 (September 2026): adds the a la carte mode. tier: "alacarte", optional
      investment.retainerStart, investment.hideRateCard, timelineLede,
-     packageHeading, packageLede, recommendation.firstUp (shows investment.oneTime above the monthly lines; items take
+     packageHeading, packageLede, investment.onceLabel/onceRowLabel/monthlyRowLabel, recommendation.firstUp (shows investment.oneTime above the monthly lines; items take
      optional shortName and bullets). Foundation, Growth and Scale render as before. -->
 <!-- ======================================================================
      EDIT THIS BLOCK. Everything below renders from it.
@@ -461,16 +476,19 @@ const PROPOSAL = {
     ]
   },
 
-  packageHeading: "Your monthly service package",
-  packageLede: "It starts with a one-time Launch Kit. Your monthly services begin once your page and Google profile are live. Leave a note on anything you want changed.",
+  packageHeading: "Your Custom Services",
+  packageLede: "Two pieces: a one-time Launch Kit that gets you found, then the monthly services that keep you there. Leave a note on anything you want changed.",
 
   recommendation: {
     tier: "alacarte",
     firstUp: {
-      label: "First, one time",
-      title: "Launch Kit",
-      lede: "This has to happen first. It gives the monthly work somewhere to send people and something to build on. Due at signing, live in about four weeks.",
-      thenLabel: "Then, every month"
+      label: "Step one, one time only",
+      title: "The Launch Kit",
+      meta: "$1,800 plus tax, invoiced once at signing",
+      lede: "This has to happen first. It gives the monthly work somewhere to send people and something to build on. Live in about four weeks.",
+      thenLabel2: "Step two, ongoing",
+      thenLabel: "Your Monthly Service Package",
+      thenMeta: "$1,500 a month, invoiced from the month after launch"
     },
     rationale: "You do not need every channel. You need to be found when a homeowner has a problem. So we start with the three things that bring calls in this business: your Google profile and reviews, Google ads that charge per lead, and search and AI visibility. Social and a full website wait for the restoration launch, when they will do more for you.",
     priceOverride: null,
@@ -487,7 +505,10 @@ const PROPOSAL = {
            note: "Applied to the landing page and design work only. Marketing services and consulting are not taxable in Texas." },
     includeOnboarding: false,
     onboardingFee: null,
-    retainerStart: "month two",
+    retainerStart: "the month after launch",
+    onceLabel: "Launch Kit",
+    onceRowLabel: "Launch Kit (3 items)",
+    monthlyRowLabel: "Monthly services (4 lines)",
     hideRateCard: ["Google Search ads management"],
     monthlyExtras: [
       { name: "Reviews & reputation", price: 425, desc: "Google Business Profile, reviews monitored and answered on Google, Facebook, Yelp and BBB, and a monthly review push." },
@@ -540,7 +561,7 @@ const PROPOSAL = {
     feedbackEmail: "info@merj.marketing",
     callUrl: "https://calendly.com/merj-info/proposal-questions",
     callLabel: "Or book 20 minutes to talk it through",
-    kickoffUrl: "https://calendly.com/merj-info/proposal-questions",
+    kickoffUrl: "https://calendly.com/merj-info/kickoff-meeting",
     fine: "Pricing is valid through the date on the cover. Your ticks and notes save in this browser until you send them."
   },
 
@@ -930,15 +951,21 @@ const PRICING = {
   function firstUpHtml(){
     const F=P.recommendation.firstUp; if(!F) return '';
     const items=(P.investment.oneTime||[]).filter(x=>x.price!=null);
-    return `<div class="rationale"><span class="k gradtext">${esc(F.label||'First, one time')}</span><p><b>${esc(F.title||'Before your monthly services')}.</b> ${esc(F.lede||'')}</p></div>
+    return `<div class="blk"><div class="blkhd"><span class="k gradtext">${esc(F.label||'First, one time')}</span>
+        <h3>${esc(F.title||'Before your monthly services')}</h3>${F.meta?`<div class="meta">${esc(F.meta)}</div>`:''}
+        ${F.lede?`<p>${esc(F.lede)}</p>`:''}</div>
       ${items.map((x,i)=>`<div class="line"><div><div class="lnum">${String(i+1).padStart(2,'0')}</div><h4>${esc(x.shortName||x.name)}</h4><div class="plain">${esc(x.plain||'')}</div></div>
-        <ul>${(x.bullets||[x.desc]).map(b=>`<li>${esc(b)}</li>`).join('')}</ul><div class="st">One time</div></div>`).join('')}`;
+        <ul>${(x.bullets||[x.desc]).map(b=>`<li>${esc(b)}</li>`).join('')}</ul><div class="st">One time</div></div>`).join('')}</div>`;
   }
+  const F=(P.recommendation||{}).firstUp;
   function renderPackages(){
     $('packages').innerHTML = order.map(k=>{ const t=R.tiers[k]; const isRec=k===recKey; const open=S.tier===k;
       const inner = isRec
-        ? `${firstUpHtml()}<div class="rationale"><span class="k gradtext">${esc((P.recommendation.firstUp&&P.recommendation.firstUp.thenLabel)||'Why this one')}</span><p>${esc(P.recommendation.rationale)}</p></div>
-           ${shownLines(k).map((l,i)=>lineHtml(k,l,true,i)).join('')}
+        ? `${firstUpHtml()}${F?`<div class="blk mon"><div class="blkhd"><span class="k gradtext">${esc(F.thenLabel2||'Then, every month')}</span>
+             <h3>${esc(F.thenLabel||'Your monthly service package')}</h3>${F.thenMeta?`<div class="meta">${esc(F.thenMeta)}</div>`:''}
+             <p>${esc(P.recommendation.rationale)}</p></div>`
+            :`<div class="rationale"><span class="k gradtext">Why this one</span><p>${esc(P.recommendation.rationale)}</p></div>`}
+           ${shownLines(k).map((l,i)=>lineHtml(k,l,true,i)).join('')}${F?'</div>':''}
            ${isAlc(k)?(()=>{ const later=R.lines.filter(l=>!l.alacarteOnly && !lineItems(k,l)).map(l=>l.name); return later.length?`<div class="rationale"><span class="k gradtext">Not included for now</span><p>${esc(later.join(', '))}. Any of these can be added later by change order.</p></div>`:''; })():''}`
         : `<div class="switch">Shown for comparison. Our recommendation for ${esc(P.client.shortName||P.client.name)} is ${esc(R.tiers[recKey].name)}. <a class="btn ghost dark" href="#investment">See the investment on ${esc(t.name)}</a></div>
            ${shownLines(k).map((l,i)=>lineHtml(k,l,false,i)).join('')}`;
@@ -1002,13 +1029,32 @@ const PRICING = {
   function renderSummary(){
     const t=totals(); const T=P.investment.tax||{}; const taxLabel=T.label||`Sales tax (${T.rate||0}%)`;
     const later=P.investment.retainerStart;
-    const r=[['Package',R.tiers[S.tier].name],[later?`Monthly retainer, from ${later}`:'Monthly retainer',money(t.monthlyNet)+' /mo']];
-    if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']);
-    r.push(['Due at signing (one-time)',money(t.onceNet)]);
-    if(t.onceTax>0) r.push([taxLabel+', one-time',money(t.onceTax)]);
-    if(T.rate && !(t.monthlyTax>0||t.onceTax>0)) r.push([taxLabel,'$0']);
-    r.push(later?['First invoice, at signing',money(t.once)]:['First invoice',money(t.once+t.monthly)]);
-    $('sum-rows').innerHTML=r.map((x,i)=>`<div class="row${i===r.length-1?' total':''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join('');
+    const r=[];
+    if(later){
+      // Two separate invoices: the one-time work now, the monthly services later.
+      r.push({g:(P.investment.onceLabel||'One-time')+', invoiced at signing'});
+      r.push([P.investment.onceRowLabel||'One-time services',money(t.onceNet)]);
+      if(t.onceTax>0) r.push([taxLabel,money(t.onceTax)]);
+      r.push(['First invoice, at signing',money(t.once),'total']);
+      r.push({g:`Monthly, invoiced from ${later}`});
+      if(t.monthlyTax>0){
+        r.push([P.investment.monthlyRowLabel||'Your monthly services',money(t.monthlyNet)+' /mo']);
+        r.push([taxLabel,money(t.monthlyTax)+' /mo']);
+        r.push(['Monthly invoice',money(t.monthly)+' /mo','sub']);
+      } else {
+        r.push([P.investment.monthlyRowLabel||'Your monthly services',money(t.monthly)+' /mo','sub']);
+      }
+    } else {
+      r.push(['Package',R.tiers[S.tier].name]);
+      r.push(['Monthly retainer',money(t.monthlyNet)+' /mo']);
+      if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']);
+      r.push(['Due at signing (one-time)',money(t.onceNet)]);
+      if(t.onceTax>0) r.push([taxLabel+', one-time',money(t.onceTax)]);
+      if(T.rate && !(t.monthlyTax>0||t.onceTax>0)) r.push([taxLabel,'$0']);
+      r.push(['First invoice',money(t.once+t.monthly),'total']);
+    }
+    $('sum-rows').innerHTML=r.map(x=>x.g?`<div class="grp">${esc(x.g)}</div>`
+      :`<div class="row${x[2]?' '+x[2]:''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join('');
     $('sum-note').textContent = P.investment.summaryNote || 'First invoice covers the one-time items plus month one, with Texas sales tax applied to taxable items only. Ad spend is paid by you directly to the platforms, never through the retainer.';
     renderAccept();
   }
