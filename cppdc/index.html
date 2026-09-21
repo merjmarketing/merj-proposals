@@ -433,7 +433,7 @@ const PROPOSAL = {
       { value: "7", label: "pages live today, including three legal pages" },
       { value: "6", label: "initiatives waiting on a page of their own" },
       { value: "12", label: "pages in scope for Phase 2" },
-      { value: "6 wks", label: "from kickoff to launch" }
+      { value: "12 wks", label: "from kickoff to launch" }
     ]
   },
 
@@ -509,39 +509,38 @@ const PROPOSAL = {
 
   // ---- 04 Investment
   investment: {
-    tax: { rate: 8.25, label: "Texas sales tax (8.25%)", packageTaxable: false, onboardingTaxable: false,
-           note: "Web design and development is taxable in Texas. Applied to items marked tax." },
+    tax: { rate: 0, label: "", packageTaxable: false, onboardingTaxable: false, note: "" },
     includeOnboarding: false,
     onboardingFee: null,
     monthlyExtras: [],
     oneTime: [
-      { name: "Website Phase 2, full build-out (up to 12 pages)", price: 5000, qty: 1, taxable: true,
+      { name: "Website Phase 2, full build-out (up to 12 pages)", price: 5000, qty: 1, taxable: false,
         desc: "Everything scoped in section 03. Credits the shell, domain, GA4 and design system delivered in Phase 1." },
       { name: "Plugins and tools", note: "Est. $250 to $450 /yr, at cost", desc: "Events, forms, resource library and schema upgrades. Purchased in CPPDC's name or billed at cost, not part of the project fee." }
     ],
     addons: [],
     hideRateCard: ["Website build, full (up to 12 pages)", "Website redesign / refresh", "Additional social platform", "Technical SEO audit", "AI search visibility audit", "Google Search ads management", "Meta ads management"],
     terms: [
-      { label: "Term", text: "About 6 weeks from kickoff to launch. The agreement ends at launch and handoff." },
-      { label: "Billing", text: "$5,000 plus 8.25% Texas sales tax ($412.50), invoiced in full at kickoff: $5,412.50, NET 10." },
+      { label: "Term", text: "About 12 weeks from kickoff to launch. The agreement ends at launch and handoff." },
+      { label: "Billing", text: "$5,000 invoiced in full at kickoff, NET 10. No sales tax: CPPDC provides its Texas exemption certificate at signing." },
       { label: "Revisions", text: "3 rounds included. Additional revisions billed at $100 per hour." },
       { label: "Hosting and tools", text: "Kinsta hosting and the domain continue as existing pass-through costs. Phase 2 plugins and tools, estimated at $250 to $450 per year, are purchased in CPPDC's name or billed at cost, with approval before any purchase over $100." }
     ],
-    summaryNote: "One invoice at kickoff covers the full build, with Texas sales tax applied. Kinsta hosting, the domain and Phase 2 plugins stay pass-through costs, billed separately at cost."
+    summaryNote: "One invoice at kickoff covers the full build, with no sales tax for nonprofit work. Kinsta hosting, the domain and Phase 2 plugins stay pass-through costs, billed separately at cost."
   },
 
   // ---- 05 Timeline
-  timelineLede: "Signature to launch in about six weeks. Click a stage to see what you do and what we do.",
+  timelineLede: "Signature to launch in about twelve weeks. Click a stage to see what you do and what we do.",
   timeline: [
     { when: "Day 0", what: "Sign and kick off",
       you: "Sign the agreement at the bottom of this page.", we: "Send the kickoff invoice the same day, book the kickoff call within 48 hours and set up the staging site." },
-    { when: "Weeks 1 to 2", what: "Sitemap and content",
+    { when: "Weeks 1 to 3", what: "Sitemap and content",
       you: "Share initiative details, event info, resources and partner logos. Approve the sitemap.", we: "Map every page, set keyword targets and write the copy." },
-    { when: "Weeks 2 to 5", what: "Design and build",
+    { when: "Weeks 3 to 9", what: "Design and build",
       you: "Review pages as they come together and send feedback.", we: "Build every page on the Phase 1 design system, with schema, accessibility and conversion tracking." },
-    { when: "Weeks 5 to 6", what: "Revisions and QA",
+    { when: "Weeks 9 to 11", what: "Revisions and QA",
       you: "Send revision notes. Three rounds are included. Have counsel review the legal pages.", we: "Apply revisions, QA every page on desktop and mobile, check tracking and train your team." },
-    { when: "Week 6", what: "Launch",
+    { when: "Week 12", what: "Launch",
       you: "Give final approval.", we: "Launch Phase 2 on txcareerpathways.org, confirm analytics and hand off." }
   ],
 
@@ -568,10 +567,10 @@ const PROPOSAL = {
     countersignName: "Sam",
     clauses: [
       { title: "Parties", text: "This Agreement (\"Agreement\") is made and entered into by and between: Merj Marketing, a creative and marketing partnership organized under the laws of the State of Texas, comprised of its founding partners Christian Stryder, Karina Murray, and Samantha Morquecho (hereinafter collectively referred to as \"Merj\" or \"Provider\"), and {{client}} (herein \"Client\"). Collectively referred to as the \"Parties.\"" },
-      { title: "Key terms", text: "Contract Type: One-Time Project. Start Date: {{date}}. Project: {{package}}. Project Total, including Texas sales tax: {{oneTime}}. Add-Ons Selected at Signing: {{addons}}. Payment Terms: {{netTerms}}. Term: {{term}}" },
+      { title: "Key terms", text: "Contract Type: One-Time Project. Start Date: {{date}}. Project: {{package}}. Project Total: {{oneTime}}. Add-Ons Selected at Signing: {{addons}}. Payment Terms: {{netTerms}}. Term: {{term}}" },
       { title: "Scope of services", text: "The Scope of Services is the {{package}} as scoped in section 03 of this proposal, up to 12 pages: sitemap and page build; six initiative pages (Webinar Series, Employer Connect Hub, Professional Development, Workforce Academy, Regional Summits, Career Pathways Symposium); events and registration; resource library; employer and partner showcase; content and copywriting optimized for search and AI; technical SEO, schema and AI visibility; accessibility and legal pages; GA4 analytics and conversion tracking; and QA, training and launch. Add-ons selected at signing: {{addons}}.\nThree rounds of revisions are included. Additional revisions are billed at $100 per hour.\nThis agreement covers the approved one-time project only. Ongoing website maintenance, additional pages or other services may be added via a separate Change Order or Service Agreement." },
       { title: "Services", text: "Provider will deliver the marketing, branding, media, production, or consulting services as described in \"Scope of Services\" above.\nAll future additions or changes shall be captured through a written Change Order mutually approved and signed by both Parties." },
-      { title: "Payment terms and expenses", text: "Client agrees to pay the one-time project fee outlined in the Key Terms and Scope of Services above.\nThe project fee, including Texas sales tax, is invoiced in full at kickoff. Any monthly add-ons selected at signing are invoiced on the 1st of each month in advance, starting the month after launch.\nPass-through costs (domain registration, third-party tools, stock assets, etc.) are invoiced at actual cost upon purchase. Hosting and the domain continue as existing pass-through costs. Plugins and tools required for the build, estimated at $250 to $450 per year, are purchased in Client's name or invoiced at actual cost, and any single purchase over $100 requires Client approval.\nPayment is due within 10 business days of invoice (NET 10).\nLate payments incur a 1.5% daily late fee starting on day 11.\nAdditional out-of-scope work, including revisions beyond the three included rounds, requires a signed Change Order and may be invoiced separately." },
+      { title: "Payment terms and expenses", text: "Client agrees to pay the one-time project fee outlined in the Key Terms and Scope of Services above.\nThe project fee is invoiced in full at kickoff. No sales tax is charged, as Client is a tax-exempt nonprofit and will provide its Texas exemption certificate at signing. Any monthly add-ons selected at signing are invoiced on the 1st of each month in advance, starting the month after launch.\nPass-through costs (domain registration, third-party tools, stock assets, etc.) are invoiced at actual cost upon purchase. Hosting and the domain continue as existing pass-through costs. Plugins and tools required for the build, estimated at $250 to $450 per year, are purchased in Client's name or invoiced at actual cost, and any single purchase over $100 requires Client approval.\nPayment is due within 10 business days of invoice (NET 10).\nLate payments incur a 1.5% daily late fee starting on day 11.\nAdditional out-of-scope work, including revisions beyond the three included rounds, requires a signed Change Order and may be invoiced separately." },
       { title: "Confidentiality", text: "Both Parties agree to treat all business, creative, operational, strategic, and personal information as confidential, whether oral, written, or digital.\nThis obligation survives the termination of this Agreement. Confidential Information does not include information that: (i) was publicly available through no fault of the receiving Party, (ii) was lawfully obtained from a third party, or (iii) was independently developed without reference to the disclosing Party's confidential information." },
       { title: "Intellectual property", text: "All work product, deliverables, and associated materials created by Provider are considered \"work made for hire\" and shall be the exclusive property of the Client upon full payment.\nEach Party retains ownership of its respective trademarks and intellectual property used in the normal course of business. Neither Party may use the other's trademarks or intellectual property outside of the performance of this Agreement without written consent." },
       { title: "Style release", text: "Client acknowledges Provider's unique creative style and portfolio. While Client input is welcome, artistic discretion remains with Provider. Dissatisfaction based solely on stylistic differences does not constitute breach or grounds for refund." },
