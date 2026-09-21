@@ -175,7 +175,22 @@
   .pk .inner .rationale{margin:0 22px; padding:16px 0}
   .pk .actions{margin:0 22px}
   .pk.alt .inner .switch{margin:0 22px}
-  .rationale{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px}
+  .blk{margin:0 22px 18px; border:2px solid var(--black); border-radius:12px; overflow:hidden; background:#fff}
+.blk.mon{border-color:var(--line)}
+.blkhd{padding:16px 20px; border-bottom:2px solid var(--black); background:var(--soft)}
+.blk.mon .blkhd{border-bottom-color:var(--line)}
+.blkhd .k{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; font-family:'Poppins',sans-serif; display:block; margin-bottom:4px}
+.blkhd h3{font-size:20px; font-weight:800; letter-spacing:-.01em; margin:0}
+.blkhd .meta{font-size:13px; font-weight:700; color:var(--mid); margin-top:2px}
+.blkhd p{margin:8px 0 0; font-size:14.5px; max-width:none}
+.blk .line{padding-right:20px; border-bottom:1px solid var(--line)}
+.blk .line:last-child{border-bottom:0}
+.summary .grp{margin-top:16px; padding-top:12px; border-top:1px solid rgba(255,255,255,.28); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:#bdbdbd; font-family:'Poppins',sans-serif}
+.summary .grp:first-child{margin-top:0; padding-top:0; border-top:0}
+.summary .row.sub{border-bottom:0; padding-top:10px; font-family:'Poppins',sans-serif}
+.summary .row.sub span:first-child{font-weight:700}
+.summary .row.sub span:last-child{font-size:20px; font-weight:800; letter-spacing:-.02em}
+.rationale{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px}
   .rationale .k{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; font-family:'Poppins',sans-serif; white-space:nowrap; padding-top:3px}
   .rationale p{margin:0; max-width:none}
   .line{display:grid; grid-template-columns:230px 1fr 190px; gap:0 18px; padding:0 22px 0 0; border-bottom:1px solid var(--line)}
@@ -381,38 +396,32 @@
 </head>
 <body>
 
-<!-- Merj proposal template v2.1 (September 2026): adds project mode. Set PROPOSAL.project { name, investmentLede, scope:[{title, plain, bullets}] }
-     with recommendation.tier "alacarte" and no monthlyExtras for a one-time build: section 03 shows the scope, the monthly rows and retainer
-     language drop out, and money() keeps cents when tax produces them. Retainer proposals render exactly as before.
-     Merj proposal template v2.0 (September 2026): adds the a la carte mode. tier: "alacarte", optional
+<!-- Merj proposal template v2.0 (September 2026): adds the a la carte mode. tier: "alacarte", optional
      investment.retainerStart, investment.hideRateCard, timelineLede,
-     packageHeading, packageLede, recommendation.firstUp (shows investment.oneTime above the monthly lines; items take
+     packageHeading, packageLede, investment.onceLabel/onceRowLabel/monthlyRowLabel, recommendation.firstUp (shows investment.oneTime above the monthly lines; items take
      optional shortName and bullets). Foundation, Growth and Scale render as before. -->
 <!-- ======================================================================
      EDIT THIS BLOCK. Everything below renders from it.
      ====================================================================== -->
 <script>
 const PROPOSAL = {
-  // ---- Who it is for
   client: {
-    name: "Career Pathways Professional Development Center",
-    shortName: "CPPDC",
-    contactName: "Liz Moya",
-    contactEmail: "lmoya@restoreeducation.org"
+    name: "DJ Remediation",
+    shortName: "DJ Remediation",
+    contactName: "Dillon James",
+    contactEmail: "dillon@djremediation.com"
   },
 
-  // ---- Document meta
   meta: {
     date: "September 2026",
-    validUntil: "October 1, 2026",
+    validUntil: "September 30, 2026",
     preparedByShort: "Merj",
     preparedBy: ["Christian Stryder, Co-Founder", "Samantha Morquecho, Co-Founder"]
   },
 
-  // ---- Cover
   headline: {
-    title: "CPPDC Website Build, Phase 2",
-    subtitle: "Phase 2 turns the txcareerpathways.org shell into the full site employers, workforce boards and partners need to find the programs, register and get involved."
+    title: "Get found by the homeowners already searching for you",
+    subtitle: "A page that takes the call, a Google profile that shows up, and ads that only charge when someone reaches out. Built for DJ Remediation today and ready for restoration next year."
   },
   cover: {
     imageUrl: "asset:cover",
@@ -420,163 +429,165 @@ const PROPOSAL = {
     caption: "Sam and Christian, Merj Co-Founders"
   },
 
-  // ---- 01 The situation
   challenge: {
-    heading: "The shell did its job. Now the site carries the program.",
+    heading: "The work is good. Homeowners just can't find it yet.",
     lede: "",
     paragraphs: [
-      "Phase 1 put CPPDC online the right way: four core pages plus privacy, terms and accessibility, with enough to establish presence and take registrations.",
-      "Employers, workforce boards and partners now need the full picture. Program details, resources, events and clear ways to engage. Six initiatives still have no page of their own, so the site cannot yet do the explaining for you.",
-      "Phase 2 builds on what is already live. The domain, GA4 and design system carry over, so the budget goes into pages, content and visibility, not rework."
+      "DJ Remediation is licensed, equipped and known around town as the mold guy with gauges. Most jobs still come through referrals or as a subcontractor at about half the ticket. There is no live website, no finished Google profile, and no easy way for a homeowner searching late at night to reach you.",
+      "Mold is a search people make with the problem already in front of them. Page one is crowded with national franchises. The answer is not more noise. It is showing up in the three places a worried homeowner looks: the map, the ads above it, and the answer an AI tool gives."
     ],
     stats: [
-      { value: "7", label: "pages live today, including three legal pages" },
-      { value: "6", label: "initiatives waiting on a page of their own" },
-      { value: "12", label: "pages in scope for Phase 2" },
-      { value: "6 wks", label: "from kickoff to launch" }
+      { value: "0", label: "live website or finished Google profile today" },
+      { value: "50¢", label: "on the dollar on subcontracted jobs" },
+      { value: "3 to 4", label: "months in business, carried almost entirely by referrals" },
+      { value: "25 sq ft", label: "the line where a licensed consultant steps in, so every word we publish stays compliant" }
     ]
   },
 
-  // ---- 02 What we heard. THE ONE HUMAN-WRITTEN PARAGRAPH. Never generated.
   heard: {
-    paragraph: "CPPDC needs an authoritative website that is designed to drive website visitors, rank across search engines and feature all the event information in detail. This second phase of the website will accomplish just that.",
-    by: { name: "Sam Morquecho", role: "Co-Founder", photoUrl: "asset:sam" },
-    audioUrl: "",
+    paragraph: "Dillon, you've built DJ Remediation on referrals and subcontract work, and you're ready to stop doing jobs at 50 cents on the dollar. You told us marketing feels overwhelming because it keeps changing, and you don't have a way to catch leads beyond people passing your number along. Homeowners in San Antonio are who you want to reach, by phone first, with a form or booking link as backup. You want the work to speak for itself: before and afters, education, no scare tactics, and messaging that stays inside what a remediation license allows. You don't want to step on the restoration partners who send you work, and in about a year you plan to grow into DJ Restoration. So you asked for a plan that's focused, fits your budget, and builds toward that move instead of starting over.",
+    by: { name: "Sam Morquecho", role: "Co-Founder, Chief of Strategy", photoUrl: "asset:sam" },
+    audioUrl: "walkthrough.mp3",
     audioTitle: "Hear the walkthrough",
-    audioNote: "Three minutes on the thinking behind Phase 2.",
+    audioNote: "Sam, on why this plan looks the way it does. About three minutes.",
     loomUrl: ""
   },
 
-  // ---- 01b What we found
   audit: {
-    lede: "What is live on txcareerpathways.org today, from Phase 1.",
+    lede: "What is in place today, from our call. We confirm each one at kickoff.",
     findings: {
-      content:   { status: "missing",    finding: "No program detail, resource library or employer and partner showcase yet, so there is little for Google or AI tools to surface." },
-      web:       { status: "needs work", finding: "Seven pages are live, with registrations running through one interest form. The six initiatives share a single Initiatives page, and every page carries default article schema." },
-      reporting: { status: "needs work", finding: "GA4 is in place from Phase 1. Conversion tracking for registrations and partner inquiries comes with Phase 2." }
+      web:    { status: "missing",    finding: "The old subscription site is gone, so there is nowhere to send a homeowner who wants to book." },
+      orm:    { status: "missing",    finding: "A Google Business Profile was started but never finished, so DJ Remediation does not show up on the map." },
+      paid:   { status: "missing",    finding: "No ads running. Every new job depends on someone passing your number along." },
+      social: { status: "needs work", finding: "A Facebook page with a short burst of activity. Worth keeping, not worth leading with yet." }
     }
   },
 
-  // ---- 02 Why Merj
   whyMerj: {
     heading: "Why Merj",
     imageUrl: "asset:team",
     imageAlt: "The Merj team",
     imageCaption: "The Merj team, San Antonio",
     items: [
-      { title: "No restart", text: "We built Phase 1. The shell, domain, GA4 and design system are already ours to build on." },
-      { title: "We know the program", text: "From the Phase 1 site to the Symposium banners, the copy starts informed, not from a blank page." },
-      { title: "Built for search and AI", text: "Every page written and structured to rank in Google and get cited in ChatGPT, Perplexity and Google AI answers." },
-      { title: "Proof you can measure", text: "Conversion tracking shows which initiatives drive registrations and partner inquiries." }
+      { title: "One text away", text: "One team for the page, the profile, the ads and the check-ins. Text us like you text a customer." },
+      { title: "Compliance built in", text: "Copy and ads say remediation, never inspection or assessment, and stay inside Texas mold rules." },
+      { title: "Education, not fear", text: "Before and afters that show the work and explain it. No scare tactics, just proof." },
+      { title: "Ready for restoration", text: "Restoration keywords go in now, so the move to DJ Restoration does not start from zero." }
     ]
   },
 
-  // ---- 03 The scope. Template v2.1 project mode: renders project.scope in place of the monthly package.
-  packageHeading: "The Phase 2 scope",
-  packageLede: "Ten parts, up to 12 pages, one launch. Leave a note on anything you want changed.",
+  packageHeading: "Your Custom Services",
+  packageLede: "Two pieces: a one-time Launch Kit that gets you found, then the monthly services that keep you there. Leave a note on anything you want changed.",
+
   recommendation: {
-    tier: "alacarte",                 // required by the renderer; project mode hides the package
-    rationale: "A full build, priced as Phase 2. The Merj rate card for a full site of up to 12 pages starts at $6,000. Phase 1 already delivered the shell, the domain, GA4 and the design system, so we credited that work and priced Phase 2 at $5,000.",
+    tier: "alacarte",
+    firstUp: {
+      label: "Step one, one time only",
+      title: "The Launch Kit",
+      meta: "$1,800 plus tax, invoiced once at signing",
+      lede: "This has to happen first. It gives the monthly work somewhere to send people and something to build on. Live in about four weeks.",
+      thenLabel2: "Step two, ongoing",
+      thenLabel: "Your Monthly Service Package",
+      thenMeta: "$1,500 a month, invoiced from the month after launch"
+    },
+    rationale: "You do not need every channel. You need to be found when a homeowner has a problem. So we start with the three things that bring calls in this business: your Google profile and reviews, Google ads that charge per lead, and search and AI visibility. Social and a full website wait for the restoration launch, when they will do more for you.",
     priceOverride: null,
-    overrides: {}
-  },
-  project: {
-    name: "Website Phase 2, full build-out",
-    investmentLede: "One project fee, one invoice at kickoff. Optional add-ons can be switched on here or added later.",
-    scope: [
-      { title: "Sitemap and page build", plain: "The structure first, then every page built on the Phase 1 design system.",
-        bullets: ["Full sitemap and page map, up to 12 pages", "Navigation built around employers, workforce boards and partners", "Every page built on the existing design system", "Built and tested on a Kinsta staging site before going live", "Responsive on phone, tablet and desktop"] },
-      { title: "Six initiative pages", plain: "Each initiative gets its own page: what it is, who it serves and how to get involved.",
-        bullets: ["Webinar Series", "Employer Connect Hub", "Professional Development", "Workforce Academy", "Regional Summits", "Career Pathways Symposium"] },
-      { title: "Events and registration", plain: "Every event and every way to register, in one place.",
-        bullets: ["Events page for webinars, summits and the Symposium", "Registration paths for each event type", "Upcoming and past events"] },
-      { title: "Resource library", plain: "A home for the guides, recordings and downloads partners come back for.",
-        bullets: ["Organized library with categories set with your team", "Structured so new resources can be added after launch"] },
-      { title: "Employer and partner showcase", plain: "The organizations behind the pipeline, and a clear way for new ones to join.",
-        bullets: ["Employer and partner showcase section", "Partner inquiry and employer sign-up paths", "Logos and short profiles supplied by CPPDC"] },
-      { title: "Content and copywriting", plain: "Copy for every page, written to rank in Google and get cited in AI answers.",
-        bullets: ["Page copy for up to 12 pages", "Written from CPPDC's approved messaging, asset-based throughout", "Keyword targets set during the sitemap phase", "Structured for AI answers: clear questions, direct answers"] },
-      { title: "Technical SEO, schema and AI visibility", plain: "The behind-the-scenes work that makes the site findable.",
-        bullets: ["Titles, meta descriptions, headings and internal links", "Page-specific schema for the organization, programs and events, replacing the default article markup", "Page speed and mobile checks", "AI search visibility check before launch"] },
-      { title: "Accessibility and legal pages", plain: "A site everyone can use, with the existing legal pages brought up to date for the full site.",
-        bullets: ["Accessibility pass on every page: contrast, alt text, heading structure, keyboard navigation", "Review and update the existing Privacy Policy, Terms of Use and Accessibility Statement for Phase 2", "Updated legal copy reviewed by your team or counsel before launch"] },
-      { title: "GA4 analytics and conversion tracking", plain: "Know which pages and initiatives turn visitors into registrations and partners.",
-        bullets: ["Builds on the GA4 property from Phase 1", "Conversion events for registrations, partner inquiries and downloads", "Tracking check on launch day"] },
-      { title: "QA, training and launch", plain: "Tested, handed over and live.",
-        bullets: ["Page-by-page QA on desktop and mobile", "Training for your team on updating content", "Launch and post-launch check", "3 rounds of revisions included, additional revisions at $100 per hour"] }
-    ]
+    overrides: {
+      paid: ["Google Local Services Ads setup and management", "Google Search campaigns on remediation terms, with inspection and testing searches blocked", "Conversion tracking on calls and form leads", "Monthly optimization, moving spend to what books jobs for less"],
+      orm: ["Google Business Profile updates and monthly photo posts from your jobs", "Review monitoring and responses on Google, Facebook, Yelp and BBB", "Monthly review generation push, pointed at Google", "Listing accuracy check across every platform"],
+      web: ["Monthly technical SEO check and keyword tracker", "AI search visibility check", "Restoration keywords tracked ahead of the rebrand"],
+      account: ["Monthly check-in call on leads, reviews, rankings and spend", "Text or call access to your account lead", "Day-to-day coordination"]
+    }
   },
 
-  // ---- 04 Investment
   investment: {
     tax: { rate: 8.25, label: "Texas sales tax (8.25%)", packageTaxable: false, onboardingTaxable: false,
-           note: "Web design and development is taxable in Texas. Applied to items marked tax." },
+           note: "Applied to the landing page and design work only. Marketing services and consulting are not taxable in Texas." },
     includeOnboarding: false,
     onboardingFee: null,
-    monthlyExtras: [],
+    retainerStart: "the month after launch",
+    onceLabel: "Launch Kit",
+    onceRowLabel: "Launch Kit (3 items)",
+    monthlyRowLabel: "Monthly services (4 lines)",
+    hideRateCard: ["Google Search ads management"],
+    monthlyExtras: [
+      { name: "Reviews & reputation", price: 425, desc: "Google Business Profile, reviews monitored and answered on Google, Facebook, Yelp and BBB, and a monthly review push." },
+      { name: "Google Ads management", price: 600, desc: "Local Services Ads and search campaigns. Ad spend paid by you to Google." },
+      { name: "Search & AI visibility", price: 175, desc: "Monthly technical SEO check, keyword tracker and AI visibility check." },
+      { name: "Account management", price: 300, desc: "Your point of contact and a monthly check-in call." }
+    ],
     oneTime: [
-      { name: "Website Phase 2, full build-out (up to 12 pages)", price: 5000, qty: 1, taxable: true,
-        desc: "Everything scoped in section 03. Credits the shell, domain, GA4 and design system delivered in Phase 1." },
-      { name: "Plugins and tools", note: "Est. $250 to $450 /yr, at cost", desc: "Events, forms, resource library and schema upgrades. Purchased in CPPDC's name or billed at cost, not part of the project fee." }
+      { name: "Launch Kit: landing page design + build", shortName: "Landing page", price: 925, qty: 1, taxable: true,
+        plain: "The page every ad, listing and business card points to.",
+        bullets: ["One page with a lead form, booking link and click-to-call", "Copy that says remediation, never inspection or assessment", "Analytics tracking on calls and form leads"],
+        desc: "One page with a lead form, booking link, click-to-call and analytics tracking. Copy says remediation, never inspection." },
+      { name: "Launch Kit: graphic design assets", shortName: "Referral and review print pieces", price: 75, qty: 3, taxable: true,
+        plain: "Three designs you hand out on every job.",
+        bullets: ["Business card", "Referral leave-behind for consultants and past clients", "Review postcard with a QR code to your Google reviews", "Printing is paid by you"],
+        desc: "Business card, referral leave-behind, and a review postcard with a QR code to your Google reviews. Printing is yours." },
+      { name: "Launch Kit: consulting block, 5 hours", shortName: "Profile and listings setup", price: 650, qty: 1, taxable: false,
+        plain: "Five hours of hands-on setup so homeowners can find and trust you.",
+        bullets: ["Google Business Profile build and verification", "Matching listings on Facebook, Yelp, BBB, Nextdoor, Bing Places and Apple Business Connect", "Home address hidden on every listing", "Review request setup and a walkthrough"],
+        desc: "Google Business Profile build and verification, matching listings on Facebook, Yelp, BBB, Nextdoor, Bing and Apple, review request setup and a walkthrough." }
     ],
     addons: [],
-    hideRateCard: ["Website build, full (up to 12 pages)", "Website redesign / refresh", "Additional social platform", "Technical SEO audit", "AI search visibility audit", "Google Search ads management", "Meta ads management"],
     terms: [
-      { label: "Term", text: "About 6 weeks from kickoff to launch. The agreement ends at launch and handoff." },
-      { label: "Billing", text: "$5,000 plus 8.25% Texas sales tax ($412.50), invoiced in full at kickoff: $5,412.50, NET 10." },
-      { label: "Revisions", text: "3 rounds included. Additional revisions billed at $100 per hour." },
-      { label: "Hosting and tools", text: "Kinsta hosting and the domain continue as existing pass-through costs. Phase 2 plugins and tools, estimated at $250 to $450 per year, are purchased in CPPDC's name or billed at cost, with approval before any purchase over $100." }
+      { label: "Term", text: "The Launch Kit starts at signing. The monthly retainer starts on the 1st of the month after your landing page and Google profile go live, with a 3-month initial term, then month to month with 30 days notice." },
+      { label: "Billing", text: "Launch Kit invoiced at signing, NET 10. The retainer is invoiced on the 1st of each month from its start date, NET 10." },
+      { label: "Ad spend", text: "$300 to $500 a month, paid by you directly to Google on your own card and account. Never part of the retainer or our invoice." },
+      { label: "Sales tax", text: "Texas sales tax applies to the landing page and design work only. Marketing services and consulting are not taxable." },
+      { label: "Pass-through costs", text: "Printing, domain and hosting are paid by you or billed at actual cost." }
     ],
-    summaryNote: "One invoice at kickoff covers the full build, with Texas sales tax applied. Kinsta hosting, the domain and Phase 2 plugins stay pass-through costs, billed separately at cost."
+    summaryNote: "Your first invoice covers the Launch Kit only. The retainer starts on the 1st of the month after your page and Google profile go live, and your $300 to $500 in monthly ad spend goes straight to Google, never through us."
   },
 
-  // ---- 05 Timeline
-  timelineLede: "Signature to launch in about six weeks. Click a stage to see what you do and what we do.",
+  timelineLede: "Signature to a live page in about four weeks, ads in month two. Click a stage to see what you do and what we do.",
   timeline: [
-    { when: "Day 0", what: "Sign and kick off",
-      you: "Sign the agreement at the bottom of this page.", we: "Send the kickoff invoice the same day, book the kickoff call within 48 hours and set up the staging site." },
-    { when: "Weeks 1 to 2", what: "Sitemap and content",
-      you: "Share initiative details, event info, resources and partner logos. Approve the sitemap.", we: "Map every page, set keyword targets and write the copy." },
-    { when: "Weeks 2 to 5", what: "Design and build",
-      you: "Review pages as they come together and send feedback.", we: "Build every page on the Phase 1 design system, with schema, accessibility and conversion tracking." },
-    { when: "Weeks 5 to 6", what: "Revisions and QA",
-      you: "Send revision notes. Three rounds are included. Have counsel review the legal pages.", we: "Apply revisions, QA every page on desktop and mobile, check tracking and train your team." },
-    { when: "Week 6", what: "Launch",
-      you: "Give final approval.", we: "Launch Phase 2 on txcareerpathways.org, confirm analytics and hand off." }
+    { when: "Day 0", what: "Sign the agreement",
+      you: "Sign the service agreement at the bottom of this page.", we: "Send the Launch Kit invoice the same day and book your kickoff within 48 hours." },
+    { when: "Week 1", what: "Kickoff",
+      you: "A 45-minute call. Share your license details, job photos and any old logins.", we: "Start your Google Business Profile and draft the landing page copy and the three print pieces." },
+    { when: "Weeks 2 to 4", what: "Build and verify",
+      you: "Approve the page copy and designs. Complete Google's verification for your profile.", we: "Launch the landing page, verify your Google profile, set up your other listings and review requests, and walk you through all of it." },
+    { when: "Month 2", what: "Retainer starts",
+      you: "Add your card for ad spend in your Google Ads account. Send review requests after every job.", we: "Apply for Local Services Ads, launch search campaigns, start monthly profile, review and SEO work." },
+    { when: "Month 3 on", what: "Monthly rhythm",
+      you: "One check-in call a month.", we: "Move spend to whatever books jobs for less, grow reviews, and track rankings and AI visibility." }
   ],
 
-  // ---- 06 Review and sign
   accept: {
     heading: "Review and sign",
     lede: "Send us any notes first so we can update the proposal. When it reads right, sign below and we start the clock.",
     feedbackEmail: "info@merj.marketing",
     callUrl: "https://calendly.com/merj-info/proposal-questions",
-    callLabel: "Or book a call to talk it through",
+    callLabel: "Or book 20 minutes to talk it through",
     kickoffUrl: "https://calendly.com/merj-info/kickoff-meeting",
-    fine: "Pricing is valid through the date on the cover. Your notes save in this browser until you send them."
+    fine: "Pricing is valid through the date on the cover. Your ticks and notes save in this browser until you send them."
   },
 
   forms: { provider: "web3forms", accessKey: "670cadd8-4027-4efc-8a69-87b1142793f7", endpoint: "" },
 
-  // ---- The service agreement. Project version: Key terms, Scope, Payment and Termination adapted for a one-time build.
+  // ---- The service agreement. Language matches the MERJ Marketing Service Agreement (Cognito Forms), retainer version.
+  // Tokens: {{client}} {{package}} {{retainer}} {{oneTime}} {{term}} {{addons}} {{date}} {{netTerms}} {{merjSigner}}
+  // Signatures are delivered through the forms provider above (form name: merj-service-agreement), by email if that fails.
   agreement: {
-    version: "2.1-project",
-    notifyEmail: "kmurray@merj.marketing",
-    effectiveDate: "",
-    netTerms: "NET 10",
+    version: "2.1",
+    notifyEmail: "kmurray@merj.marketing",     // email fallback destination and Netlify notification target
+    effectiveDate: "",                         // blank = the date the client signs
+    netTerms: "NET 10",                        // matches the Cognito agreement
     merjSigner: "Samantha Morquecho, Co-Founder",
-    countersignName: "Sam",
+    countersignName: "Sam",                    // named in the post-signature message; sends the countersigned copy (E10)
     clauses: [
       { title: "Parties", text: "This Agreement (\"Agreement\") is made and entered into by and between: Merj Marketing, a creative and marketing partnership organized under the laws of the State of Texas, comprised of its founding partners Christian Stryder, Karina Murray, and Samantha Morquecho (hereinafter collectively referred to as \"Merj\" or \"Provider\"), and {{client}} (herein \"Client\"). Collectively referred to as the \"Parties.\"" },
-      { title: "Key terms", text: "Contract Type: One-Time Project. Start Date: {{date}}. Project: {{package}}. Project Total, including Texas sales tax: {{oneTime}}. Add-Ons Selected at Signing: {{addons}}. Payment Terms: {{netTerms}}. Term: {{term}}" },
-      { title: "Scope of services", text: "The Scope of Services is the {{package}} as scoped in section 03 of this proposal, up to 12 pages: sitemap and page build; six initiative pages (Webinar Series, Employer Connect Hub, Professional Development, Workforce Academy, Regional Summits, Career Pathways Symposium); events and registration; resource library; employer and partner showcase; content and copywriting optimized for search and AI; technical SEO, schema and AI visibility; accessibility and legal pages; GA4 analytics and conversion tracking; and QA, training and launch. Add-ons selected at signing: {{addons}}.\nThree rounds of revisions are included. Additional revisions are billed at $100 per hour.\nThis agreement covers the approved one-time project only. Ongoing website maintenance, additional pages or other services may be added via a separate Change Order or Service Agreement." },
+      { title: "Key terms", text: "Contract Type: Monthly Retainer. Start Date: {{date}}. Monthly Retainer: {{retainer}}. One-Time Services Total: {{oneTime}}. Payment Terms: {{netTerms}}. Term: {{term}}" },
+      { title: "Scope of services", text: "The Scope of Services is the {{package}} package as scoped in section 03 of this proposal, including any customized service lines shown there, plus the add-ons selected at signing ({{addons}}). Deliverables, platforms and monthly quantities follow the Merj package standard current at signing, as listed in the proposal. This agreement covers the approved monthly and one-time services only. Additional monthly or one-time services (ex: content shoots, additional platforms, landing pages, PR, graphic design, etc.) may be added via a separate Change Order or Service Agreement." },
       { title: "Services", text: "Provider will deliver the marketing, branding, media, production, or consulting services as described in \"Scope of Services\" above.\nAll future additions or changes shall be captured through a written Change Order mutually approved and signed by both Parties." },
-      { title: "Payment terms and expenses", text: "Client agrees to pay the one-time project fee outlined in the Key Terms and Scope of Services above.\nThe project fee, including Texas sales tax, is invoiced in full at kickoff. Any monthly add-ons selected at signing are invoiced on the 1st of each month in advance, starting the month after launch.\nPass-through costs (domain registration, third-party tools, stock assets, etc.) are invoiced at actual cost upon purchase. Hosting and the domain continue as existing pass-through costs. Plugins and tools required for the build, estimated at $250 to $450 per year, are purchased in Client's name or invoiced at actual cost, and any single purchase over $100 requires Client approval.\nPayment is due within 10 business days of invoice (NET 10).\nLate payments incur a 1.5% daily late fee starting on day 11.\nAdditional out-of-scope work, including revisions beyond the three included rounds, requires a signed Change Order and may be invoiced separately." },
+      { title: "Payment terms and expenses", text: "Client agrees to pay the monthly retainer and one-time fees outlined in the Key Terms and Scope of Services above.\nThe monthly retainer is invoiced on the 1st of each month in advance. One-time services (strategy and onboarding, shoots, builds) are invoiced upon kickoff unless otherwise noted.\nPass-through costs (domain registration, third-party tools, stock assets, etc.) are invoiced at actual cost upon purchase. Advertising spend is paid by Client directly to the advertising platforms and is not part of the retainer.\nPayment is due within 10 business days of invoice (NET 10).\nLate payments incur a 1.5% daily late fee starting on day 11.\nAdditional out-of-scope work requires a signed Change Order and may be invoiced separately." },
       { title: "Confidentiality", text: "Both Parties agree to treat all business, creative, operational, strategic, and personal information as confidential, whether oral, written, or digital.\nThis obligation survives the termination of this Agreement. Confidential Information does not include information that: (i) was publicly available through no fault of the receiving Party, (ii) was lawfully obtained from a third party, or (iii) was independently developed without reference to the disclosing Party's confidential information." },
       { title: "Intellectual property", text: "All work product, deliverables, and associated materials created by Provider are considered \"work made for hire\" and shall be the exclusive property of the Client upon full payment.\nEach Party retains ownership of its respective trademarks and intellectual property used in the normal course of business. Neither Party may use the other's trademarks or intellectual property outside of the performance of this Agreement without written consent." },
       { title: "Style release", text: "Client acknowledges Provider's unique creative style and portfolio. While Client input is welcome, artistic discretion remains with Provider. Dissatisfaction based solely on stylistic differences does not constitute breach or grounds for refund." },
       { title: "Client obligations", text: "Client is responsible for the accuracy, legality, and regulatory compliance of all materials and approvals related to the Services.\nClient agrees to provide timely access to information, approvals, and personnel needed for Provider to perform Services.\nReview & Approval Timeline: Client must review and respond to deliverables, drafts, or approvals within seven (7) business days unless otherwise agreed in writing. If no response is received within that period, the deliverable shall be deemed approved and accepted.\nNo-Show / Client-Caused Delays: If Client fails to provide required elements, access, or approvals, and such failure prevents Provider from delivering Services, Provider shall still be entitled to full payment for that period, and rescheduling will be at Provider's sole discretion.\nRescheduling: Client may request rescheduling of Services with at least 48 hours' written notice." },
-      { title: "Termination and cancellation", text: "Client may terminate this Agreement with 14 days' written notice.\nUpon termination, Client is responsible for payment of all work completed to date, including any work in progress.\nIf termination occurs after the project fee has been invoiced but before delivery, Provider will deliver all completed work and no refund is owed for work already performed.\nIf Provider must cancel, reasonable efforts will be made to deliver all completed work or issue a prorated refund for undelivered portions." },
+      { title: "Termination and cancellation", text: "Client may terminate this Agreement with 14 days' written notice.\nUpon termination, Client is responsible for payment of all work completed to date, including any work in progress, and for the retainer through the end of the current billing month.\nIf termination occurs after a period or one-time service has been invoiced but before delivery, Provider will deliver all completed work and no refund is owed for work already performed.\nIf Provider must cancel, reasonable efforts will be made to deliver all completed work or issue a prorated refund for undelivered portions." },
       { title: "Relationship of the parties and subcontractors", text: "Provider is an independent contractor. Nothing in this Agreement creates a joint venture, partnership, or employer-employee relationship with Client. Provider may engage subcontractors or assistants to perform Services.\nNon-Solicitation of Subcontractors: Client agrees not to solicit, hire, contract, or otherwise engage directly with Provider's subcontractors, vendors, or partners during the term of this Agreement and for twelve (12) months thereafter, without Provider's prior written consent." },
       { title: "Limitation of liability", text: "Provider's total liability under this Agreement shall not exceed the total fees paid by the Client. Neither Party shall be liable for indirect, incidental, or consequential damages." },
       { title: "Indemnification", text: "Each Party agrees to indemnify and hold the other harmless against claims, liabilities, damages, or costs arising from its own acts, omissions, or negligence." },
@@ -864,10 +875,7 @@ const PRICING = {
   const P = PROPOSAL, R = PRICING;
   const $ = id => document.getElementById(id);
   const esc = s => String(s==null?'':s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const money = n => { const v=Math.round(n*100)/100; return '$' + v.toLocaleString('en-US',{minimumFractionDigits:(v%1?2:0), maximumFractionDigits:2}); };
-  const PJ = P.project||null;
-  const pkgName = () => PJ ? (PJ.name||'Project') : R.tiers[S.tier].name;
-  const scopeKeys = () => PJ ? (PJ.scope||[]).map((x,i)=>({key:'scope'+(i+1), name:x.title})) : [];
+  const money = n => '$' + Math.round(n).toLocaleString('en-US');
   const KEY = 'merj-proposal:' + (P.client.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
 
   // ---- client state, saved in their own browser only
@@ -943,21 +951,21 @@ const PRICING = {
   function firstUpHtml(){
     const F=P.recommendation.firstUp; if(!F) return '';
     const items=(P.investment.oneTime||[]).filter(x=>x.price!=null);
-    return `<div class="rationale"><span class="k gradtext">${esc(F.label||'First, one time')}</span><p><b>${esc(F.title||'Before your monthly services')}.</b> ${esc(F.lede||'')}</p></div>
+    return `<div class="blk"><div class="blkhd"><span class="k gradtext">${esc(F.label||'First, one time')}</span>
+        <h3>${esc(F.title||'Before your monthly services')}</h3>${F.meta?`<div class="meta">${esc(F.meta)}</div>`:''}
+        ${F.lede?`<p>${esc(F.lede)}</p>`:''}</div>
       ${items.map((x,i)=>`<div class="line"><div><div class="lnum">${String(i+1).padStart(2,'0')}</div><h4>${esc(x.shortName||x.name)}</h4><div class="plain">${esc(x.plain||'')}</div></div>
-        <ul>${(x.bullets||[x.desc]).map(b=>`<li>${esc(b)}</li>`).join('')}</ul><div class="st">One time</div></div>`).join('')}`;
+        <ul>${(x.bullets||[x.desc]).map(b=>`<li>${esc(b)}</li>`).join('')}</ul><div class="st">One time</div></div>`).join('')}</div>`;
   }
-  function scopeHtml(x,i){ const key='scope'+(i+1); const has=!!(S.notes[key]||'').trim();
-    return `<div class="line"><div><div class="lnum">${String(i+1).padStart(2,'0')}</div><h4>${esc(x.title)}</h4><div class="plain">${esc(x.plain||'')}</div></div>
-      <ul>${(x.bullets||[]).map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
-      <div class="ok"><button class="note${has?' has':''}" data-note="${key}">${has?'Edit note':'Leave a note'}</button></div>
-      <textarea class="fb${has?' open':''}" data-fb="${key}" placeholder="What would you change about ${esc(x.title.toLowerCase())}?">${esc(S.notes[key]||'')}</textarea></div>`; }
+  const F=(P.recommendation||{}).firstUp;
   function renderPackages(){
-    if (PJ){ $('packages').innerHTML=`<div class="pk open"><div class="inner"><div class="rationale"><span class="k gradtext">Why this price</span><p>${esc(P.recommendation.rationale)}</p></div>${(PJ.scope||[]).map(scopeHtml).join('')}</div></div>`; S.tier=recKey; bindFeedback(); return; }
     $('packages').innerHTML = order.map(k=>{ const t=R.tiers[k]; const isRec=k===recKey; const open=S.tier===k;
       const inner = isRec
-        ? `${firstUpHtml()}<div class="rationale"><span class="k gradtext">${esc((P.recommendation.firstUp&&P.recommendation.firstUp.thenLabel)||'Why this one')}</span><p>${esc(P.recommendation.rationale)}</p></div>
-           ${shownLines(k).map((l,i)=>lineHtml(k,l,true,i)).join('')}
+        ? `${firstUpHtml()}${F?`<div class="blk mon"><div class="blkhd"><span class="k gradtext">${esc(F.thenLabel2||'Then, every month')}</span>
+             <h3>${esc(F.thenLabel||'Your monthly service package')}</h3>${F.thenMeta?`<div class="meta">${esc(F.thenMeta)}</div>`:''}
+             <p>${esc(P.recommendation.rationale)}</p></div>`
+            :`<div class="rationale"><span class="k gradtext">Why this one</span><p>${esc(P.recommendation.rationale)}</p></div>`}
+           ${shownLines(k).map((l,i)=>lineHtml(k,l,true,i)).join('')}${F?'</div>':''}
            ${isAlc(k)?(()=>{ const later=R.lines.filter(l=>!l.alacarteOnly && !lineItems(k,l)).map(l=>l.name); return later.length?`<div class="rationale"><span class="k gradtext">Not included for now</span><p>${esc(later.join(', '))}. Any of these can be added later by change order.</p></div>`:''; })():''}`
         : `<div class="switch">Shown for comparison. Our recommendation for ${esc(P.client.shortName||P.client.name)} is ${esc(R.tiers[recKey].name)}. <a class="btn ghost dark" href="#investment">See the investment on ${esc(t.name)}</a></div>
            ${shownLines(k).map((l,i)=>lineHtml(k,l,false,i)).join('')}`;
@@ -978,13 +986,12 @@ const PRICING = {
   }
 
   // ---- 05 investment (follows the open package)
-  if (PJ && PJ.investmentLede) document.querySelector('#investment .lede').textContent=PJ.investmentLede;
   function renderInvestment(){
     const k=S.tier, t=R.tiers[k], inv=P.investment; let rows=[];
     rows.push(`<tr class="group"><td colspan="2">${inv.retainerStart?`Monthly, from ${esc(inv.retainerStart)}`:'Monthly'}</td></tr>`);
     if (!(isAlc(k) && !tierPrice(k))) rows.push(`<tr><td>${esc(t.name)} package<small>${includedLines().length} services as scoped in <a href="#package">section 03</a>. Billed on the 1st of each month.</small></td><td class="r">${money(tierPrice(k))} /mo</td></tr>`);
     (inv.monthlyExtras||[]).forEach(x=>rows.push(`<tr><td>${esc(x.name)}<small>${esc(x.desc||'')}</small></td><td class="r">${money(x.price)} /mo</td></tr>`));
-    const monthlyRows=(PJ&&rows.length<=1)?[]:rows; rows=[];
+    const monthlyRows=rows; rows=[];
     rows.push(`<tr class="group"><td colspan="2">${inv.retainerStart?'One-time, first':'One-time'}</td></tr>`);
     if (inv.includeOnboarding!==false) rows.push(`<tr><td>Strategy &amp; onboarding<small>The 45-day foundation. Due at signing.</small></td><td class="r">${money(onboardingFee(k))}</td></tr>`);
     (inv.oneTime||[]).forEach(x=>rows.push(`<tr><td>${esc(x.name)}${x.taxable?' <sup class="tx">tax</sup>':''}<small>${esc(x.desc||'')}</small></td><td class="r">${x.price!=null?money(x.price)+(x.qty>1?' × '+x.qty:''):esc(x.note||'Scoped separately')}</td></tr>`));
@@ -1022,15 +1029,32 @@ const PRICING = {
   function renderSummary(){
     const t=totals(); const T=P.investment.tax||{}; const taxLabel=T.label||`Sales tax (${T.rate||0}%)`;
     const later=P.investment.retainerStart;
-    if (PJ){ const r=[['Project',pkgName()],['Project fee',money(t.onceNet)]]; if(t.onceTax>0) r.push([taxLabel,money(t.onceTax)]); if(t.monthlyNet>0){ r.push(['Monthly add-ons, from launch',money(t.monthlyNet)+' /mo']); if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']); } r.push(['Due at kickoff',money(t.once)]);
-      $('sum-rows').innerHTML=r.map((x,i)=>`<div class="row${i===r.length-1?' total':''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join(''); $('sum-note').textContent=P.investment.summaryNote||''; renderAccept(); return; }
-    const r=[['Package',R.tiers[S.tier].name],[later?`Monthly retainer, from ${later}`:'Monthly retainer',money(t.monthlyNet)+' /mo']];
-    if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']);
-    r.push(['Due at signing (one-time)',money(t.onceNet)]);
-    if(t.onceTax>0) r.push([taxLabel+', one-time',money(t.onceTax)]);
-    if(T.rate && !(t.monthlyTax>0||t.onceTax>0)) r.push([taxLabel,'$0']);
-    r.push(later?['First invoice, at signing',money(t.once)]:['First invoice',money(t.once+t.monthly)]);
-    $('sum-rows').innerHTML=r.map((x,i)=>`<div class="row${i===r.length-1?' total':''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join('');
+    const r=[];
+    if(later){
+      // Two separate invoices: the one-time work now, the monthly services later.
+      r.push({g:(P.investment.onceLabel||'One-time')+', invoiced at signing'});
+      r.push([P.investment.onceRowLabel||'One-time services',money(t.onceNet)]);
+      if(t.onceTax>0) r.push([taxLabel,money(t.onceTax)]);
+      r.push(['First invoice, at signing',money(t.once),'total']);
+      r.push({g:`Monthly, invoiced from ${later}`});
+      if(t.monthlyTax>0){
+        r.push([P.investment.monthlyRowLabel||'Your monthly services',money(t.monthlyNet)+' /mo']);
+        r.push([taxLabel,money(t.monthlyTax)+' /mo']);
+        r.push(['Monthly invoice',money(t.monthly)+' /mo','sub']);
+      } else {
+        r.push([P.investment.monthlyRowLabel||'Your monthly services',money(t.monthly)+' /mo','sub']);
+      }
+    } else {
+      r.push(['Package',R.tiers[S.tier].name]);
+      r.push(['Monthly retainer',money(t.monthlyNet)+' /mo']);
+      if(t.monthlyTax>0) r.push([taxLabel+', monthly',money(t.monthlyTax)+' /mo']);
+      r.push(['Due at signing (one-time)',money(t.onceNet)]);
+      if(t.onceTax>0) r.push([taxLabel+', one-time',money(t.onceTax)]);
+      if(T.rate && !(t.monthlyTax>0||t.onceTax>0)) r.push([taxLabel,'$0']);
+      r.push(['First invoice',money(t.once+t.monthly),'total']);
+    }
+    $('sum-rows').innerHTML=r.map(x=>x.g?`<div class="grp">${esc(x.g)}</div>`
+      :`<div class="row${x[2]?' '+x[2]:''}"><span>${esc(x[0])}</span><span>${esc(x[1])}</span></div>`).join('');
     $('sum-note').textContent = P.investment.summaryNote || 'First invoice covers the one-time items plus month one, with Texas sales tax applied to taxable items only. Ad spend is paid by you directly to the platforms, never through the retainer.';
     renderAccept();
   }
@@ -1055,7 +1079,7 @@ const PRICING = {
   const STEPS=[
     {id:'heard',     href:'#situation',  label:'The situation',        done:()=>!!S.steps.heard},
     {id:'why',       href:'#why',        label:'Why Merj',             done:()=>!!S.seen.why},
-    {id:'package',   href:'#package',    label:PJ?'The scope':'Your package',         done:()=>!!S.seen.package},
+    {id:'package',   href:'#package',    label:'Your package',         done:()=>!!S.seen.package},
     {id:'invest',    href:'#investment', label:'Investment',           done:()=>!!S.steps.invest},
     {id:'timeline',  href:'#timeline',   label:'What happens next',    done:()=>!!S.seen.timeline},
     {id:'sign',      href:'#accept',     label:'Accept & sign',        done:()=>!!S.steps.sign}
@@ -1071,7 +1095,7 @@ const PRICING = {
     const doneN=STEPS.filter(s=>s.done()).length; $('tk-fill').style.width=(doneN>=STEPS.length?100:Math.max(0,doneN/(STEPS.length-1)*100))+'%';
     renderAccept();
   }
-  function noteList(){ const out=[]; if((S.notes.heard||'').trim()) out.push({k:'What we heard',v:S.notes.heard.trim()}); [...scopeKeys(),...R.lines].forEach(l=>{ if((S.notes[l.key]||'').trim()) out.push({k:l.name,v:S.notes[l.key].trim()}); }); if(S.q.invest||(S.notes.invest||'').trim()) out.push({k:'Investment questions',v:(S.notes.invest||'').trim()||'Has questions (no note written)'}); return out; }
+  function noteList(){ const out=[]; if((S.notes.heard||'').trim()) out.push({k:'What we heard',v:S.notes.heard.trim()}); R.lines.forEach(l=>{ if((S.notes[l.key]||'').trim()) out.push({k:l.name,v:S.notes[l.key].trim()}); }); if(S.q.invest||(S.notes.invest||'').trim()) out.push({k:'Investment questions',v:(S.notes.invest||'').trim()||'Has questions (no note written)'}); return out; }
   // ---- form delivery (shared by feedback and signature). provider: "web3forms" | "formspree" | "netlify" | "email"
   const FD = P.forms||{};
   async function sendForm(form, formName, subject){
@@ -1096,12 +1120,12 @@ const PRICING = {
   const today=()=>new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   $('sg-date').textContent='Date: '+today();
   function fill(t){ const {monthly,once}=totals(); const addons=addonNames();
-    const map={client:P.client.name, package:pkgName(), retainer:money(monthly)+' per month', oneTime:money(once), term:(P.investment.terms||[]).find(x=>/term/i.test(x.label))?.text||'', addons:addons.length?addons.join(', '):'none', date:AG.effectiveDate||today(), netTerms:AG.netTerms||'NET 15', merjSigner:AG.merjSigner||'Merj Marketing'};
+    const map={client:P.client.name, package:R.tiers[S.tier].name, retainer:money(monthly)+' per month', oneTime:money(once), term:(P.investment.terms||[]).find(x=>/term/i.test(x.label))?.text||'', addons:addons.length?addons.join(', '):'none', date:AG.effectiveDate||today(), netTerms:AG.netTerms||'NET 15', merjSigner:AG.merjSigner||'Merj Marketing'};
     return String(t).replace(/\{\{(\w+)\}\}/g,(m,k)=>map[k]!=null?map[k]:m); }
   function renderAgreement(){
     const {monthly,once}=totals(); const addons=addonNames();
     $('ag-meta').innerHTML=`Effective <b>${esc(AG.effectiveDate||'the date signed below')}</b><br>Proposal dated <b>${esc(P.meta.date)}</b> · Agreement v${esc(AG.version||'1.0')}`;
-    $('ag-scope').innerHTML=(PJ?[['Project',pkgName()],['Monthly add-ons',monthly>0?money(monthly)+' /mo':'None'],['Due at kickoff',money(once)],]:[['Package',R.tiers[S.tier].name],['Monthly retainer',money(monthly)],['Due at signing',money(once)],]).concat([['Add-ons',addons.length?addons.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
+    $('ag-scope').innerHTML=[['Package',R.tiers[S.tier].name],['Monthly retainer',money(monthly)],['Due at signing',money(once)],['Add-ons',addons.length?addons.join(', '):'None']].map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
     $('ag-body').innerHTML=(AG.clauses||[]).map((c,i)=>`<h4><span class="n">${i+1}.</span>${esc(c.title)}</h4>${String(fill(c.text)).split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join('')}`).join('');
   }
   // read gate: enable signing once the client reaches the end of the agreement
@@ -1129,7 +1153,7 @@ const PRICING = {
   $('sign-form').addEventListener('submit',async e=>{
     e.preventDefault(); $('sg-err').textContent=''; if(!notesSent()){ $('sg-err').textContent='Send your notes to Merj first, or clear them, then sign.'; $('sg-gate').hidden=false; return; } if(!validate()){ $('sg-err').textContent='Complete every field, read the agreement and add your signature.'; return; }
     const {monthly,once}=totals(); const inc=includedLines(); const addons=addonNames(); const notes=noteList();
-    const rec={client:P.client.name, pdate:P.meta.date, package:pkgName(), monthly:money(monthly)+'/mo', once:money(once), addons:addons.join(', ')||'none', approved:'n/a', notes:notes.map(n=>n.k+': '+n.v).join(' | ')||'none', when:new Date().toISOString(), sigtype:sigMode, sigimg:sigImage(), ua:navigator.userAgent, ver:AG.version||'1.0'};
+    const rec={client:P.client.name, pdate:P.meta.date, package:R.tiers[S.tier].name, monthly:money(monthly)+'/mo', once:money(once), addons:addons.join(', ')||'none', approved:'n/a', notes:notes.map(n=>n.k+': '+n.v).join(' | ')||'none', when:new Date().toISOString(), sigtype:sigMode, sigimg:sigImage(), ua:navigator.userAgent, ver:AG.version||'1.0'};
     $('f-client').value=rec.client; $('f-pdate').value=rec.pdate; $('f-package').value=rec.package; $('f-monthly').value=rec.monthly; $('f-once').value=rec.once; $('f-addons').value=rec.addons; $('f-approved').value=rec.approved; $('f-notes').value=rec.notes; $('f-when').value=rec.when; $('f-sigtype').value=rec.sigtype; $('f-sigimg').value=rec.sigimg; $('f-ua').value=rec.ua; $('f-ver').value=rec.ver;
     $('sign-btn').disabled=true; $('sign-btn').textContent='Signing…';
     const signer={name:$('f-name').value.trim(), title:$('f-title').value.trim(), email:$('f-email').value.trim(), company:$('f-company').value.trim()};
@@ -1158,17 +1182,17 @@ const PRICING = {
   const noteKey=()=>JSON.stringify(noteList())+'|'+JSON.stringify(S.q)+'|'+($('fb-msg')?$('fb-msg').value.trim():'');
   const hasNotes=()=>noteList().length>0 || !!($('fb-msg')&&$('fb-msg').value.trim());
   const notesSent=()=>!hasNotes() || S.fbSentKey===noteKey();
-  const NOTE_SOURCES=()=>[{key:'heard',label:'What we heard'},...[...scopeKeys(),...R.lines].map(l=>({key:l.key,label:l.name})),{key:'invest',label:'Investment'}];
+  const NOTE_SOURCES=()=>[{key:'heard',label:'What we heard'},...R.lines.map(l=>({key:l.key,label:l.name})),{key:'invest',label:'Investment'}];
   function renderAccept(){
     const {monthly,once}=totals(); const notes=noteList(); const inc=includedLines(); const okN=inc.filter(l=>S.ok[l.key]).length; const addonNamesL=addonNames();
-    $('fb-sum').innerHTML=(PJ?[['Project',pkgName()],['Monthly add-ons',monthly>0?money(monthly)+' /mo':'None'],['Due at kickoff',money(once)]]:[['Package',R.tiers[S.tier].name],['Monthly',money(monthly)+' /mo'],['Due at signing',money(once)]]).concat([['Add-ons',addonNamesL.length?addonNamesL.join(', '):'None']]).map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
+    $('fb-sum').innerHTML=[['Package',R.tiers[S.tier].name],['Monthly',money(monthly)+' /mo'],['Due at signing',money(once)],['Add-ons',addonNamesL.length?addonNamesL.join(', '):'None']].map(x=>`<div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('');
     const active=NOTE_SOURCES().filter(src=>(S.notes[src.key]||'').trim() || (src.key==='invest'&&S.q.invest));
     const anchor={heard:'#heard',invest:'#investment'};
     $('fb-list').innerHTML = active.length ? active.map(src=>`<div class="nrow"><b>${esc(src.label)}</b><span class="nt">${esc((S.notes[src.key]||'').trim()||(src.key==='invest'?'Has questions':''))}</span><a class="rm" href="${anchor[src.key]||'#package'}">Edit</a></div>`).join('')
       : `<div class="none">No notes yet. Anything you write on a service, the read-back or the investment shows here. If everything reads right, sign below.</div>`;
     $('fb-name').value=P.client.contactName||''; $('fb-email').value=P.client.contactEmail||'';
     refreshFbState();
-    $('fb-client').value=P.client.name; $('fb-package').value=pkgName(); $('fb-monthly').value=money(monthly); $('fb-once').value=money(once); $('fb-addons').value=addonNamesL.join(', ')||'none'; $('fb-approved').value='n/a'; renderAgreement(); checkRead();
+    $('fb-client').value=P.client.name; $('fb-package').value=R.tiers[S.tier].name; $('fb-monthly').value=money(monthly); $('fb-once').value=money(once); $('fb-addons').value=addonNamesL.join(', ')||'none'; $('fb-approved').value='n/a'; renderAgreement(); checkRead();
   }
   function refreshFbState(){ const st=$('fb-state'); if(!hasNotes()){ st.textContent=''; st.className='fb-state'; } else if(notesSent()){ st.textContent='Sent to Merj'; st.className='fb-state sent'; } else { st.textContent='Not sent yet'; st.className='fb-state pending'; }
     $('fb-title').textContent = hasNotes() ? (notesSent()?'Your notes are with us':'Send these before you sign') : 'Anything you want changed?'; $('fb-notes').value=noteList().map(n=>n.k+': '+n.v).join('\n')||'none'; $('sg-gate').hidden=notesSent(); validate(); }
