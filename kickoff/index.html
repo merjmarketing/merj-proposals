@@ -4,8 +4,11 @@
   Client-facing. Source lives in merj-sops at onboarding/kickoff-questionnaire/index.html; copy it to
   merj-proposals as kickoff/index.html so it serves at proposals.merj.marketing/kickoff.
   Cloned from the Discovery Call Prep Questionnaire: same styles, same Web3Forms key, form name merj-kickoff.
-  Karina fills PREFILL below per client before sending it with the welcome email (E12).
-  Sections tagged data-scope hide (and their fields stop submitting) when that service line is not in PREFILL.lines.
+  Per-client values come from the link Karina sends with the welcome email (E12), as URL parameters:
+    /kickoff/?company=Acme+Landscaping&contact=Jane+Doe&package=Growth&lines=social,content,email&competitors=A,B,C&summary=Two+sentences
+    lines takes any of social, content, blog, email, paid, orm, web, reporting; leave it off to show every section.
+  PREFILL below holds only fallbacks for missing parameters; nobody edits this file per client.
+  Sections tagged data-scope hide (and their fields stop submitting) when that service line is not in the link's lines.
   Attachments: Web3Forms attaches files only on its paid plan, about 5 MB per file. Media should come as a folder link.
 -->
 <html lang="en">
@@ -81,14 +84,17 @@
 </head>
 <body>
 <script>
-// Karina fills this per client before sending the link with the welcome email (E12).
+// Per-client values come from the LINK (URL parameters), so nobody edits this file per client:
+//   /kickoff/?company=Acme+Landscaping&contact=Jane+Doe&package=Growth&lines=social,content,email&competitors=A,B,C&summary=Two+sentences
+//   lines: any of social, content, blog, email, paid, orm, web, reporting (comma list). Leave it off to show every section.
+// The values below are only fallbacks when a parameter is missing.
 const PREFILL = {
-  company:     "[Company]",
-  contact:     "[First Last]",
-  package:     "Growth",                                   // Foundation | Growth | Scale
-  lines:       ["social","content","blog","email","paid","orm","web","reporting"],   // in-scope service lines, remove what was not sold
-  competitors: ["Competitor A","Competitor B","Competitor C"],   // the three named in discovery
-  summary:     "Two or three sentences from the discovery call doc: what they are trying to fix, who their best customer is, what a win looks like.",
+  company:     "",
+  contact:     "",
+  package:     "",                                          // Foundation | Growth | Scale
+  lines:       [],                                          // empty = every section shows
+  competitors: [],
+  summary:     "",
   forms:       { provider: "web3forms", accessKey: "670cadd8-4027-4efc-8a69-87b1142793f7" },   // same key as the discovery form
   fallbackEmail: "[hello@merj.marketing]"                  // mailto fallback if the API call fails
 };
@@ -242,16 +248,24 @@ const PREFILL = {
 
 <script>
 (function(){
-  const $=id=>document.getElementById(id); const form=$('q'); const P=(typeof PREFILL!=='undefined'&&PREFILL)||{};
+  const $=id=>document.getElementById(id); const form=$('q'); const P0=(typeof PREFILL!=='undefined'&&PREFILL)||{};
+  // Per-client values come from URL parameters; the in-file PREFILL is only a fallback
+  const u=new URLSearchParams(location.search); const pick=k=>(u.get(k)||'').trim();
+  const listParam=k=>pick(k).split(',').map(s=>s.trim()).filter(Boolean);
+  const P={...P0, company:pick('company')||P0.company||'', contact:pick('contact')||P0.contact||'', package:pick('package')||P0.package||'', summary:pick('summary')||P0.summary||'',
+    lines:listParam('lines').length?listParam('lines'):(P0.lines||[]), competitors:listParam('competitors').length?listParam('competitors'):(P0.competitors||[]) };
   const esc=s=>String(s==null?'':s).replace(/[<>&]/g,'');
-  const lines=(P.lines||[]).map(s=>String(s).trim().toLowerCase()).filter(Boolean);
+  const ALL=['social','content','blog','email','paid','orm','web','reporting'];
+  const linesGiven=(P.lines||[]).map(s=>String(s).trim().toLowerCase()).filter(Boolean);
+  const lines=linesGiven.length?linesGiven:ALL;   // no lines given = every section shows
   const LABEL={social:'Social media',content:'Content and video',blog:'Blog and SEO content',email:'Email and SMS',paid:'Paid ads',orm:'Reviews and reputation',web:'Website and search',reporting:'Reporting'};
 
   // 1) What you told us: prefilled, read-only
-  const kv=[['Company',P.company],['Contact',P.contact],['Package',P.package],['In scope',lines.map(l=>LABEL[l]||l).join(', ')]].filter(x=>x[1]);
+  const kv=[['Company',P.company],['Contact',P.contact],['Package',P.package],['In scope',linesGiven.map(l=>LABEL[l]||l).join(', ')]].filter(x=>x[1]);
   $('known-list').innerHTML=kv.map(x=>`<span>${x[0]}: <b>${esc(x[1])}</b></span>`).join('');
   $('known-summary').textContent=P.summary||'';
-  $('h-company').value=P.company||''; $('h-contact').value=P.contact||''; $('h-package').value=P.package||''; $('h-lines').value=lines.join(', ');
+  if(!kv.length&&!P.summary) $('known').hidden=true;
+  $('h-company').value=P.company||''; $('h-contact').value=P.contact||''; $('h-package').value=P.package||''; $('h-lines').value=linesGiven.join(', ');
   const comps=(P.competitors||[]).map(esc).filter(Boolean); $('q13-named').textContent=comps.length?comps.join(', '):'your competitors';
 
   // 2) Scope: any element with data-scope="a,b" shows only if one of those lines is in scope; hidden fields stop submitting
