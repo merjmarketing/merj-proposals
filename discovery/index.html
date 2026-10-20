@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  MERJ MARKETING — DISCOVERY CALL PREP QUESTIONNAIRE (v1.0 · September 2026)
+  MERJ MARKETING · DISCOVERY CALL PREP QUESTIONNAIRE (v1.4 · October 2026)
   Client-facing. Hosted on the proposals Netlify site (e.g. proposals.merj.marketing/discovery).
   Captures the four qualifying answers plus everything the proposal needs, scores the lead on submit,
   stores the submission in Netlify Forms (form: merj-discovery-questionnaire) and routes the client to
@@ -85,8 +85,19 @@ const CONFIG = {
   nurtureEmail:      "[hello@merj.marketing]",
   // Where submissions go. provider: "web3forms" (accessKey) | "formspree" (endpoint) | "netlify" (only when hosted on Netlify)
   forms: { provider: "web3forms", accessKey: "670cadd8-4027-4efc-8a69-87b1142793f7", endpoint: "" },
-  floor: 2800,   // Foundation list price. Budgets below this route to strategy-only.
-  tiers: [{name:"Foundation",min:2800},{name:"Growth",min:5500},{name:"Scale",min:9500}]
+  floor: 2950,   // Lowest Tier 1 price (Tech, Accounting & Financial). Budgets below this route to strategy-only.
+  tiers: [{name:"Tier 1",min:2950},{name:"Tier 2",min:6000},{name:"Tier 3",min:10000}]
+};
+// Industry groups and tier names from the Merj Pricing Logic doc (v1.0, October 2026). Each group names its three tiers.
+// The "Your industry" select in the form lists the same industries under the same groups. Keep the two in step.
+const GROUPS = {
+  "Appointment Businesses":   {tiers:["Get found","Get booked","Own the market"],            industries:["Health & Wellness","Med Spa & Plastic Surgeons","Vet & Dental"]},
+  "Venue & Event Businesses": {tiers:["Stay visible","Fill the calendar","Sell out"],         industries:["Arts & Culture","Entertainment & Experiences","Hospitality"]},
+  "Mission Organizations":    {tiers:["Stay in touch","Tell the story","Grow the base"],      industries:["Non-Profits","Biomed & Research"]},
+  "Professional Services":    {tiers:["Be the answer","Generate demand","Lead the category"], industries:["Law & Legal","Architecture & Design","Tech","Accounting & Financial"]},
+  "Enrollment Programs":      {tiers:["Stay top of mind","Fill the roster","Waitlist"],       industries:["Youth Sports","Schools & Training"]},
+  "Product Brands":           {tiers:["Launch","Scale","Dominate"],                           industries:["CPG, Retail & Ecommerce"]},
+  "Home & Trade Services":    {tiers:["Get the call","Win the estimate","Own the region"],    industries:["Home Services & Trades"]}
 };
 </script>
 
@@ -105,6 +116,7 @@ const CONFIG = {
       <input type="hidden" name="form-name" value="merj-discovery-questionnaire">
       <p class="hp"><label>Leave empty: <input name="company-website"></label></p>
       <input type="hidden" name="qualification" id="h-qual">
+      <input type="hidden" name="group" id="h-group">
       <input type="hidden" name="suggested_tier" id="h-tier">
       <input type="hidden" name="priority" id="h-pri">
       <input type="hidden" name="submitted_at_utc" id="h-when">
@@ -126,7 +138,41 @@ const CONFIG = {
           <label class="f">Website<input type="url" name="website" placeholder="https://"></label>
         </div>
         <div class="grid" style="margin-top:14px">
-          <label class="f">Industry <span class="req">*</span><input type="text" name="industry" required placeholder="Home services, healthcare, restaurant, nonprofit"></label>
+          <label class="f">Your industry <span class="req">*</span>
+            <select name="industry" required>
+              <option value="">Select</option>
+              <optgroup label="Appointment Businesses">
+                <option>Health & Wellness</option>
+                <option>Med Spa & Plastic Surgeons</option>
+                <option>Vet & Dental</option>
+              </optgroup>
+              <optgroup label="Venue & Event Businesses">
+                <option>Arts & Culture</option>
+                <option>Entertainment & Experiences</option>
+                <option>Hospitality</option>
+              </optgroup>
+              <optgroup label="Mission Organizations">
+                <option>Non-Profits</option>
+                <option>Biomed & Research</option>
+              </optgroup>
+              <optgroup label="Professional Services">
+                <option>Law & Legal</option>
+                <option>Architecture & Design</option>
+                <option>Tech</option>
+                <option>Accounting & Financial</option>
+              </optgroup>
+              <optgroup label="Enrollment Programs">
+                <option>Youth Sports</option>
+                <option>Schools & Training</option>
+              </optgroup>
+              <optgroup label="Product Brands">
+                <option>CPG, Retail & Ecommerce</option>
+              </optgroup>
+              <optgroup label="Home & Trade Services">
+                <option>Home Services & Trades</option>
+              </optgroup>
+              <option>Something else</option>
+            </select></label>
           <label class="f">City and service area<input type="text" name="location" placeholder="San Antonio and surrounding"></label>
           <label class="f">Company size
             <select name="company_size"><option value="">Select</option><option>1 to 10</option><option>11 to 50</option><option>51 to 200</option><option>200+</option></select></label>
@@ -141,10 +187,10 @@ const CONFIG = {
         <div class="grid">
           <div class="wide" id="fit-budget"><label class="f">Monthly marketing budget you have in mind <span class="req">*</span></label>
             <div class="opts four" style="margin-top:6px">
-              <label><input type="radio" name="budget" value="Under $2,800" required> Under $2,800</label>
-              <label><input type="radio" name="budget" value="$2,800 to $5,499"> $2,800 to $5,499</label>
-              <label><input type="radio" name="budget" value="$5,500 to $9,499"> $5,500 to $9,499</label>
-              <label><input type="radio" name="budget" value="$9,500+"> $9,500+</label>
+              <label><input type="radio" name="budget" value="Under $2,950" required> Under $2,950</label>
+              <label><input type="radio" name="budget" value="$2,950 to $5,999"> $2,950 to $5,999</label>
+              <label><input type="radio" name="budget" value="$6,000 to $9,999"> $6,000 to $9,999</label>
+              <label><input type="radio" name="budget" value="$10,000+"> $10,000+</label>
             </div><small style="color:var(--mid);font-size:12px">Retainer only. Ad spend paid to Google or Meta is separate.</small></div>
           <div id="fit-timeline"><label class="f">When do you want this running? <span class="req">*</span></label>
             <div class="opts" style="grid-template-columns:1fr;margin-top:6px">
@@ -255,7 +301,7 @@ const CONFIG = {
     for(const [k,v] of Object.entries(map)){ const el=form.elements[k]; if(el&&v&&!el.value) el.value=v; }
     const src=pick('source','utm_source'); $('h-src').value=src||document.referrer||'direct';
     // budget: accept our band labels or the landing-page labels
-    const bRaw=pick('budget'); const bMap={'under $2,800':'Under $2,800','$2,800 to $5,499':'$2,800 to $5,499','$5,500 to $9,499':'$5,500 to $9,499','$9,500+':'$9,500+','$2k to $5k per month':'$2,800 to $5,499','$5k to $15k per month':'$5,500 to $9,499','over $15k per month':'$9,500+'};
+    const bRaw=pick('budget'); const bMap={'under $2,950':'Under $2,950','$2,950 to $5,999':'$2,950 to $5,999','$6,000 to $9,999':'$6,000 to $9,999','$10,000+':'$10,000+','$2k to $5k per month':'$2,950 to $5,999','$5k to $15k per month':'$6,000 to $9,999','over $15k per month':'$10,000+'};
     const bVal=bMap[bRaw.trim().toLowerCase()]; if(bVal){ const r=form.querySelector(`input[name=budget][value="${bVal}"]`); if(r) r.checked=true; }
     const tRaw=pick('timeline','start').trim().toLowerCase(); const tMap={'asap':'ASAP','as soon as possible':'ASAP','within 30 days':'ASAP','1 to 3 months':'1 to 3 months','exploring':'Exploring','just exploring':'Exploring'};
     const tVal=tMap[tRaw]; if(tVal){ const r=form.querySelector(`input[name=timeline][value="${tVal}"]`); if(r) r.checked=true; }
@@ -270,21 +316,23 @@ const CONFIG = {
     if(have.length){ $('known').hidden=false; $('known-list').innerHTML=have.map(x=>`<span>${x[0]}: <b>${x[1].replace(/[<>&]/g,'')}</b></span>`).join(''); hide.forEach(id=>$(id).classList.add('prefilled-hide')); $('known-edit').onclick=()=>{ hide.forEach(id=>$(id).classList.remove('prefilled-hide')); $('known').hidden=true; }; }
     if(src==='free-audit'){ const k=document.querySelector('.cover .k'); if(k) k.textContent='Before your free audit'; const h=document.querySelector('.cover h1'); if(h) h.textContent='You are booked. A few more answers and the audit is about you.'; const t=document.querySelector('.cover .time'); if(t) t.textContent=have.length?'We kept what you already told us. About five minutes for the rest.':'About eight minutes. We read every answer before the call.'; const p=document.querySelector('.cover p'); if(p) p.textContent='Your answers become the agenda for the audit and the starting point for your three fixes.'; document.querySelector('.bar .in span:last-child').textContent='Audit prep · about 5 minutes'; }
   }catch(e){}
-  function budgetMin(v){ return v==='Under $2,800'?0 : v==='$2,800 to $5,499'?2800 : v==='$5,500 to $9,499'?5500 : 9500; }
+  function budgetMin(v){ return v==='Under $2,950'?0 : v==='$2,950 to $5,999'?2950 : v==='$6,000 to $9,999'?6000 : 10000; }
+  function groupOf(industry){ return Object.keys(GROUPS).find(g=>GROUPS[g].industries.includes(industry)) || ''; }
   function score(fd){
-    const b=budgetMin(fd.get('budget')), t=fd.get('timeline'), d=fd.get('decision'), services=fd.getAll('services');
-    let tier=CONFIG.tiers.filter(x=>b>=x.min).pop()?.name || 'Strategy-only';
-    if (services.length>=5 && tier==='Growth') tier='Scale';
-    if ((services.includes('Paid ads')||services.includes('Website & search')) && tier==='Foundation') tier='Growth (smallest package with paid ads or website)';
+    const b=budgetMin(fd.get('budget')), t=fd.get('timeline'), d=fd.get('decision'), group=groupOf(fd.get('industry'));
+    // The budget band alone sets the tier. The industry sets the group, and the group names the tier, e.g. "Tier 1 (Get found)".
+    // "Something else" has no group, so the tier stays "Tier N". Below the floor the tier stays "Strategy-only".
+    const n=CONFIG.tiers.reduce((hit,x,i)=>b>=x.min?i:hit,-1);
+    const tier=n<0 ? 'Strategy-only' : (group ? `${CONFIG.tiers[n].name} (${GROUPS[group].tiers[n]})` : CONFIG.tiers[n].name);
     let qual = b<CONFIG.floor ? 'Below floor: strategy-only' : (t==='Exploring' ? 'Nurture: exploring' : (d==='Someone else decides' ? 'Qualified: bring the decision maker' : 'Qualified'));
     const pri = t==='ASAP' && b>=CONFIG.floor ? 'High' : 'Normal';
-    return {tier,qual,pri,b,t,d};
+    return {tier,qual,pri,group,b,t,d};
   }
   form.addEventListener('submit', async e=>{
     e.preventDefault(); $('err').textContent='';
     const fd=new FormData(form);
     if(!fd.getAll('services').length){ $('err').textContent='Pick at least one service that matters right now.'; return; }
-    const r=score(fd); $('h-qual').value=r.qual; $('h-tier').value=r.tier; $('h-pri').value=r.pri; $('h-when').value=new Date().toISOString();
+    const r=score(fd); $('h-qual').value=r.qual; $('h-group').value=r.group; $('h-tier').value=r.tier; $('h-pri').value=r.pri; $('h-when').value=new Date().toISOString();
     $('send').disabled=true; $('send').textContent='Sending…';
     let ok=false;
     if(location.protocol.startsWith('http')){ const obj={}; for(const [k,v] of new FormData(form).entries()){ if(k!=='company-website') obj[k]=v; }
