@@ -2379,6 +2379,24 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-jump a{color:#2c3b97;font-weight:700;text-decoration:none;border-bottom:2px solid rgba(156,227,125,.6);padding-bottom:1px}
 .p2-jump a:hover{border-bottom-color:#daab28}
 .p2-res-group{scroll-margin-top:96px}
+/* ---- events: list / month view ---- */
+.p2-viewbar{display:flex;align-items:center;justify-content:center;gap:10px;max-width:1200px;margin:22px auto 0}
+.p2-viewbar .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4a8a3a}
+.p2-month{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid rgba(44,59,151,.18);border-radius:12px;overflow:hidden;box-shadow:0 12px 28px rgba(44,59,151,.12)}
+.p2-month-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%);color:#fff;border-left:5px solid #9ce37d}
+.p2-month-head strong{font-size:1rem;letter-spacing:.02em}
+.p2-month-head .chip{padding:4px 12px;background:rgba(255,255,255,.14);border-color:transparent;color:#fff}
+.p2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid rgba(44,59,151,.1)}
+.p2-month-grid .dh{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#67768e;padding:8px 10px;border-bottom:1px solid rgba(44,59,151,.1);background:#f8f9fb}
+.p2-month-grid .d{min-height:86px;padding:6px 8px;border-right:1px solid rgba(44,59,151,.08);border-bottom:1px solid rgba(44,59,151,.08);font-size:.78rem;color:#67768e;position:relative}
+.p2-month-grid .d:nth-child(7n){border-right:0}
+.p2-month-grid .d.empty{background:#fbfbfc}
+.p2-month-grid .d.has .num{color:#2c3b97;font-weight:800}
+.p2-month-grid .evt{display:block;margin-top:6px;font-size:.68rem;font-weight:800;line-height:1.25;padding:4px 6px;border-radius:4px;text-decoration:none;color:#1a2456;background:rgba(156,227,125,.3);border-left:3px solid #9ce37d}
+.p2-month-grid .evt-hub{background:rgba(44,59,151,.1);border-left-color:#2c3b97}
+.p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
+.p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
+@media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
 </style></head><body><div class="p2-page" data-page="initiative" data-nav="initiatives"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2388,11 +2406,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
-  <a href="partners.html" data-page="partners">Partners</a>
-  <a href="get-involved.html" data-page="get-involved">Get Involved</a>
+  <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.3 · 15 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2402,7 +2419,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <ul class="main-header-menu" id="primary-menu">
         <li class="menu-item has-sub" data-nav="initiatives"><a href="initiatives.html">Initiatives<span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="sub-menu">
-            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Academy</a></li>
+            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Integration Academy</a></li>
             <li><a href="initiative.html#webinars"><small>Virtual</small>Webinar Series</a></li>
             <li><a href="initiative.html#summits"><small>Regional</small>Regional Summits</a></li>
             <li><a href="initiative.html#symposium"><small>Statewide</small>Career Pathways Symposium</a></li>
@@ -2412,9 +2429,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         </li>
         <li class="menu-item" data-nav="events"><a href="events.html">Events</a></li>
         <li class="menu-item" data-nav="resources"><a href="resources.html">Resources</a></li>
-        <li class="menu-item" data-nav="partners"><a href="partners.html">Partners</a></li>
         <li class="menu-item" data-nav="about"><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a></li>
-        <li class="menu-item menu-cta" data-nav="get-involved"><a href="get-involved.html">Get Involved</a></li>
+        <li class="menu-item menu-cta" data-nav="get-connected"><a href="get-connected.html">Get Connected</a></li>
       </ul>
     </nav>
   </div>
@@ -2426,12 +2442,12 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <div class="wp-block-cover__inner-container">
 <aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>One page per initiative</b><span class="w">Scope part 2: six pages on one template so they stay consistent and CPPDC can edit them. Hero shows the initiative number, format and the single next action.</span></div></aside>
 
-    <p class="p2-crumbs"><a href="home.html">Home</a> &rsaquo; <a href="initiatives.html">Initiatives</a> &rsaquo; <span id="iCrumb">Workforce Academy</span></p>
+    <p class="p2-crumbs"><a href="home.html">Home</a> &rsaquo; <a href="initiatives.html">Initiatives</a> &rsaquo; <span id="iCrumb">Workforce Integration Academy</span></p>
     <p class="cppdc-eyebrow has-text-align-center" id="iEyebrow">Initiative 01 &middot; Cohort</p>
-    <h1 id="iTitle">Workforce Academy</h1>
+    <h1 id="iTitle">Workforce Integration Academy</h1>
     <p class="p2-lede" id="iLede"></p>
     <div class="wp-block-buttons is-content-justification-center">
-      <div class="wp-block-button"><a class="wp-block-button__link" id="iCta" href="get-involved.html#interest">Express interest</a></div>
+      <div class="wp-block-button"><a class="wp-block-button__link" id="iCta" href="get-connected.html#interest">Express interest</a></div>
       <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="events.html">See dates</a></div>
     </div>
   </div>
@@ -2450,16 +2466,16 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
   <div class="p2-split">
     <div>
-      <h2 class="wp-block-heading" id="iWhatH">What Is the Workforce Academy?</h2>
+      <h2 class="wp-block-heading" id="iWhatH">What Is the Workforce Integration Academy?</h2>
       <div id="iWhat"></div>
       <h2 class="wp-block-heading" id="iWhoH" style="margin-top:36px">Who Should Take Part?</h2>
       <ul class="cppdc-checklist" id="iWho" style="list-style:none;padding:0"></ul>
     </div>
     <aside>
       <div class="cppdc-activity-card">
-        <h2 class="p2-aside-h">How to Get Involved</h2>
+        <h2 class="p2-aside-h">How to Get Connected</h2>
         <ol class="p2-steps p2-timeline" id="iHow"></ol>
-        <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" id="iCta2" href="get-involved.html#interest">Express interest</a></div></div>
+        <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" id="iCta2" href="get-connected.html#interest">Express interest</a></div></div>
       </div>
     </aside>
   </div>
@@ -2486,25 +2502,25 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
     <h2 class="wp-block-heading has-text-align-center" id="iBandH">Ready to Bring Your Team?</h2>
     <p id="iBandP">Tell us about your organization and we will send the next steps.</p>
-    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" id="iCta3" href="get-involved.html#interest">Express interest</a></div></div>
+    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" id="iCta3" href="get-connected.html#interest">Express interest</a></div></div>
   </div>
 </div>
 
 <script>
 var INITIATIVES = {
-  academy: {num:"01", kind:"Cohort", name:"Workforce Academy", flag:true, cta:["Express interest","get-involved.html#interest"],
+  academy: {num:"01", kind:"Cohort", name:"Workforce Integration Academy", flag:false, cta:["Express interest","get-connected.html#interest"],
     lede:"A multi-month, hybrid cohort for adult education and literacy provider teams who want stronger partnerships and a clear impact plan.",
-    answer:"<strong>What it is.</strong> The Workforce Academy is CPPDC's intensive five-month hybrid cohort for teams of Texas adult education and literacy (AEL) providers. Over 20 hours of guided sessions, 10 provider teams strengthen partnerships with workforce boards and employers and leave with an impact plan. The first cohort began in February 2026. The next cohort opens in 2027.",
-    glance:[["Format","Hybrid cohort"],["Length","5 months, 20 hours"],["Who","10 AEL provider teams"],["Cost","No cost"],["Next cohort","2027 <span class='p2-ph'>dates</span>"]],
+    answer:"<strong>What it is.</strong> The Workforce Integration Academy is CPPDC's intensive five-month hybrid cohort for teams of Texas adult education and literacy (AEL) providers. Over 20+ hours of guided sessions, 10 provider teams strengthen partnerships with workforce boards and employers and leave with an impact plan. The first cohort began in February 2026. The next cohort opens in 2027.",
+    glance:[["Format","Hybrid cohort"],["Length","5 months, 20+ hours"],["Who","10 AEL provider teams"],["Cost","Free"],["Next cohort","2027 <span class='p2-ph'>dates</span>"]],
     what:["The Academy is team-based on purpose. Each provider brings a team, and the sessions are built around that team's own region, partners and goals rather than a generic curriculum.","Sessions mix virtual work with in-person convenings, and every team finishes with an impact plan it can carry into the next program year. <span class='p2-ph'>Session outline from CPPDC</span>"],
     who:["Adult education and literacy providers in Texas, as a team of program leaders and instructors","Teams ready to deepen partnerships with their workforce board and local employers","Programs at any stage of maturity"],
     how:[["Express interest","Submit the interest form and select the Academy."],["Application window","CPPDC confirms the 2027 window and sends the application to the interest list. <span class='p2-ph'>Window from CPPDC</span>"],["Join the cohort","Selected teams receive the schedule and pre-work."]],
-    datesH:"When Is the Next Cohort?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Cohort"],["inperson","Hybrid"]],title:"Workforce Academy 2027 cohort",meta:"Statewide &middot; Hybrid &middot; <span class='p2-ph'>Dates from CPPDC</span>",desc:"Application window and session dates will post here when confirmed.",btn:["Express interest","get-involved.html#interest"]}],
-    faq:[["Who can apply to the Workforce Academy?","Teams from Texas adult education and literacy providers. The cohort is limited to 10 teams, so interest does not guarantee a seat."],["Is there a cost?","No. The Academy is offered at no cost to participants. <span class='p2-ph'>Confirm for 2027</span>"],["How much time does it take?","About 20 hours across five months, in a mix of virtual sessions and in-person convenings."],["What does a team leave with?","Stronger partnerships with the regional workforce board and employers, and a written impact plan."]],
+    datesH:"When Is the Next Cohort?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Cohort"],["inperson","Hybrid"]],title:"Workforce Integration Academy 2027 cohort",meta:"Statewide &middot; Hybrid &middot; <span class='p2-ph'>Dates from CPPDC</span>",desc:"Application window and session dates will post here when confirmed.",btn:["Express interest","get-connected.html#interest"]}],
+    faq:[["Who can apply to the Workforce Integration Academy?","Teams from Texas adult education and literacy providers. The cohort is limited to 10 teams, so interest does not guarantee a seat."],["Is there a cost?","No. The Academy is free for participants."],["How much time does it take?","About 20+ hours across five months, in a mix of virtual sessions and in-person convenings."],["What does a team leave with?","Stronger partnerships with the regional workforce board and employers, and a written impact plan."]],
     band:["Ready to Bring Your Team?","Express interest now and CPPDC will send the 2027 application when it opens."]},
-  webinars: {num:"02", kind:"Virtual", name:"Webinar Series", flag:false, cta:["Join the webinar list","get-involved.html#interest"],
+  webinars: {num:"02", kind:"Virtual", name:"Webinar Series", flag:false, cta:["Join the webinar list","get-connected.html#interest"],
     lede:"Free, recorded virtual sessions for Texas AEL providers, workforce boards and partners on coordination, communication and collaboration.",
-    answer:"<strong>What it is.</strong> The CPPDC Webinar Series is a free, recorded set of virtual sessions for Texas adult education and literacy providers, workforce boards and partner organizations. Sessions cover cross-sector coordination, communication and collaboration through learner-, program- and partner-centered strategies, and each one draws 60 or more attendees. The series began in March 2026 and continues on a regular schedule. Recordings are posted to the Resource library after each session.",
+    answer:"<strong>What it is.</strong> The CPPDC Webinar Series is a free, recorded set of virtual sessions for Texas adult education and literacy providers, workforce boards and partner organizations. Sessions cover cross-sector coordination, communication and collaboration through learner-, program- and partner-centered strategies. The series began in March 2026 and continues on a regular schedule. Recordings are posted to the Resource library after each session.",
     glance:[["Format","Live virtual, recorded"],["Cadence","Regular series <span class='p2-ph'>cadence</span>"],["Who","Providers, boards, partners"],["Cost","Free"],["Platform","<span class='p2-ph'>Zoom or Teams</span>"]],
     what:["Each webinar takes one practical question about career pathways and works through it with practitioners from across the state.","Every session is recorded. Past sessions live in the Resource library under Webinar recordings, so the series grows into a reference your team can return to."],
     who:["Adult education and literacy program staff and instructors","Workforce board staff coordinating regional career pathways","Postsecondary, labor, advocacy and agency partners"],
@@ -2512,45 +2528,45 @@ var INITIATIVES = {
     datesH:"When Is the Next Webinar?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["webinar","Webinar"],["virtual","Virtual"]],title:"Webinar Series: next session",meta:"Virtual &middot; Free &middot; <span class='p2-ph'>Topic and date from CPPDC</span>",desc:"The next session's topic, date and registration link will post here.",btn:["Register","events.html"]}],
     faq:[["Are the webinars free?","Yes. Every session in the series is free and recorded."],["What if I miss a session?","Recordings are posted in the Resource library under Webinar recordings."],["Who presents?","CPPDC staff and practitioners from Texas providers, workforce boards and partner organizations. <span class='p2-ph'>Confirm</span>"]],
     band:["Never Miss a Session.","Join the webinar list and get each registration link as it opens."]},
-  summits: {num:"03", kind:"Regional", name:"Regional Summits", flag:true, cta:["Get event updates","get-involved.html#interest"],
-    lede:"One-day Integrated Education and Training summits delivered across Texas regions, built around each region's industries and partners.",
+  summits: {num:"03", kind:"Regional", name:"Regional Summits", flag:false, cta:["Get event updates","get-connected.html#interest"],
+    lede:"One-day career pathway-specific summits delivered across Texas regions, built around each region's industries and partners.",
     answer:"<strong>What it is.</strong> CPPDC Regional Summits are one-day, in-person Integrated Education and Training (IET) convenings for Texas adult education and literacy providers, workforce boards and regional employers. Each summit is hands-on and practitioner-focused, built around the host region's industry context, and seats about 75 providers. In 2026 summits ran in Irving, Houston and the Rio Grande Valley. The 2027 schedule will post on the Events page.",
     glance:[["Format","One day, in person"],["Seats","About 75 per summit"],["Who","Providers, boards, employers"],["Cost","No cost"],["2027 regions","<span class='p2-ph'>From CPPDC</span>"]],
     what:["A summit brings one region's adult education providers, workforce board, colleges and employers into the same room for a day of Integrated Education and Training practice: how to pair occupational training with basic skills so adults finish with a credential and a job path.","The agenda is shaped by a focus group before each summit, so the day reflects what that region's partners actually need."],
     who:["Adult education and literacy providers in the host region","The regional workforce development board","Employers, colleges, nonprofits and agencies in the region focused on stackable credentials"],
     how:[["Find your region","Check the Events page for the next summit near you."],["RSVP","Reserve a seat on this site. <span class='p2-ph'>RSVP method from CPPDC</span>"],["Join the focus group","Help shape the agenda in the virtual prep session before the summit."]],
-    datesH:"Where Is the Next Summit?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Regional Summit"],["inperson","In person"]],title:"Regional Summit 2027",meta:"<span class='p2-ph'>Region and date from CPPDC</span> &middot; 75 seats",desc:"The 2027 summit locations and dates will post here.",btn:["Get updates","get-involved.html#interest"]}],
-    faq:[["What is Integrated Education and Training?","IET pairs occupational training with adult basic education so learners build skills and earn a credential at the same time. Summits show providers how to run it well with regional partners."],["Who should attend a Regional Summit?","Adult education providers and their partners in that region: the workforce board, colleges, employers, nonprofits and agencies."],["Is there a cost?","No. Summits are offered at no cost. <span class='p2-ph'>Confirm for 2027</span>"]],
+    datesH:"Where Is the Next Summit?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Regional Summit"],["inperson","In person"]],title:"Regional Summit 2027",meta:"<span class='p2-ph'>Region and date from CPPDC</span> &middot; 75 seats",desc:"The 2027 summit locations and dates will post here.",btn:["Get updates","get-connected.html#interest"]}],
+    faq:[["What is Integrated Education and Training?","IET pairs occupational training with adult basic education so learners build skills and earn a credential at the same time. Summits show providers how to run it well with regional partners."],["Who should attend a Regional Summit?","Adult education providers and their partners in that region: the workforce board, colleges, employers, nonprofits and agencies."],["Is there a cost?","No. Summits are free."]],
     band:["Bring Your Region to the Table.","Get summit updates and the focus-group invitation for your area."]},
-  symposium: {num:"04", kind:"Statewide", name:"Career Pathways Symposium", flag:false, cta:["Get Symposium updates","get-involved.html#interest"],
+  symposium: {num:"04", kind:"Statewide", name:"Career Pathways Symposium", flag:false, cta:["Get Symposium updates","get-connected.html#interest"],
     lede:"The statewide two-day convening of Texas AEL providers, workforce boards, employers and agency partners.",
     answer:"<strong>What it is.</strong> The Career Pathways Symposium is CPPDC's flagship statewide conference, held over two days in San Antonio for 200 or more adult education and literacy providers, workforce boards, employers and agency partners. The program combines plenary sessions, breakout strategy labs and a full employer engagement day. The 2026 Symposium ran June 4 to 5. The 2027 dates will post on the Events page.",
     glance:[["Format","2-day conference"],["Attendees","200+"],["Who","All seven stakeholder groups"],["Where","San Antonio, TX"],["2027 dates","<span class='p2-ph'>From CPPDC</span>"]],
     what:["The Symposium is where the whole Texas career pathways system meets at once: providers, boards, employers, colleges, labor, advocates and agencies.","Day one runs plenaries and strategy labs. Day two is the employer engagement day, built for employers to meet the providers preparing their future hires. <span class='p2-ph'>2027 agenda from CPPDC</span>"],
     who:["Adult education and literacy providers from across Texas","Workforce boards, postsecondary, labor, advocacy and agency partners","Employers, especially on the employer engagement day"],
     how:[["Join the Symposium list","Submit the interest form and select the Symposium."],["Register","Registration opens on this site when dates are set. <span class='p2-ph'>Registration method from CPPDC</span>"],["Attend","Two days in San Antonio with the full statewide network."]],
-    datesH:"When Is the Next Symposium?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["flagship","Flagship"],["symposium","Symposium"]],title:"Career Pathways Symposium 2027",meta:"San Antonio, TX &middot; 2 days &middot; <span class='p2-ph'>Dates from CPPDC</span>",desc:"Dates, venue and registration will post here when confirmed.",btn:["Get updates","get-involved.html#interest"],featured:true}],
-    faq:[["Who attends the Career Pathways Symposium?","Adult education providers, workforce boards, employers, colleges, labor partners, advocacy organizations and agency partners from across Texas."],["Is there a registration fee?","<span class='p2-ph'>Confirm with CPPDC</span>"],["Where is it held?","San Antonio, Texas. The 2026 Symposium was at the Embassy Suites by Hilton San Antonio Landmark."]],
+    datesH:"When Is the Next Symposium?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["flagship","Flagship"],["symposium","Symposium"]],title:"Career Pathways Symposium 2027",meta:"San Antonio, TX &middot; 2 days &middot; <span class='p2-ph'>Dates from CPPDC</span>",desc:"Dates, venue and registration will post here when confirmed.",btn:["Get updates","get-connected.html#interest"],featured:true}],
+    faq:[["Who attends the Career Pathways Symposium?","Adult education providers, workforce boards, employers, colleges, labor partners, advocacy organizations and agency partners from across Texas."],["Is there a registration fee?","No. The Symposium is free to attend."],["Where is it held?","San Antonio, Texas. The 2026 Symposium was at the Embassy Suites by Hilton San Antonio Landmark."]],
     band:["Save Your Seat at the Statewide Table.","Join the Symposium list and hear first when 2027 registration opens."]},
-  hub: {num:"05", kind:"Employers", name:"Employer Connect Hub", flag:true, cta:["Join the advisory","get-involved.html#employer"],
-    lede:"A monthly, multi-sector employer advisory that aligns Texas adult education and workforce training with what industry needs.",
-    answer:"<strong>What it is.</strong> The Employer Connect Hub is CPPDC's monthly employer advisory group. Employers from key Texas industries meet for 60 minutes online with adult education providers and workforce partners to align training with hiring needs, shape career pathways and strengthen employer engagement statewide. Sessions are free and recorded. Any Texas employer can ask to join.",
-    glance:[["Format","Virtual advisory"],["Cadence","Monthly, 60 minutes"],["Who","Texas employers"],["Cost","Free"],["Next session","<span class='p2-ph'>Date from CPPDC</span>"]],
-    what:["The Hub gives employers a standing seat in the conversation about what Texas adult education programs teach and which credentials they lead to.","Beyond the monthly session, Hub members anchor the three regional employer work groups and the Symposium employer day."],
+  hub: {num:"05", kind:"Employers", name:"Employer Connect Hub", flag:false, cta:["Be a Change Agent","get-connected.html#employer"],
+    lede:"A monthly, multi-sector employer think tank that aligns Texas adult education and workforce training with what industry needs.",
+    answer:"<strong>What it is.</strong> The Employer Connect Hub is CPPDC's monthly employer think tank. Employers from key Texas industries meet for 60 minutes online with adult education providers and workforce partners to align training with hiring needs, shape career pathways and strengthen employer engagement statewide. Sessions are free and recorded. Any Texas employer can ask to join.",
+    glance:[["Format","Virtual think tank"],["Cadence","Monthly, 60 minutes"],["Who","Texas employers"],["Cost","Free"],["Next session","<span class='p2-ph'>Date from CPPDC</span>"]],
+    what:["The Hub gives employers a standing seat in the conversation about what Texas adult education programs teach and which credentials they lead to.","Beyond the monthly session, Hub members anchor the three regional employer work groups and the Symposium employer sessions."],
     who:["Employers hiring from adult education and career pathway programs","Industry associations and chambers representing key Texas sectors","Workforce boards and providers who want employer input on their programs"],
     how:[["Sign up","Complete the employer sign-up form."],["Get the invitation","CPPDC sends the monthly session link and agenda."],["Advise","Join a session, name your hiring needs, and help shape the training."]],
-    datesH:"When Does the Hub Meet?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["advisory","Advisory"],["virtual","Virtual"]],title:"Employer Connect Hub: monthly session",meta:"60 minutes &middot; Free &middot; <span class='p2-ph'>Next date from CPPDC</span>",desc:"Monthly cross-sector session aligning career pathways with industry needs.",btn:["Join the advisory","get-involved.html#employer"]}],
+    datesH:"When Does the Hub Meet?", events:[{m:"Dec",d:"1",y:"2027",tags:[["advisory","Employer Connect Hub"],["virtual","Virtual"]],title:"Employer Connect Hub: monthly session",meta:"12:30 pm CST / 11:30 am MST &middot; 60 minutes &middot; Free <span class='p2-ph'>Year 2027 to confirm</span>",desc:"Monthly cross-sector session aligning career pathways with industry needs.",btn:["Be a Change Agent","get-connected.html#employer"]}],
     faq:[["What does an employer get from the Hub?","A direct line to the providers preparing adults for your industry, and a say in which skills and credentials they prioritize."],["How much time does it take?","One 60-minute virtual session a month. Sessions are recorded if you miss one."],["Is there a cost?","No. The Hub is free for employers."]],
-    band:["Shape the Training That Feeds Your Pipeline.","Join the Employer Connect Hub advisory."]},
-  pd: {num:"06", kind:"Ongoing", name:"Professional Development", flag:false, cta:["Get TA updates","get-involved.html#interest"],
+    band:["Shape the Training That Feeds Your Pipeline.","Be a Change Agent in the Employer Connect Hub."]},
+  pd: {num:"06", kind:"Ongoing", name:"Professional Development", flag:false, cta:["Get TA updates","get-connected.html#interest"],
     lede:"Three tiers of professional development and technical assistance for Texas AEL providers, from foundational training to advanced practitioner coaching.",
     answer:"<strong>What it is.</strong> CPPDC Professional Development gives Texas adult education and literacy providers three tiers of support: foundational training, technical assistance and advanced practitioner coaching. It runs year-round across all 28 Texas workforce areas and is threaded through every other CPPDC initiative. <span class='p2-ph'>Tier names and contents from CPPDC</span>",
-    glance:[["Format","Training, TA, coaching"],["Tiers","3"],["Who","AEL providers"],["Reach","All 28 workforce areas"],["Cost","<span class='p2-ph'>Confirm</span>"]],
+    glance:[["Format","Training, TA, coaching"],["Tiers","3"],["Who","AEL providers"],["Reach","All 28 workforce areas"],["Cost","Free"]],
     what:["<strong>Tier 1, foundational training:</strong> group sessions on career pathways and Integrated Education and Training basics. <span class='p2-ph'>Confirm</span>","<strong>Tier 2, technical assistance:</strong> program-specific help with partnerships, design and data. <span class='p2-ph'>Confirm</span>","<strong>Tier 3, practitioner coaching:</strong> advanced coaching for teams implementing their plans. <span class='p2-ph'>Confirm</span>"],
     who:["Adult education and literacy providers in any of the 28 Texas workforce areas","Program directors, coordinators and instructors","Academy teams carrying out an impact plan"],
     how:[["Request support","Submit the interest form and describe what your program needs."],["Match the tier","CPPDC matches the request to foundational training, technical assistance or coaching."],["Start","Sessions are scheduled with your team."]],
-    datesH:"When Is Professional Development Offered?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Training"],["virtual","Virtual"]],title:"Foundational training session",meta:"Virtual &middot; <span class='p2-ph'>Date from CPPDC</span>",desc:"Open foundational sessions post here. Technical assistance and coaching are scheduled per program.",btn:["Get TA updates","get-involved.html#interest"]}],
-    faq:[["Which tier should my program request?","Start with the interest form. CPPDC reviews the request and recommends the tier."],["Is technical assistance available to every provider?","Professional development covers all 28 Texas workforce areas. <span class='p2-ph'>Confirm capacity</span>"],["Is there a cost?","<span class='p2-ph'>Confirm with CPPDC</span>"]],
+    datesH:"When Is Professional Development Offered?", events:[{m:"Date",d:"TBC",y:"2027",tags:[["training","Training"],["virtual","Virtual"]],title:"Foundational training session",meta:"Virtual &middot; <span class='p2-ph'>Date from CPPDC</span>",desc:"Open foundational sessions post here. Technical assistance and coaching are scheduled per program.",btn:["Get TA updates","get-connected.html#interest"]}],
+    faq:[["Which tier should my program request?","Start with the interest form. CPPDC reviews the request and recommends the tier."],["Is technical assistance available to every provider?","Professional development covers all 28 Texas workforce areas. <span class='p2-ph'>Confirm capacity</span>"],["Is there a cost?","No. Professional development and technical assistance are free for Texas AEL providers."]],
     band:["Get the Support Your Program Needs.","Tell CPPDC what you are working on."]}
 };
 function renderInitiative(){
@@ -2584,7 +2600,7 @@ renderInitiative(); window.addEventListener("hashchange",renderInitiative);
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="partners.html">Partners</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-involved.html">Get Involved</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>

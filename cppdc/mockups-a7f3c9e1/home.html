@@ -2379,6 +2379,24 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-jump a{color:#2c3b97;font-weight:700;text-decoration:none;border-bottom:2px solid rgba(156,227,125,.6);padding-bottom:1px}
 .p2-jump a:hover{border-bottom-color:#daab28}
 .p2-res-group{scroll-margin-top:96px}
+/* ---- events: list / month view ---- */
+.p2-viewbar{display:flex;align-items:center;justify-content:center;gap:10px;max-width:1200px;margin:22px auto 0}
+.p2-viewbar .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4a8a3a}
+.p2-month{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid rgba(44,59,151,.18);border-radius:12px;overflow:hidden;box-shadow:0 12px 28px rgba(44,59,151,.12)}
+.p2-month-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%);color:#fff;border-left:5px solid #9ce37d}
+.p2-month-head strong{font-size:1rem;letter-spacing:.02em}
+.p2-month-head .chip{padding:4px 12px;background:rgba(255,255,255,.14);border-color:transparent;color:#fff}
+.p2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid rgba(44,59,151,.1)}
+.p2-month-grid .dh{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#67768e;padding:8px 10px;border-bottom:1px solid rgba(44,59,151,.1);background:#f8f9fb}
+.p2-month-grid .d{min-height:86px;padding:6px 8px;border-right:1px solid rgba(44,59,151,.08);border-bottom:1px solid rgba(44,59,151,.08);font-size:.78rem;color:#67768e;position:relative}
+.p2-month-grid .d:nth-child(7n){border-right:0}
+.p2-month-grid .d.empty{background:#fbfbfc}
+.p2-month-grid .d.has .num{color:#2c3b97;font-weight:800}
+.p2-month-grid .evt{display:block;margin-top:6px;font-size:.68rem;font-weight:800;line-height:1.25;padding:4px 6px;border-radius:4px;text-decoration:none;color:#1a2456;background:rgba(156,227,125,.3);border-left:3px solid #9ce37d}
+.p2-month-grid .evt-hub{background:rgba(44,59,151,.1);border-left-color:#2c3b97}
+.p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
+.p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
+@media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
 </style></head><body><div class="p2-page" data-page="home" data-nav="home"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2388,11 +2406,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
-  <a href="partners.html" data-page="partners">Partners</a>
-  <a href="get-involved.html" data-page="get-involved">Get Involved</a>
+  <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.3 · 15 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2402,7 +2419,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <ul class="main-header-menu" id="primary-menu">
         <li class="menu-item has-sub" data-nav="initiatives"><a href="initiatives.html">Initiatives<span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="sub-menu">
-            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Academy</a></li>
+            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Integration Academy</a></li>
             <li><a href="initiative.html#webinars"><small>Virtual</small>Webinar Series</a></li>
             <li><a href="initiative.html#summits"><small>Regional</small>Regional Summits</a></li>
             <li><a href="initiative.html#symposium"><small>Statewide</small>Career Pathways Symposium</a></li>
@@ -2412,9 +2429,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         </li>
         <li class="menu-item" data-nav="events"><a href="events.html">Events</a></li>
         <li class="menu-item" data-nav="resources"><a href="resources.html">Resources</a></li>
-        <li class="menu-item" data-nav="partners"><a href="partners.html">Partners</a></li>
         <li class="menu-item" data-nav="about"><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a></li>
-        <li class="menu-item menu-cta" data-nav="get-involved"><a href="get-involved.html">Get Involved</a></li>
+        <li class="menu-item menu-cta" data-nav="get-connected"><a href="get-connected.html">Get Connected</a></li>
       </ul>
     </nav>
   </div>
@@ -2424,13 +2440,13 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <span class="wp-block-cover__background" aria-hidden="true"></span>
   <img class="wp-block-cover__image-background" src="assets/img/Symposium-53-1024x683.jpg" alt="">
   <div class="wp-block-cover__inner-container">
-<aside class="p2-callout" data-k="rebuilt"><span class="n">1</span><div class="body"><span class="k">rebuilt</span><b>Audience-first hero</b><span class="w">Names who the site is for in the first sentence and puts Get Involved first. The full program name and "all 28 Texas workforce areas" sit in the opening paragraph so Google and AI answers pick them up.</span></div></aside>
+<aside class="p2-callout" data-k="rebuilt"><span class="n">1</span><div class="body"><span class="k">rebuilt</span><b>Audience-first hero</b><span class="w">Names who the site is for in the first sentence and puts Get Connected first. The full program name and "all 28 Texas workforce areas" sit in the opening paragraph so Google and AI answers pick them up.</span></div></aside>
 
     <p class="cppdc-eyebrow has-text-align-center">A Program of Restore Education &middot; Statewide Texas</p>
     <h1>Stronger Pathways.<br>Stronger Workforce.</h1>
     <p class="p2-lede">The Career Pathways Professional Development Center (CPPDC) brings Texas employers, workforce boards and adult education and literacy providers together as one workforce system, with evidence-based training, regional convenings and employer engagement across all 28 Texas workforce areas.</p>
     <div class="wp-block-buttons is-content-justification-center">
-      <div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html">Get Involved</a></div>
+      <div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html">Get Connected</a></div>
       <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="initiatives.html">Explore Initiatives</a></div>
     </div>
   </div>
@@ -2447,13 +2463,13 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <figure class="wp-block-image"><img src="assets/img/Symposium-58-1024x683.jpg" alt="Employers and providers in conversation at the Career Pathways Symposium"></figure>
       <p class="cppdc-eyebrow">For employers</p>
       <h3>Shape the training that feeds your pipeline</h3>
-      <p>Tell adult education providers what your industry needs, and meet the programs preparing your next hires.</p>
+      <p>Tell adult education providers what your industry needs are, and meet the programs preparing your next hires.</p>
       <ul class="cppdc-checklist">
-        <li>Employer Connect Hub monthly advisory</li>
-        <li>Symposium employer day</li>
+        <li>Employer Connect Hub monthly meeting</li>
+        <li>Symposium employer sessions</li>
         <li>Regional employer work groups</li>
       </ul>
-      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html#employer">Employer sign-up</a></div></div>
+      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html#employer">Employer sign-up</a></div></div>
     </div>
     <div class="cppdc-audience-card">
       <figure class="wp-block-image"><img src="assets/img/Symposium-43-1024x683.jpg" alt="Workforce partners at a regional table session"></figure>
@@ -2465,7 +2481,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         <li>Statewide Career Pathways Symposium</li>
         <li>Cross-sector work groups</li>
       </ul>
-      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html#partner">Partner inquiry</a></div></div>
+      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html#partner">Partner inquiry</a></div></div>
     </div>
     <div class="cppdc-audience-card">
       <figure class="wp-block-image"><img src="assets/img/Symposium-53-1024x683.jpg" alt="Adult education providers attending a Symposium plenary"></figure>
@@ -2473,11 +2489,11 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <h3>Strengthen your program at any stage</h3>
       <p>Cohort training, technical assistance and free recorded webinars for adult education and literacy teams and the partners who support them.</p>
       <ul class="cppdc-checklist">
-        <li>Workforce Academy cohort</li>
+        <li>Workforce Integration Academy cohort</li>
         <li>Professional development and technical assistance</li>
         <li>Free recorded Webinar Series</li>
       </ul>
-      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html#interest">Express interest</a></div></div>
+      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html#interest">Express interest</a></div></div>
     </div>
   </div>
 </div>
@@ -2499,22 +2515,22 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <div class="p2-stake-tile"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l4-4 4 4-4 4zM13 12l4-4 4 4-4 4zM7 12h6"/></svg></span><h3>Agency Partners</h3><p>Public agencies coordinating wraparound services and policy alignment.</p></div>
     </div>
     <p class="has-text-align-center p2-on-dark" style="margin-top:28px;font-weight:700">All seven, working together.</p>
-    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html">Get Involved</a></div></div>
+    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html">Get Connected</a></div></div>
   </div>
 </div>
 
 <div class="wp-block-group alignfull cppdc-activities-section is-layout-constrained">
-<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">updated</span><b>Six initiatives, now linked</b><span class="w">Same cards as today, but each one opens its own page, and the names follow the signed agreement. Three names carry a flag until CPPDC decides.</span></div></aside>
+<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">updated</span><b>Six initiatives, now linked</b><span class="w">Same cards as today, but each one opens its own page, and the names follow the signed agreement. Names follow CPPDC's 21 October decisions.</span></div></aside>
 
   <p class="cppdc-eyebrow has-text-align-center">What we do</p>
   <h2 class="wp-block-heading has-text-align-center">Six Initiatives. One Coordinated Strategy.</h2>
   <p class="p2-section-lede">From a team-based cohort to regional convenings to a statewide symposium, every initiative moves Texas career pathways forward.</p>
   <div class="cppdc-mini-grid">
-    <article class="cppdc-mini-card"><p class="p2-head"><span>Cohort &middot; Hybrid</span><b>01</b></p><h3 class="cppdc-mini-title">Workforce Academy <span class="p2-flag">name to confirm</span></h3><p class="cppdc-mini-desc">A multi-month, hybrid cohort guiding AEL provider teams to strengthen partnerships and develop impact plans. <em>Next cohort: 2027.</em></p><a href="initiative.html#academy" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
+    <article class="cppdc-mini-card"><p class="p2-head"><span>Cohort &middot; Hybrid</span><b>01</b></p><h3 class="cppdc-mini-title">Workforce Integration Academy </h3><p class="cppdc-mini-desc">A multi-month, hybrid cohort guiding AEL provider teams to strengthen partnerships and develop impact plans. <em>Next cohort: 2027.</em></p><a href="initiative.html#academy" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Virtual &middot; Free &middot; Recorded</span><b>02</b></p><h3 class="cppdc-mini-title">Webinar Series</h3><p class="cppdc-mini-desc">Regular virtual sessions on cross-sector coordination, communication and collaboration, recorded for anyone who misses the live session.</p><a href="initiative.html#webinars" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
-    <article class="cppdc-mini-card"><p class="p2-head"><span>Regional &middot; In person</span><b>03</b></p><h3 class="cppdc-mini-title">Regional Summits <span class="p2-flag">name to confirm</span></h3><p class="cppdc-mini-desc">One-day Integrated Education and Training summits delivered across Texas regions, built around regional industry context.</p><a href="initiative.html#summits" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
+    <article class="cppdc-mini-card"><p class="p2-head"><span>Regional &middot; In person</span><b>03</b></p><h3 class="cppdc-mini-title">Regional Summits </h3><p class="cppdc-mini-desc">One-day career pathway-specific summits delivered across Texas regions, built around regional industry context.</p><a href="initiative.html#summits" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Statewide &middot; Flagship</span><b>04</b></p><h3 class="cppdc-mini-title">Career Pathways Symposium</h3><p class="cppdc-mini-desc">A two-day statewide convening of AEL providers, employers, workforce boards and agency partners. <em>Next Symposium: 2027.</em></p><a href="initiative.html#symposium" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
-    <article class="cppdc-mini-card"><p class="p2-head"><span>Employers &middot; Monthly</span><b>05</b></p><h3 class="cppdc-mini-title">Employer Connect Hub <span class="p2-flag">name to confirm</span></h3><p class="cppdc-mini-desc">A multi-sector advisory group meeting monthly to align training with industry needs, anchored by employers in key Texas industries.</p><a href="initiative.html#hub" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
+    <article class="cppdc-mini-card"><p class="p2-head"><span>Employers &middot; Monthly</span><b>05</b></p><h3 class="cppdc-mini-title">Employer Connect Hub </h3><p class="cppdc-mini-desc">A multi-sector think tank meeting monthly to align training with industry needs, anchored by employers in key Texas industries.</p><a href="initiative.html#hub" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Ongoing &middot; Statewide</span><b>06</b></p><h3 class="cppdc-mini-title">Professional Development</h3><p class="cppdc-mini-desc">Three tiers of professional development and technical assistance for AEL providers across all 28 Texas workforce areas.</p><a href="initiative.html#pd" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
   </div>
 </div>
@@ -2529,13 +2545,13 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <p class="p2-section-lede">Webinars, Regional Summits, the Employer Connect Hub and the statewide Symposium. Register and add them to your calendar.</p>
   <div class="cppdc-events-grid">
     <article class="cppdc-event-card">
-      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Date</span><span class="cppdc-event-day">TBC</span><span class="cppdc-event-year">2027</span></div>
+      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Dec</span><span class="cppdc-event-day">1</span><span class="cppdc-event-year">2027</span></div>
       <div class="cppdc-event-body">
-        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Advisory</span><span class="cppdc-event-tag cppdc-event-tag-virtual">Virtual</span></div>
+        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Employer Connect Hub</span><span class="cppdc-event-tag cppdc-event-tag-virtual">Virtual</span></div>
         <h3 class="cppdc-event-title">Employer Connect Hub: monthly session</h3>
-        <p class="cppdc-event-meta">60 minutes &middot; Free &middot; <span class="p2-ph">Next date from CPPDC</span></p>
+        <p class="cppdc-event-meta">12:30 pm CST / 11:30 am MST &middot; 60 minutes &middot; Free <span class="p2-ph">Year 2027 to confirm</span></p>
         <p class="cppdc-event-desc">Monthly cross-sector session aligning career pathways with industry needs.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-involved.html#employer">Join the advisory</a></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#employer">Be a Change Agent</a></div>
       </div>
     </article>
     <article class="cppdc-event-card cppdc-event-featured">
@@ -2557,11 +2573,11 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
   <p class="cppdc-eyebrow has-text-align-center">Employer and partner showcase</p>
   <h2 class="wp-block-heading has-text-align-center">Who Builds the Pipeline with Us.</h2>
-  <p class="p2-section-lede">Employers, workforce boards, colleges and agencies working with CPPDC across Texas. <span class="p2-ph">Logos supplied by CPPDC</span></p>
+  <p class="p2-section-lede">Employers, workforce boards, colleges and agencies working with CPPDC across Texas. <span class="p2-ph">Logos coming from CPPDC</span></p>
   <div class="p2-strip">
     <div class="p2-logo">Partner logo</div><div class="p2-logo">Partner logo</div><div class="p2-logo">Partner logo</div><div class="p2-logo">Partner logo</div><div class="p2-logo">Partner logo</div><div class="p2-logo">Partner logo</div>
   </div>
-  <div class="has-text-align-center" style="margin-top:28px"><a class="cppdc-events-allbtn" href="partners.html">Meet the partners <span aria-hidden="true">&rarr;</span></a></div>
+  <div class="has-text-align-center" style="margin-top:28px"><a class="cppdc-events-allbtn" href="get-connected.html#partners">Meet the partners <span aria-hidden="true">&rarr;</span></a></div>
 </div>
 
 <div class="wp-block-cover alignfull cppdc-gold-band">
@@ -2571,7 +2587,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <p class="cppdc-eyebrow has-text-align-center">Get involved</p>
     <h2 class="wp-block-heading has-text-align-center">Ready to Strengthen Texas' Career Pathways?</h2>
     <p>Join the Employer Connect Hub, attend a Regional Summit, or bring your team to the Symposium.</p>
-    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html">Get Involved</a></div></div>
+    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html">Get Connected</a></div></div>
   </div>
 </div>
 <footer class="site-footer" id="colophon">
@@ -2585,7 +2601,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="partners.html">Partners</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-involved.html">Get Involved</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>

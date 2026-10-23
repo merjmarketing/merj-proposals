@@ -2379,6 +2379,24 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-jump a{color:#2c3b97;font-weight:700;text-decoration:none;border-bottom:2px solid rgba(156,227,125,.6);padding-bottom:1px}
 .p2-jump a:hover{border-bottom-color:#daab28}
 .p2-res-group{scroll-margin-top:96px}
+/* ---- events: list / month view ---- */
+.p2-viewbar{display:flex;align-items:center;justify-content:center;gap:10px;max-width:1200px;margin:22px auto 0}
+.p2-viewbar .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4a8a3a}
+.p2-month{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid rgba(44,59,151,.18);border-radius:12px;overflow:hidden;box-shadow:0 12px 28px rgba(44,59,151,.12)}
+.p2-month-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%);color:#fff;border-left:5px solid #9ce37d}
+.p2-month-head strong{font-size:1rem;letter-spacing:.02em}
+.p2-month-head .chip{padding:4px 12px;background:rgba(255,255,255,.14);border-color:transparent;color:#fff}
+.p2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid rgba(44,59,151,.1)}
+.p2-month-grid .dh{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#67768e;padding:8px 10px;border-bottom:1px solid rgba(44,59,151,.1);background:#f8f9fb}
+.p2-month-grid .d{min-height:86px;padding:6px 8px;border-right:1px solid rgba(44,59,151,.08);border-bottom:1px solid rgba(44,59,151,.08);font-size:.78rem;color:#67768e;position:relative}
+.p2-month-grid .d:nth-child(7n){border-right:0}
+.p2-month-grid .d.empty{background:#fbfbfc}
+.p2-month-grid .d.has .num{color:#2c3b97;font-weight:800}
+.p2-month-grid .evt{display:block;margin-top:6px;font-size:.68rem;font-weight:800;line-height:1.25;padding:4px 6px;border-radius:4px;text-decoration:none;color:#1a2456;background:rgba(156,227,125,.3);border-left:3px solid #9ce37d}
+.p2-month-grid .evt-hub{background:rgba(44,59,151,.1);border-left-color:#2c3b97}
+.p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
+.p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
+@media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
 </style></head><body><div class="p2-page" data-page="events" data-nav="events"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2388,11 +2406,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
-  <a href="partners.html" data-page="partners">Partners</a>
-  <a href="get-involved.html" data-page="get-involved">Get Involved</a>
+  <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.3 · 15 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2402,7 +2419,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <ul class="main-header-menu" id="primary-menu">
         <li class="menu-item has-sub" data-nav="initiatives"><a href="initiatives.html">Initiatives<span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="sub-menu">
-            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Academy</a></li>
+            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Integration Academy</a></li>
             <li><a href="initiative.html#webinars"><small>Virtual</small>Webinar Series</a></li>
             <li><a href="initiative.html#summits"><small>Regional</small>Regional Summits</a></li>
             <li><a href="initiative.html#symposium"><small>Statewide</small>Career Pathways Symposium</a></li>
@@ -2412,9 +2429,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         </li>
         <li class="menu-item" data-nav="events"><a href="events.html">Events</a></li>
         <li class="menu-item" data-nav="resources"><a href="resources.html">Resources</a></li>
-        <li class="menu-item" data-nav="partners"><a href="partners.html">Partners</a></li>
         <li class="menu-item" data-nav="about"><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a></li>
-        <li class="menu-item menu-cta" data-nav="get-involved"><a href="get-involved.html">Get Involved</a></li>
+        <li class="menu-item menu-cta" data-nav="get-connected"><a href="get-connected.html">Get Connected</a></li>
       </ul>
     </nav>
   </div>
@@ -2439,19 +2455,25 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <div class="p2-answer"><strong>Who can attend.</strong> CPPDC events are open to Texas employers, workforce boards, adult education and literacy providers and partner organizations. Webinars and the Employer Connect Hub are virtual and free. Regional Summits and the Career Pathways Symposium are in person. Each event type has one way to register, shown on its card.</div>
   <div class="p2-filters" role="group" aria-label="Filter events">
     <div class="p2-fgroup"><span class="lbl">Show</span><div class="chips"><button class="chip is-active" data-when="upcoming">Upcoming</button><button class="chip" data-when="past">Past</button></div></div>
-    <div class="p2-fgroup"><span class="lbl">Type</span><div class="chips"><button class="chip is-active" data-type="all">All</button><button class="chip" data-type="webinar">Webinars</button><button class="chip" data-type="summit">Regional Summits</button><button class="chip" data-type="symposium">Symposium</button><button class="chip" data-type="hub">Employer Connect Hub</button><button class="chip" data-type="academy">Workforce Academy</button></div></div>
+    <div class="p2-fgroup"><span class="lbl">Type</span><div class="chips"><button class="chip is-active" data-type="all">All</button><button class="chip" data-type="webinar">Webinars</button><button class="chip" data-type="summit">Regional Summits</button><button class="chip" data-type="symposium">Symposium</button><button class="chip" data-type="hub">Employer Connect Hub</button><button class="chip" data-type="academy">Workforce Integration Academy</button></div></div>
   
   </div>
 
+  <div class="p2-viewbar"><span class="lbl">View</span><button class="chip is-active" data-view="list" type="button">List</button><button class="chip" data-view="month" type="button">Month</button></div>
+  <div class="p2-month" id="evMonth" hidden>
+    <div class="p2-month-head"><button type="button" class="chip" aria-label="Previous month">&lsaquo;</button><strong>December 2027</strong><button type="button" class="chip" aria-label="Next month">&rsaquo;</button></div>
+    <div class="p2-month-grid" id="evMonthGrid"></div>
+    <p class="p2-events-note">Month view comes from the events calendar plugin; events show on their dates and open the same registration path.</p>
+  </div>
   <div class="cppdc-events-grid" id="evGrid">
     <article class="cppdc-event-card" data-when="upcoming" data-type="hub">
-      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Date</span><span class="cppdc-event-day">TBC</span><span class="cppdc-event-year">2027</span></div>
+      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Dec</span><span class="cppdc-event-day">1</span><span class="cppdc-event-year">2027</span></div>
       <div class="cppdc-event-body">
-        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Advisory</span><span class="cppdc-event-tag cppdc-event-tag-virtual">Virtual</span></div>
+        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Employer Connect Hub</span><span class="cppdc-event-tag cppdc-event-tag-virtual">Virtual</span></div>
         <h3 class="cppdc-event-title">Employer Connect Hub: monthly session</h3>
-        <p class="cppdc-event-meta">60 minutes &middot; Free &middot; <span class="p2-ph">Next date from CPPDC</span></p>
+        <p class="cppdc-event-meta">12:30 pm CST / 11:30 am MST &middot; 60 minutes &middot; Free <span class="p2-ph">Year 2027 to confirm</span></p>
         <p class="cppdc-event-desc">Monthly cross-sector session aligning career pathways with industry needs. Employers welcome.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-involved.html#employer">Join the advisory</a><span class="p2-ph">Registration: employer sign-up list</span></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#employer">Be a Change Agent</a><span class="p2-ph">Registration: employer sign-up list</span></div>
       </div>
     </article>
     <article class="cppdc-event-card" data-when="upcoming" data-type="webinar">
@@ -2470,7 +2492,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-training">Regional Summit</span><span class="cppdc-event-tag cppdc-event-tag-inperson">In person</span></div>
         <h3 class="cppdc-event-title">Regional Summit 2027 <span class="p2-ph">Region</span></h3>
         <p class="cppdc-event-meta">One day &middot; 75 seats &middot; No cost</p>
-        <p class="cppdc-event-desc">Integrated Education and Training summit for the host region's providers, workforce board and employers.</p>
+        <p class="cppdc-event-desc">Career pathway-specific summit for the host region's providers, workforce board and employers.</p>
         <div class="p2-event-actions"><a class="p2-btn-sm" href="#">RSVP</a><span class="p2-ph">Registration: RSVP on this site</span></div>
       </div>
     </article>
@@ -2488,10 +2510,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <div class="cppdc-event-datebox"><span class="cppdc-event-month">Date</span><span class="cppdc-event-day">TBC</span><span class="cppdc-event-year">2027</span></div>
       <div class="cppdc-event-body">
         <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-training">Cohort</span><span class="cppdc-event-tag cppdc-event-tag-inperson">Hybrid</span></div>
-        <h3 class="cppdc-event-title">Workforce Academy 2027 cohort</h3>
+        <h3 class="cppdc-event-title">Workforce Integration Academy 2027 cohort</h3>
         <p class="cppdc-event-meta">5 months &middot; 10 provider teams &middot; No cost</p>
         <p class="cppdc-event-desc">Application window and session dates will post here when confirmed.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-involved.html#interest">Express interest</a><span class="p2-ph">Registration: application via interest list</span></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#interest">Express interest</a><span class="p2-ph">Registration: application via interest list</span></div>
       </div>
     </article>
 
@@ -2526,7 +2548,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <article class="cppdc-event-card" data-when="past" data-type="hub" hidden>
       <div class="cppdc-event-datebox"><span class="cppdc-event-month">Aug</span><span class="cppdc-event-day">25</span><span class="cppdc-event-year">2026</span></div>
       <div class="cppdc-event-body">
-        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Advisory</span><span class="cppdc-event-tag cppdc-event-tag-past">Past event</span></div>
+        <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Employer Connect Hub</span><span class="cppdc-event-tag cppdc-event-tag-past">Past event</span></div>
         <h3 class="cppdc-event-title">Employer Connect Hub session</h3>
         <p class="cppdc-event-meta">Virtual &middot; 60 minutes</p>
         <p class="cppdc-event-desc">Monthly cross-sector session aligning career pathways with industry needs.</p>
@@ -2553,7 +2575,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
     <h2 class="wp-block-heading has-text-align-center">Want the Dates Before Anyone Else?</h2>
     <p>Join the interest list and pick the initiatives you want updates on.</p>
-    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html#interest">Get event updates</a></div></div>
+    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html#interest">Get event updates</a></div></div>
   </div>
 </div>
 
@@ -2576,6 +2598,13 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     });
   });
   apply();
+  var g=document.getElementById("evMonthGrid");
+  if(g){var days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];var h=days.map(function(d){return '<div class="dh">'+d+'</div>';}).join("");
+    var first=3,n=31,ev={1:["Employer Connect Hub","hub"],9:["Webinar Series","webinar"],15:["Regional Summit","summit"]};
+    for(var i=0;i<first;i++)h+='<div class="d empty"></div>';
+    for(var d=1;d<=n;d++){h+='<div class="d'+(ev[d]?' has':'')+'"><span class="num">'+d+'</span>'+(ev[d]?'<a class="evt evt-'+ev[d][1]+'" href="#">'+ev[d][0]+'</a>':'')+'</div>';}
+    g.innerHTML=h;}
+  document.querySelectorAll(".p2-viewbar .chip").forEach(function(b){b.addEventListener("click",function(){var v=b.getAttribute("data-view");document.querySelectorAll(".p2-viewbar .chip").forEach(function(x){x.classList.toggle("is-active",x===b);});document.getElementById("evMonth").hidden=v!=="month";document.getElementById("evGrid").hidden=v!=="list";document.getElementById("evEmpty").hidden=true;if(v==="list")apply();});});
 })();
 </script>
 <footer class="site-footer" id="colophon">
@@ -2589,7 +2618,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="partners.html">Partners</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-involved.html">Get Involved</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>

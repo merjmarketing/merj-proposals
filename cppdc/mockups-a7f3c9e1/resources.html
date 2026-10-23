@@ -2379,6 +2379,24 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-jump a{color:#2c3b97;font-weight:700;text-decoration:none;border-bottom:2px solid rgba(156,227,125,.6);padding-bottom:1px}
 .p2-jump a:hover{border-bottom-color:#daab28}
 .p2-res-group{scroll-margin-top:96px}
+/* ---- events: list / month view ---- */
+.p2-viewbar{display:flex;align-items:center;justify-content:center;gap:10px;max-width:1200px;margin:22px auto 0}
+.p2-viewbar .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4a8a3a}
+.p2-month{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid rgba(44,59,151,.18);border-radius:12px;overflow:hidden;box-shadow:0 12px 28px rgba(44,59,151,.12)}
+.p2-month-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%);color:#fff;border-left:5px solid #9ce37d}
+.p2-month-head strong{font-size:1rem;letter-spacing:.02em}
+.p2-month-head .chip{padding:4px 12px;background:rgba(255,255,255,.14);border-color:transparent;color:#fff}
+.p2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid rgba(44,59,151,.1)}
+.p2-month-grid .dh{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#67768e;padding:8px 10px;border-bottom:1px solid rgba(44,59,151,.1);background:#f8f9fb}
+.p2-month-grid .d{min-height:86px;padding:6px 8px;border-right:1px solid rgba(44,59,151,.08);border-bottom:1px solid rgba(44,59,151,.08);font-size:.78rem;color:#67768e;position:relative}
+.p2-month-grid .d:nth-child(7n){border-right:0}
+.p2-month-grid .d.empty{background:#fbfbfc}
+.p2-month-grid .d.has .num{color:#2c3b97;font-weight:800}
+.p2-month-grid .evt{display:block;margin-top:6px;font-size:.68rem;font-weight:800;line-height:1.25;padding:4px 6px;border-radius:4px;text-decoration:none;color:#1a2456;background:rgba(156,227,125,.3);border-left:3px solid #9ce37d}
+.p2-month-grid .evt-hub{background:rgba(44,59,151,.1);border-left-color:#2c3b97}
+.p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
+.p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
+@media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
 </style></head><body><div class="p2-page" data-page="resources" data-nav="resources"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2388,11 +2406,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
-  <a href="partners.html" data-page="partners">Partners</a>
-  <a href="get-involved.html" data-page="get-involved">Get Involved</a>
+  <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.3 · 15 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2402,7 +2419,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <ul class="main-header-menu" id="primary-menu">
         <li class="menu-item has-sub" data-nav="initiatives"><a href="initiatives.html">Initiatives<span class="caret" aria-hidden="true">&#9662;</span></a>
           <ul class="sub-menu">
-            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Academy</a></li>
+            <li><a href="initiative.html#academy"><small>Cohort</small>Workforce Integration Academy</a></li>
             <li><a href="initiative.html#webinars"><small>Virtual</small>Webinar Series</a></li>
             <li><a href="initiative.html#summits"><small>Regional</small>Regional Summits</a></li>
             <li><a href="initiative.html#symposium"><small>Statewide</small>Career Pathways Symposium</a></li>
@@ -2412,9 +2429,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         </li>
         <li class="menu-item" data-nav="events"><a href="events.html">Events</a></li>
         <li class="menu-item" data-nav="resources"><a href="resources.html">Resources</a></li>
-        <li class="menu-item" data-nav="partners"><a href="partners.html">Partners</a></li>
         <li class="menu-item" data-nav="about"><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a></li>
-        <li class="menu-item menu-cta" data-nav="get-involved"><a href="get-involved.html">Get Involved</a></li>
+        <li class="menu-item menu-cta" data-nav="get-connected"><a href="get-connected.html">Get Connected</a></li>
       </ul>
     </nav>
   </div>
@@ -2445,7 +2461,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
   <div id="resGrid">
   <section class="p2-res-group" id="recording" data-cat="recording">
-    <div class="p2-res-group-head"><h3>Webinar Recordings <span class="count"></span></h3><p>Watch past sessions of the Webinar Series and the Employer Connect Hub.</p></div>
+    <div class="p2-res-group-head"><h3>Webinar Recordings <span class="count"></span></h3><p>Sessions specific to CPPDC's grant, hosted on CPPDC's YouTube channel. Recordings shared with TCALL live in the <a href="#">TCALL library</a> <span class="p2-ph">link from CPPDC</span>.</p></div>
     <div class="p2-res-grid">
     <article class="p2-res p2-media" data-cat="recording" data-aud="providers boards">
       <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-58-1024x683.jpg)" aria-label="Play Webinar: cross-sector coordination that sticks"><span class="play" aria-hidden="true"></span><span class="dur">58 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
@@ -2453,7 +2469,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     </article>
     <article class="p2-res p2-media" data-cat="recording" data-aud="employers">
       <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-43-1024x683.jpg)" aria-label="Play Employer Connect Hub: aligning training with hiring needs"><span class="play" aria-hidden="true"></span><span class="dur">52 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Employer Connect Hub: aligning training with hiring needs</h3><p>Recorded advisory session with employers from three Texas industries on what they need from adult education partners.</p><span class="meta">Video &middot; 52 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
+      <div class="p2-res-body"><h3>Employer Connect Hub: aligning training with hiring needs</h3><p>Recorded think tank session with employers from three Texas industries on what they need from adult education partners.</p><span class="meta">Video &middot; 52 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
     </article>
     </div>
   </section>
@@ -2492,8 +2508,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <div class="p2-res-group-head"><h3>Templates <span class="count"></span></h3><p>Planning documents to download and adapt.</p></div>
     <div class="p2-res-grid">
     <article class="p2-res p2-media" data-cat="template" data-aud="providers">
-      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Workforce Academy impact plan template"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">DOCX</span><span class="type">Template</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Workforce Academy impact plan template</h3><p>The planning template Academy teams use to set partnership goals, milestones and measures for the program year.</p><span class="meta">DOCX &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download template</a></div>
+      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Workforce Integration Academy impact plan template"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">DOCX</span><span class="type">Template</span><span class="p2-ph ex">Example</span></a>
+      <div class="p2-res-body"><h3>Workforce Integration Academy impact plan template</h3><p>The planning template Academy teams use to set partnership goals, milestones and measures for the program year.</p><span class="meta">DOCX &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download template</a></div>
     </article>
     </div>
   </section>
@@ -2508,7 +2524,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
     <h2 class="wp-block-heading has-text-align-center">Looking for Something Specific?</h2>
     <p>Tell CPPDC what your program or region needs and the team will point you to it.</p>
-    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-involved.html#interest">Ask CPPDC</a></div></div>
+    <div class="wp-block-buttons is-content-justification-center"><div class="wp-block-button"><a class="wp-block-button__link" href="get-connected.html#interest">Ask CPPDC</a></div></div>
   </div>
 </div>
 
@@ -2549,7 +2565,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="partners.html">Partners</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-involved.html">Get Involved</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>

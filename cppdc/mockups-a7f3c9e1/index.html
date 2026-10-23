@@ -2379,6 +2379,24 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-jump a{color:#2c3b97;font-weight:700;text-decoration:none;border-bottom:2px solid rgba(156,227,125,.6);padding-bottom:1px}
 .p2-jump a:hover{border-bottom-color:#daab28}
 .p2-res-group{scroll-margin-top:96px}
+/* ---- events: list / month view ---- */
+.p2-viewbar{display:flex;align-items:center;justify-content:center;gap:10px;max-width:1200px;margin:22px auto 0}
+.p2-viewbar .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4a8a3a}
+.p2-month{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid rgba(44,59,151,.18);border-radius:12px;overflow:hidden;box-shadow:0 12px 28px rgba(44,59,151,.12)}
+.p2-month-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%);color:#fff;border-left:5px solid #9ce37d}
+.p2-month-head strong{font-size:1rem;letter-spacing:.02em}
+.p2-month-head .chip{padding:4px 12px;background:rgba(255,255,255,.14);border-color:transparent;color:#fff}
+.p2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid rgba(44,59,151,.1)}
+.p2-month-grid .dh{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#67768e;padding:8px 10px;border-bottom:1px solid rgba(44,59,151,.1);background:#f8f9fb}
+.p2-month-grid .d{min-height:86px;padding:6px 8px;border-right:1px solid rgba(44,59,151,.08);border-bottom:1px solid rgba(44,59,151,.08);font-size:.78rem;color:#67768e;position:relative}
+.p2-month-grid .d:nth-child(7n){border-right:0}
+.p2-month-grid .d.empty{background:#fbfbfc}
+.p2-month-grid .d.has .num{color:#2c3b97;font-weight:800}
+.p2-month-grid .evt{display:block;margin-top:6px;font-size:.68rem;font-weight:800;line-height:1.25;padding:4px 6px;border-radius:4px;text-decoration:none;color:#1a2456;background:rgba(156,227,125,.3);border-left:3px solid #9ce37d}
+.p2-month-grid .evt-hub{background:rgba(44,59,151,.1);border-left-color:#2c3b97}
+.p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
+.p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
+@media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
 </style></head><body><div class="p2-page" data-page="index" data-nav="none"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2388,17 +2406,16 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
-  <a href="partners.html" data-page="partners">Partners</a>
-  <a href="get-involved.html" data-page="get-involved">Get Involved</a>
+  <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.3 · 15 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 
 <div class="p2-index">
-  <p class="cppdc-eyebrow">CPPDC Website Phase 2 &middot; Mockups v0.3 &middot; 15 October 2026</p>
+  <p class="cppdc-eyebrow">CPPDC Website Phase 2 &middot; Mockups v0.4, V2 in progress &middot; 23 October 2026</p>
   <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);color:#2c3b97;line-height:1.1">Page Mockups for the Proposed Sitemap</h1>
-  <p style="max-width:720px;color:#555">Seven templates cover all twelve pages. Every mockup uses the live site's own design system (colors, type, buttons, cards, header and footer), so what you see here is what the Phase 2 pages will look like on txcareerpathways.org. Dashed gold labels mark content CPPDC supplies. Three initiative names carry a "name to confirm" tag until CPPDC decides.</p>
+  <p style="max-width:720px;color:#555">Six templates cover all eleven pages (Partners now lives on Get Connected, per CPPDC). Every mockup uses the live site's own design system (colors, type, buttons, cards, header and footer), so what you see here is what the Phase 2 pages will look like on txcareerpathways.org. Dashed gold labels mark content CPPDC supplies. Initiative names follow CPPDC's decisions of 21 October.</p>
   <p style="max-width:760px;color:#555">Every section on every page carries a numbered callout: <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#AD4B72;color:#fff">New</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#266F99;color:#fff">Rebuilt</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#35A48E;color:#fff">Updated</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#5F5F5F;color:#fff">Same</span></span>, with what changed and why. Switch them off with the Callouts button in the top bar to see the page clean.</p>
   <div class="p2-index-grid">
     <a class="p2-index-card" href="home.html"><b>Home</b><span>Audience-first hero, three entry paths, six initiatives, live events feed, partner strip.</span><small>Rebuilt &middot; page 1</small></a>
@@ -2406,11 +2423,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <a class="p2-index-card" href="initiative.html#academy"><b>Initiative page template</b><span>One template for all six: what it is, who it serves, how to get involved, next dates, FAQ. Switch initiatives from the menu.</span><small>New &middot; pages 3 to 8</small></a>
     <a class="p2-index-card" href="events.html"><b>Events</b><span>Upcoming and past, filter by type, one registration path per event type.</span><small>New &middot; page 9</small></a>
     <a class="p2-index-card" href="resources.html"><b>Resources</b><span>Filterable library by category and audience, with a summary on every item.</span><small>New &middot; page 10</small></a>
-    <a class="p2-index-card" href="partners.html"><b>Partners</b><span>Logo showcase, short profiles, employer sign-up and partner inquiry.</span><small>New &middot; page 11</small></a>
-    <a class="p2-index-card" href="get-involved.html"><b>Get Involved</b><span>Forms hub: interest form, partner inquiry, employer sign-up, FAQ.</span><small>Rebuilt &middot; page 12</small></a>
+    <a class="p2-index-card" href="get-connected.html"><b>Get Connected</b><span>Forms hub plus the partner showcase: interest form, partner inquiry, employer sign-up, logos, profiles, FAQ.</span><small>Rebuilt &middot; page 11</small></a>
   </div>
   <h2 style="margin-top:48px;font-size:1.4rem;color:#2c3b97">The Sitemap These Pages Follow</h2>
-  <img src="assets/img/sitemap.png" alt="Proposed sitemap: Home, then Initiatives (six pages), Events, Resources, Partners, About and Get Involved, with the three legal pages revised." style="border:1px solid rgba(44,59,151,.12);border-radius:10px;margin-top:12px">
+  <img src="assets/img/sitemap.png" alt="Proposed sitemap: Home, then Initiatives (six pages), Events, Resources, Partners, About and Get Connected, with the three legal pages revised." style="border:1px solid rgba(44,59,151,.12);border-radius:10px;margin-top:12px">
   <h2 style="margin-top:40px;font-size:1.4rem;color:#2c3b97">What Is Not in These Mockups</h2>
   <ul style="color:#555;max-width:720px">
     <li>About and the three legal pages: copy updates and revisions, no layout change, so not mocked.</li>
@@ -2419,7 +2435,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <li>Forms and filters work on the page but do not send anything.</li>
   </ul>
   <h2 style="margin-top:40px;font-size:1.4rem;color:#2c3b97">How to Give Feedback</h2>
-  <p style="color:#555;max-width:720px">Name the page and the section, and say what to change. Three decisions move everything forward: the initiative names (Workforce Academy or Workforce Integration Academy; Employer Connect Hub or Employer Engagement Hub; Regional Summits or Regional Trainings), the resource library categories, and the registration method for each event type.</p>
+  <p style="color:#555;max-width:720px">Name the page and the section, and say what to change. Open items: the year-two wording for the Initiatives closing call to action, the TCALL library link, the webinar platform, and the resource library sections.</p>
 </div>
 <footer class="site-footer" id="colophon">
   <div class="cppdc-footer">
@@ -2432,7 +2448,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="partners.html">Partners</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-involved.html">Get Involved</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>
