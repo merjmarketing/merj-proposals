@@ -2421,6 +2421,17 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-hub-card .cppdc-mini-title,.p2-hub-card .cppdc-mini-link{color:#fff!important}
 .p2-hub-card .cppdc-mini-desc{color:rgba(255,255,255,.85)!important}
 .p2-hub-card:hover .cppdc-mini-link{color:#9ce37d!important}
+
+/* ---- five-up initiative grid + hub band ---- */
+@media (min-width:1100px){.cppdc-activities-section .cppdc-mini-grid{grid-template-columns:repeat(5,1fr);gap:16px}.cppdc-activities-section .cppdc-mini-card .cppdc-mini-desc{font-size:.88rem}.cppdc-activities-section .cppdc-mini-card .cppdc-mini-title{font-size:1.02rem!important}.cppdc-activities-section .p2-head{padding:10px 14px}.cppdc-activities-section .p2-head span{font-size:.62rem;letter-spacing:.1em}.cppdc-activities-section .cppdc-mini-card>*:not(.p2-head){margin-left:18px!important;margin-right:18px!important}}
+.p2-hub-band{padding:56px 24px!important;min-height:0!important}
+.p2-hub-band .wp-block-cover__background{display:none}
+.p2-hub-band-row{display:flex;align-items:center;justify-content:space-between;gap:32px;text-align:left}
+.p2-hub-band-row>div:first-child{max-width:760px}
+.p2-hub-band-row h2{margin:4px 0 8px;font-size:clamp(1.5rem,2.8vw,2.1rem)}
+.p2-hub-band-row p{margin:0}
+.p2-hub-band .wp-block-buttons{flex:none}
+@media (max-width:800px){.p2-hub-band-row{flex-direction:column;align-items:flex-start}}
 </style></head><body><div class="p2-page" data-page="home" data-nav="home"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2544,19 +2555,32 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 </div>
 
 <div class="wp-block-group alignfull cppdc-activities-section is-layout-constrained">
-<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>Five initiatives plus the Employer Connect Hub tile</b><span class="w">Workforce Integration Academy and the new summit and Hub wording are in. The Hub is no longer one of the initiatives: it has its own page and its own menu item, so this tile opens that page.</span></div></aside>
+<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>Five numbered initiatives</b><span class="w">Workforce Integration Academy and the new summit wording are in. The Employer Connect Hub is no longer in this grid; it has the band below and its own page.</span></div></aside>
 
 
   <p class="cppdc-eyebrow has-text-align-center">What we do</p>
-  <h2 class="wp-block-heading has-text-align-center">Five Initiatives and One Employer Hub.</h2>
-  <p class="p2-section-lede">From a team-based cohort to regional convenings to a statewide symposium, every initiative moves Texas career pathways forward. Employers have a home of their own.</p>
+  <h2 class="wp-block-heading has-text-align-center">Five Initiatives. One Coordinated Strategy.</h2>
+  <p class="p2-section-lede">From a team-based cohort to regional convenings to a statewide symposium, every initiative moves Texas career pathways forward.</p>
   <div class="cppdc-mini-grid">
     <article class="cppdc-mini-card"><p class="p2-head"><span>Cohort &middot; Hybrid</span><b>01</b></p><h3 class="cppdc-mini-title">Workforce Integration Academy </h3><p class="cppdc-mini-desc">A multi-month, hybrid cohort guiding AEL provider teams to strengthen partnerships and develop impact plans. <em>Next cohort: 8 January 2027.</em></p><a href="initiative.html#academy" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Virtual &middot; Free &middot; Recorded</span><b>02</b></p><h3 class="cppdc-mini-title">Webinar Series</h3><p class="cppdc-mini-desc">Regular virtual sessions on cross-sector coordination, communication and collaboration, recorded for anyone who misses the live session.</p><a href="initiative.html#webinars" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Regional &middot; In person</span><b>03</b></p><h3 class="cppdc-mini-title">Regional Summits </h3><p class="cppdc-mini-desc">One-day career pathway-specific summits delivered across Texas regions, built around regional industry context.</p><a href="initiative.html#summits" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Statewide &middot; Flagship</span><b>04</b></p><h3 class="cppdc-mini-title">Career Pathways Symposium</h3><p class="cppdc-mini-desc">A two-day statewide convening of AEL providers, employers, workforce boards and agency partners. <em>Next Symposium: 2027.</em></p><a href="initiative.html#symposium" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
-    <a class="cppdc-mini-card cppdc-mini-cta p2-hub-card" href="hub.html"><p class="p2-head"><span>For employers</span><b>&#8599;</b></p><h3 class="cppdc-mini-title">Employer Connect Hub</h3><p class="cppdc-mini-desc">Curated information, a wider network and a stronger talent pipeline for Texas employers. Its own page, outside the five initiatives.</p><span class="cppdc-mini-link">Visit the Hub <span aria-hidden="true">&rarr;</span></span></a>
     <article class="cppdc-mini-card"><p class="p2-head"><span>Ongoing &middot; Statewide</span><b>05</b></p><h3 class="cppdc-mini-title">Professional Development</h3><p class="cppdc-mini-desc">Three tiers of professional development and technical assistance for AEL providers across all 28 Texas workforce areas.</p><a href="initiative.html#pd" class="cppdc-mini-link">Learn more <span aria-hidden="true">&rarr;</span></a></article>
+  </div>
+</div>
+
+<div class="wp-block-cover alignfull p2-navy p2-hub-band">
+  <div class="wp-block-cover__inner-container p2-wide">
+<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>The Hub has its own band, not a numbered card</b><span class="w">The Employer Connect Hub is a page for employers, not one of the initiatives, so it leaves the numbered grid. This band mirrors its menu item and opens the new page.</span></div></aside>
+    <div class="p2-hub-band-row">
+      <div>
+        <p class="cppdc-eyebrow has-text-align-center" style="text-align:left">For employers</p>
+        <h2 class="wp-block-heading">The Employer Connect Hub</h2>
+        <p class="p2-on-dark">Curated information, a wider network and a stronger talent pipeline for Texas employers who recruit, develop and retain skilled talent through adult education partnerships.</p>
+      </div>
+      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="hub.html">Visit the Employer Connect Hub</a></div></div>
+    </div>
   </div>
 </div>
 

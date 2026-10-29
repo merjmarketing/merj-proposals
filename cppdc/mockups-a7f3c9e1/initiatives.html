@@ -2421,6 +2421,17 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-hub-card .cppdc-mini-title,.p2-hub-card .cppdc-mini-link{color:#fff!important}
 .p2-hub-card .cppdc-mini-desc{color:rgba(255,255,255,.85)!important}
 .p2-hub-card:hover .cppdc-mini-link{color:#9ce37d!important}
+
+/* ---- five-up initiative grid + hub band ---- */
+@media (min-width:1100px){.cppdc-activities-section .cppdc-mini-grid{grid-template-columns:repeat(5,1fr);gap:16px}.cppdc-activities-section .cppdc-mini-card .cppdc-mini-desc{font-size:.88rem}.cppdc-activities-section .cppdc-mini-card .cppdc-mini-title{font-size:1.02rem!important}.cppdc-activities-section .p2-head{padding:10px 14px}.cppdc-activities-section .p2-head span{font-size:.62rem;letter-spacing:.1em}.cppdc-activities-section .cppdc-mini-card>*:not(.p2-head){margin-left:18px!important;margin-right:18px!important}}
+.p2-hub-band{padding:56px 24px!important;min-height:0!important}
+.p2-hub-band .wp-block-cover__background{display:none}
+.p2-hub-band-row{display:flex;align-items:center;justify-content:space-between;gap:32px;text-align:left}
+.p2-hub-band-row>div:first-child{max-width:760px}
+.p2-hub-band-row h2{margin:4px 0 8px;font-size:clamp(1.5rem,2.8vw,2.1rem)}
+.p2-hub-band-row p{margin:0}
+.p2-hub-band .wp-block-buttons{flex:none}
+@media (max-width:800px){.p2-hub-band-row{flex-direction:column;align-items:flex-start}}
 </style></head><body><div class="p2-page" data-page="initiatives" data-nav="initiatives"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2490,10 +2501,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   </table></div>
 </div>
 <div class="wp-block-group alignfull is-layout-constrained">
-<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>Five initiative cards and the Hub card</b><span class="w">Summary line uses your phrases ("hosting cross-sector entities", "connecting practitioners to industries") and says participation is free. The Employer Connect Hub card points to its new top-level page.</span></div></aside>
+<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>Five initiative cards</b><span class="w">Summary line uses your phrases ("hosting cross-sector entities", "connecting practitioners to industries") and says participation is free. Professional Development spans the row because it threads through every initiative. The Employer Connect Hub has the band below instead of a card.</span></div></aside>
 
 
-  <div class="p2-answer"><strong>What CPPDC offers.</strong> CPPDC runs five initiatives for Texas adult education and literacy (AEL) providers, workforce boards and employers: the Workforce Integration Academy, a cohort for provider teams; a free recorded Webinar Series; one-day Regional Summits on Integrated Education and Training; the statewide Career Pathways Symposium, hosting cross-sector entities; and ongoing Professional Development with technical assistance. Employers have their own home in the Employer Connect Hub. Participation is free.</div>
+  <div class="p2-answer"><strong>What CPPDC offers.</strong> CPPDC runs five initiatives for Texas adult education and literacy (AEL) providers, workforce boards and employers: the Workforce Integration Academy, a cohort for provider teams; a free recorded Webinar Series; one-day Regional Summits on Integrated Education and Training; the statewide Career Pathways Symposium, hosting cross-sector entities; and ongoing Professional Development with technical assistance. Employers have their own home in the Employer Connect Hub, which is not an initiative but a page built for them. Participation is free.</div>
 
   <div class="wp-block-columns" style="margin-top:40px">
     <div class="wp-block-column"><div class="cppdc-activity-card">
@@ -2536,12 +2547,6 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     </div></div>
   </div>
   <div class="wp-block-columns">
-    <div class="wp-block-column"><div class="cppdc-activity-card p2-hub-card-lg">
-      <p class="p2-head"><span>For employers</span><b>&#8599;</b></p>
-      <h3>Employer Connect Hub</h3>
-      <p>Not an initiative any more: the Hub is CPPDC's standing home for Texas employers, with curated information, networking opportunities and the talent pipeline in one place.</p>
-      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="hub.html">Visit the Employer Connect Hub</a></div></div>
-    </div></div>
     <div class="wp-block-column"><div class="cppdc-activity-card">
       <p class="p2-head"><span>Ongoing</span><b>05</b></p>
       <h3>Professional Development</h3>
@@ -2554,6 +2559,20 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   </div>
 </div>
 
+
+<div class="wp-block-cover alignfull p2-navy p2-hub-band">
+  <div class="wp-block-cover__inner-container p2-wide">
+<aside class="p2-callout" data-k="updated"><span class="n">1</span><div class="body"><span class="k">Changed</span><b>The Hub has its own band, not a numbered card</b><span class="w">The Employer Connect Hub is a page for employers, not one of the initiatives, so it leaves the numbered grid. This band mirrors its menu item and opens the new page.</span></div></aside>
+    <div class="p2-hub-band-row">
+      <div>
+        <p class="cppdc-eyebrow has-text-align-center" style="text-align:left">For employers</p>
+        <h2 class="wp-block-heading">The Employer Connect Hub</h2>
+        <p class="p2-on-dark">Curated information, a wider network and a stronger talent pipeline for Texas employers who recruit, develop and retain skilled talent through adult education partnerships.</p>
+      </div>
+      <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="hub.html">Visit the Employer Connect Hub</a></div></div>
+    </div>
+  </div>
+</div>
 
 <div class="wp-block-cover alignfull cppdc-gold-band">
   <div class="wp-block-cover__inner-container">
