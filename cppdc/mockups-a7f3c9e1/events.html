@@ -2397,6 +2397,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
 .p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
 @media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
+
+/* ---- helpful-link cards ---- */
+.p2-thumb-link{background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%)!important;display:flex!important;align-items:center;justify-content:center}
+.p2-thumb-link .lk{font-size:3rem;color:#9ce37d;font-weight:900;line-height:1}
 </style></head><body><div class="p2-page" data-page="events" data-nav="events"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2409,7 +2413,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.5 (V2 in progress) · 29 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2445,14 +2449,14 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <p class="p2-crumbs"><a href="home.html">Home</a> &rsaquo; Events</p>
     <p class="cppdc-eyebrow has-text-align-center">Webinars &middot; Summits &middot; Symposium &middot; Employer Connect Hub</p>
     <h1>Career Pathways Events Across Texas.</h1>
-    <p class="p2-lede">Webinars, Regional Summits, the Employer Connect Hub and the statewide Symposium. Upcoming and past, with one registration path per event type.</p>
+    <p class="p2-lede">Webinars, Regional Summits, the Employer Connect Hub and the statewide Symposium. Upcoming and past, with two registration paths on every event.</p>
   </div>
 </div>
 
 <div class="wp-block-group alignfull is-layout-constrained">
-<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>Filters, one registration path per type</b><span class="w">Upcoming or past, then by type. Each card states how that event type registers (webinar link, RSVP on the site, or the employer list). Past events stay listed so the page keeps ranking between seasons. The gray intro line above the filters is the AI-search summary.</span></div></aside>
+<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>Filters, one registration path per type</b><span class="w">Upcoming or past, then by type. Every event carries two registration buttons per CPPDC: AEL providers through the TCALL PD Portal, all other partners through the event's own link (Mailchimp or other). On the live site these are two optional link fields on each event entry; a button shows only when its link is filled. Past events stay listed so the page keeps ranking between seasons. The gray intro line above the filters is the AI-search summary.</span></div></aside>
 
-  <div class="p2-answer"><strong>Who can attend.</strong> CPPDC events are open to Texas employers, workforce boards, adult education and literacy providers and partner organizations. Webinars and the Employer Connect Hub are virtual and free. Regional Summits and the Career Pathways Symposium are in person. Each event type has one way to register, shown on its card.</div>
+  <div class="p2-answer"><strong>Who can attend.</strong> CPPDC events are open to Texas employers, workforce boards, adult education and literacy providers and partner organizations. Webinars and Employer Connect Hub sessions are virtual and free. Regional Summits and the Career Pathways Symposium are in person. Every event has two ways to register: AEL providers through the TCALL PD Portal, everyone else through the link on the card.</div>
   <div class="p2-filters" role="group" aria-label="Filter events">
     <div class="p2-fgroup"><span class="lbl">Show</span><div class="chips"><button class="chip is-active" data-when="upcoming">Upcoming</button><button class="chip" data-when="past">Past</button></div></div>
     <div class="p2-fgroup"><span class="lbl">Type</span><div class="chips"><button class="chip is-active" data-type="all">All</button><button class="chip" data-type="webinar">Webinars</button><button class="chip" data-type="summit">Regional Summits</button><button class="chip" data-type="symposium">Symposium</button><button class="chip" data-type="hub">Employer Connect Hub</button><button class="chip" data-type="academy">Workforce Integration Academy</button></div></div>
@@ -2461,19 +2465,19 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
   <div class="p2-viewbar"><span class="lbl">View</span><button class="chip is-active" data-view="list" type="button">List</button><button class="chip" data-view="month" type="button">Month</button></div>
   <div class="p2-month" id="evMonth" hidden>
-    <div class="p2-month-head"><button type="button" class="chip" aria-label="Previous month">&lsaquo;</button><strong>December 2027</strong><button type="button" class="chip" aria-label="Next month">&rsaquo;</button></div>
+    <div class="p2-month-head"><button type="button" class="chip" aria-label="Previous month">&lsaquo;</button><strong>December 2026</strong><button type="button" class="chip" aria-label="Next month">&rsaquo;</button></div>
     <div class="p2-month-grid" id="evMonthGrid"></div>
     <p class="p2-events-note">Month view comes from the events calendar plugin; events show on their dates and open the same registration path.</p>
   </div>
   <div class="cppdc-events-grid" id="evGrid">
     <article class="cppdc-event-card" data-when="upcoming" data-type="hub">
-      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Dec</span><span class="cppdc-event-day">1</span><span class="cppdc-event-year">2027</span></div>
+      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Dec</span><span class="cppdc-event-day">1</span><span class="cppdc-event-year">2026</span></div>
       <div class="cppdc-event-body">
         <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-advisory">Employer Connect Hub</span><span class="cppdc-event-tag cppdc-event-tag-virtual">Virtual</span></div>
-        <h3 class="cppdc-event-title">Employer Connect Hub: monthly session</h3>
-        <p class="cppdc-event-meta">12:30 pm CST / 11:30 am MST &middot; 60 minutes &middot; Free <span class="p2-ph">Year 2027 to confirm</span></p>
-        <p class="cppdc-event-desc">Monthly cross-sector session aligning career pathways with industry needs. Employers welcome.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#employer">Be a Change Agent</a><span class="p2-ph">Registration: employer sign-up list</span></div>
+        <h3 class="cppdc-event-title">Employer Connect Hub session</h3>
+        <p class="cppdc-event-meta">12:30 pm CST / 11:30 am MST &middot; 60 minutes &middot; Free</p>
+        <p class="cppdc-event-desc">Employer Connect Hub session for Texas employers and the adult education programs preparing their next hires.</p>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#employer">Be a Change Agent</a><a class="p2-btn-sm is-outline" href="#">Register: all other partners</a></div>
       </div>
     </article>
     <article class="cppdc-event-card" data-when="upcoming" data-type="webinar">
@@ -2483,7 +2487,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         <h3 class="cppdc-event-title">Webinar Series: next session</h3>
         <p class="cppdc-event-meta">Virtual &middot; Free &middot; Recorded &middot; <span class="p2-ph">Topic from CPPDC</span></p>
         <p class="cppdc-event-desc">Cross-sector coordination, communication and collaboration strategies for providers and partners.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="#">Register</a><span class="p2-ph">Registration: webinar platform link</span></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="https://txpdportal.instructure.com/login/canvas" target="_blank" rel="noopener">Register: AEL providers</a><a class="p2-btn-sm is-outline" href="#">Register: all other partners</a></div>
       </div>
     </article>
     <article class="cppdc-event-card" data-when="upcoming" data-type="summit">
@@ -2493,7 +2497,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         <h3 class="cppdc-event-title">Regional Summit 2027 <span class="p2-ph">Region</span></h3>
         <p class="cppdc-event-meta">One day &middot; 75 seats &middot; No cost</p>
         <p class="cppdc-event-desc">Career pathway-specific summit for the host region's providers, workforce board and employers.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="#">RSVP</a><span class="p2-ph">Registration: RSVP on this site</span></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="https://txpdportal.instructure.com/login/canvas" target="_blank" rel="noopener">Register: AEL providers</a><a class="p2-btn-sm is-outline" href="#">Register: all other partners</a></div>
       </div>
     </article>
     <article class="cppdc-event-card cppdc-event-featured" data-when="upcoming" data-type="symposium">
@@ -2503,16 +2507,16 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
         <h3 class="cppdc-event-title">Career Pathways Symposium 2027</h3>
         <p class="cppdc-event-meta">San Antonio, TX &middot; 2 days &middot; 200+ attendees</p>
         <p class="cppdc-event-desc">The statewide gathering for AEL providers, workforce boards, employers and agency partners, with a full employer engagement day.</p>
-        <div class="p2-event-actions"><a class="p2-btn-sm" href="#">Register</a><span class="p2-ph">Registration: on this site, method from CPPDC</span></div>
+        <div class="p2-event-actions"><a class="p2-btn-sm" href="https://txpdportal.instructure.com/login/canvas" target="_blank" rel="noopener">Register: AEL providers</a><a class="p2-btn-sm is-outline" href="#">Register: all other partners</a></div>
       </div>
     </article>
     <article class="cppdc-event-card" data-when="upcoming" data-type="academy">
-      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Date</span><span class="cppdc-event-day">TBC</span><span class="cppdc-event-year">2027</span></div>
+      <div class="cppdc-event-datebox"><span class="cppdc-event-month">Jan</span><span class="cppdc-event-day">8</span><span class="cppdc-event-year">2027</span></div>
       <div class="cppdc-event-body">
         <div class="cppdc-event-tags"><span class="cppdc-event-tag cppdc-event-tag-training">Cohort</span><span class="cppdc-event-tag cppdc-event-tag-inperson">Hybrid</span></div>
-        <h3 class="cppdc-event-title">Workforce Integration Academy 2027 cohort</h3>
-        <p class="cppdc-event-meta">5 months &middot; 10 provider teams &middot; No cost</p>
-        <p class="cppdc-event-desc">Application window and session dates will post here when confirmed.</p>
+        <h3 class="cppdc-event-title">Workforce Integration Academy 2027 cohort begins</h3>
+        <p class="cppdc-event-meta">Starts January 8, 2027 &middot; 5 months &middot; 10 provider teams &middot; Free</p>
+        <p class="cppdc-event-desc">Application window and session dates post here when confirmed.</p>
         <div class="p2-event-actions"><a class="p2-btn-sm" href="get-connected.html#interest">Express interest</a><span class="p2-ph">Registration: application via interest list</span></div>
       </div>
     </article>
@@ -2566,6 +2570,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     </article>
   </div>
   <p class="p2-events-note" id="evEmpty" hidden>No events match that filter yet.</p>
+  <p class="p2-events-note has-text-align-center"><strong>Two registration paths on every event.</strong> AEL community members register through the TCALL PD Portal (gold button). Employers, workforce boards and other partners use the second button, which goes to CPPDC's registration form for that event.</p>
   <p class="p2-events-note has-text-align-center">Looking for a past session? Recordings and materials live in the <a href="resources.html">Resource library</a>.</p>
 </div>
 
@@ -2600,7 +2605,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   apply();
   var g=document.getElementById("evMonthGrid");
   if(g){var days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];var h=days.map(function(d){return '<div class="dh">'+d+'</div>';}).join("");
-    var first=3,n=31,ev={1:["Employer Connect Hub","hub"],9:["Webinar Series","webinar"],15:["Regional Summit","summit"]};
+    var first=2,n=31,ev={1:["Employer Connect Hub","hub"],9:["Webinar Series","webinar"],15:["Regional Summit","summit"]};
     for(var i=0;i<first;i++)h+='<div class="d empty"></div>';
     for(var d=1;d<=n;d++){h+='<div class="d'+(ev[d]?' has':'')+'"><span class="num">'+d+'</span>'+(ev[d]?'<a class="evt evt-'+ev[d][1]+'" href="#">'+ev[d][0]+'</a>':'')+'</div>';}
     g.innerHTML=h;}

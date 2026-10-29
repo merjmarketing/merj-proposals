@@ -2397,6 +2397,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
 .p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
 @media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
+
+/* ---- helpful-link cards ---- */
+.p2-thumb-link{background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%)!important;display:flex!important;align-items:center;justify-content:center}
+.p2-thumb-link .lk{font-size:3rem;color:#9ce37d;font-weight:900;line-height:1}
 </style></head><body><div class="p2-page" data-page="resources" data-nav="resources"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2409,7 +2413,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.5 (V2 in progress) · 29 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2443,78 +2447,81 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 <aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>Resource library</b><span class="w">Scope part 4. A filterable library on its own post type, so CPPDC's team adds items after launch without touching page layouts. Categories are set with CPPDC.</span></div></aside>
 
     <p class="p2-crumbs"><a href="home.html">Home</a> &rsaquo; Resources</p>
-    <p class="cppdc-eyebrow has-text-align-center">Recordings &middot; Toolkits &middot; Reports &middot; Templates</p>
+    <p class="cppdc-eyebrow has-text-align-center">Desk Aids &middot; Publications &middot; Presentations &middot; Helpful Links</p>
     <h1>Career Pathways Resources for Texas Workforce Partners.</h1>
-    <p class="p2-lede">Webinar recordings, toolkits, reports and templates for AEL providers, workforce boards and employers. Browse by section, or filter by audience.</p>
+    <p class="p2-lede">Desk aids, publications, presentations and helpful links for AEL providers, workforce boards and employers. Browse by section, or filter by audience.</p>
   </div>
 </div>
 
 <div class="wp-block-group alignfull is-layout-constrained">
-<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>Media-style library, grouped by type</b><span class="w">The library is organized into sections (recordings, toolkits, presentations, reports, templates) with a count on each, and a jump-to row for when it grows. The only filter is Audience, because that is the one that cuts across sections. Videos show a thumbnail, play button and length; documents show a first-page preview and file type (WordPress generates PDF previews on upload). Every item has a one-paragraph summary so it is citable by AI search, and a boxed button. Recordings play on the resource's own page with an embedded YouTube player, so CPPDC needs to confirm where recordings are hosted. Downloads and plays are GA4 conversions.</span></div></aside>
+<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>Media-style library, grouped by type</b><span class="w">The library is organized into the four sections CPPDC chose (Desk Aids, Publications, Presentations, Helpful Links) with a count on each, and a jump-to row for when it grows. The only filter is Audience, because that is the one that cuts across sections. Videos show a thumbnail, play button and length; documents show a first-page preview and file type (WordPress generates PDF previews on upload). Every item has a one-paragraph summary so it is citable by AI search, and a boxed button. Recordings play on the resource's own page with an embedded YouTube player, so CPPDC needs to confirm where recordings are hosted. Downloads and plays are GA4 conversions.</span></div></aside>
 
-  <div class="p2-answer"><strong>What is here.</strong> The CPPDC Resource library collects the materials produced through its initiatives: recordings from the Webinar Series, Integrated Education and Training toolkits from the Regional Summits, Symposium presentations, reports and templates. Every resource has a one-paragraph summary, a category and an audience, and CPPDC's team adds new items after each event. <span class="p2-ph">Categories set with CPPDC</span></div>
+  <div class="p2-answer"><strong>What is here.</strong> The CPPDC Resource library collects the materials produced through its initiatives in four sections: Desk Aids (toolkits, fact sheets, guides), Publications (journals, reports, articles), Presentations (recordings and slide decks) and Helpful Links. Every resource has a one-paragraph summary and an audience, and CPPDC's team adds new items after each event.</div>
   <div class="p2-filters" role="group" aria-label="Filter resources">
     <div class="p2-fgroup"><span class="lbl">Audience</span><div class="chips"><button class="chip is-active" data-aud="all">All</button><button class="chip" data-aud="employers">Employers</button><button class="chip" data-aud="boards">Workforce boards</button><button class="chip" data-aud="providers">AEL providers</button></div></div>
   
   </div>
-  <nav class="p2-jump" aria-label="Jump to a section"><span class="lbl">Jump to</span><a href="#recording">Recordings</a><a href="#toolkit">Toolkits</a><a href="#deck">Presentations</a><a href="#report">Reports</a><a href="#template">Templates</a></nav>
+  <nav class="p2-jump" aria-label="Jump to a section"><span class="lbl">Jump to</span><a href="#desk">Desk Aids</a><a href="#pub">Publications</a><a href="#pres">Presentations</a><a href="#links">Helpful Links</a></nav>
 
   <div id="resGrid">
-  <section class="p2-res-group" id="recording" data-cat="recording">
-    <div class="p2-res-group-head"><h3>Webinar Recordings <span class="count"></span></h3><p>Sessions specific to CPPDC's grant, hosted on CPPDC's YouTube channel. Recordings shared with TCALL live in the <a href="#">TCALL library</a> <span class="p2-ph">link from CPPDC</span>.</p></div>
+  <section class="p2-res-group" id="desk" data-cat="desk">
+    <div class="p2-res-group-head"><h3>Desk Aids <span class="count"></span></h3><p>Toolkits, fact sheets, guides and templates to use day to day.</p></div>
     <div class="p2-res-grid">
-    <article class="p2-res p2-media" data-cat="recording" data-aud="providers boards">
-      <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-58-1024x683.jpg)" aria-label="Play Webinar: cross-sector coordination that sticks"><span class="play" aria-hidden="true"></span><span class="dur">58 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Webinar: cross-sector coordination that sticks</h3><p>Recording of a Webinar Series session on building working relationships between adult education programs, workforce boards and employers.</p><span class="meta">Video &middot; 58 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
-    </article>
-    <article class="p2-res p2-media" data-cat="recording" data-aud="employers">
-      <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-43-1024x683.jpg)" aria-label="Play Employer Connect Hub: aligning training with hiring needs"><span class="play" aria-hidden="true"></span><span class="dur">52 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Employer Connect Hub: aligning training with hiring needs</h3><p>Recorded think tank session with employers from three Texas industries on what they need from adult education partners.</p><span class="meta">Video &middot; 52 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
-    </article>
-    </div>
-  </section>
-  <section class="p2-res-group" id="toolkit" data-cat="toolkit">
-    <div class="p2-res-group-head"><h3>Toolkits and Guides <span class="count"></span></h3><p>Step-by-step guides for providers and employers.</p></div>
-    <div class="p2-res-grid">
-    <article class="p2-res p2-media" data-cat="toolkit" data-aud="providers">
+    <article class="p2-res p2-media" data-cat="desk" data-aud="providers">
       <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Integrated Education and Training planning guide"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Toolkit</span><span class="p2-ph ex">Example</span></a>
       <div class="p2-res-body"><h3>Integrated Education and Training planning guide</h3><p>A step-by-step guide for providers designing an IET program with a regional employer partner, from occupational focus to credential.</p><span class="meta">PDF &middot; 24 pages &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download PDF</a></div>
     </article>
-    <article class="p2-res p2-media" data-cat="toolkit" data-aud="employers">
+    <article class="p2-res p2-media" data-cat="desk" data-aud="employers">
       <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Employer guide to adult education partnerships"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Guide</span><span class="p2-ph ex">Example</span></a>
       <div class="p2-res-body"><h3>Employer guide to adult education partnerships</h3><p>How Texas employers work with adult education and literacy providers: what programs offer, how to advise on training, and how hiring pipelines form.</p><span class="meta">PDF &middot; 8 pages &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download PDF</a></div>
     </article>
-    </div>
-  </section>
-  <section class="p2-res-group" id="deck" data-cat="deck">
-    <div class="p2-res-group-head"><h3>Presentations <span class="count"></span></h3><p>Slides from the Symposium and Regional Summits.</p></div>
-    <div class="p2-res-grid">
-    <article class="p2-res p2-media" data-cat="deck" data-aud="employers boards providers">
-      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Symposium 2026: employer engagement day slides"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Presentation</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Symposium 2026: employer engagement day slides</h3><p>Plenary and strategy-lab decks from the employer engagement day of the 2026 Career Pathways Symposium.</p><span class="meta">PDF &middot; 41 slides &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download slides</a></div>
-    </article>
-    </div>
-  </section>
-  <section class="p2-res-group" id="report" data-cat="report">
-    <div class="p2-res-group-head"><h3>Reports and Data <span class="count"></span></h3><p>Findings from regional convenings.</p></div>
-    <div class="p2-res-grid">
-    <article class="p2-res p2-media" data-cat="report" data-aud="boards employers">
-      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Regional Summit findings: Gulf Coast"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Report</span><span class="p2-ph ex">Example</span></a>
-      <div class="p2-res-body"><h3>Regional Summit findings: Gulf Coast</h3><p>What Houston-area providers, the workforce board and employers identified as the priorities for stackable credentials in the region.</p><span class="meta">PDF &middot; 12 pages &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download PDF</a></div>
-    </article>
-    </div>
-  </section>
-  <section class="p2-res-group" id="template" data-cat="template">
-    <div class="p2-res-group-head"><h3>Templates <span class="count"></span></h3><p>Planning documents to download and adapt.</p></div>
-    <div class="p2-res-grid">
-    <article class="p2-res p2-media" data-cat="template" data-aud="providers">
+    <article class="p2-res p2-media" data-cat="desk" data-aud="providers">
       <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Workforce Integration Academy impact plan template"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">DOCX</span><span class="type">Template</span><span class="p2-ph ex">Example</span></a>
       <div class="p2-res-body"><h3>Workforce Integration Academy impact plan template</h3><p>The planning template Academy teams use to set partnership goals, milestones and measures for the program year.</p><span class="meta">DOCX &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download template</a></div>
     </article>
     </div>
   </section>
+  <section class="p2-res-group" id="pub" data-cat="pub">
+    <div class="p2-res-group-head"><h3>Publications <span class="count"></span></h3><p>Journals, reports and articles.</p></div>
+    <div class="p2-res-grid">
+    <article class="p2-res p2-media" data-cat="pub" data-aud="boards employers">
+      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Regional Summit findings: Gulf Coast"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Report</span><span class="p2-ph ex">Example</span></a>
+      <div class="p2-res-body"><h3>Regional Summit findings: Gulf Coast</h3><p>What Houston-area providers, the workforce board and employers identified as the priorities for stackable credentials in the region.</p><span class="meta">PDF &middot; 12 pages &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download PDF</a></div>
+    </article>
+    </div>
+  </section>
+  <section class="p2-res-group" id="pres" data-cat="pres">
+    <div class="p2-res-group-head"><h3>Presentations <span class="count"></span></h3><p>Recordings and slide decks from webinars, summits and the Symposium.</p></div>
+    <div class="p2-res-grid">
+    <article class="p2-res p2-media" data-cat="pres" data-aud="providers boards">
+      <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-58-1024x683.jpg)" aria-label="Play Webinar: cross-sector coordination that sticks"><span class="play" aria-hidden="true"></span><span class="dur">58 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
+      <div class="p2-res-body"><h3>Webinar: cross-sector coordination that sticks</h3><p>Recording of a Webinar Series session on building working relationships between adult education programs, workforce boards and employers.</p><span class="meta">Video &middot; 58 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
+    </article>
+    <article class="p2-res p2-media" data-cat="pres" data-aud="employers">
+      <a class="p2-thumb p2-thumb-video" href="resource.html#webinar" style="background-image:url(assets/img/Symposium-43-1024x683.jpg)" aria-label="Play Employer Connect Hub: aligning training with hiring needs"><span class="play" aria-hidden="true"></span><span class="dur">52 min</span><span class="type">Webinar recording</span><span class="p2-ph ex">Example</span></a>
+      <div class="p2-res-body"><h3>Employer Connect Hub: aligning training with hiring needs</h3><p>Recorded Employer Connect Hub session with employers from three Texas industries on what they need from adult education partners.</p><span class="meta">Video &middot; 52 min &middot; 2026</span><a class="p2-btn-sm" href="resource.html#webinar">Watch the recording</a></div>
+    </article>
+    <article class="p2-res p2-media" data-cat="pres" data-aud="employers boards providers">
+      <a class="p2-thumb p2-thumb-doc" href="resource.html#guide" aria-label="Open Symposium 2026: employer engagement day slides"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ft">PDF</span><span class="type">Presentation</span><span class="p2-ph ex">Example</span></a>
+      <div class="p2-res-body"><h3>Symposium 2026: employer engagement day slides</h3><p>Plenary and strategy-lab decks from the employer engagement day of the 2026 Career Pathways Symposium.</p><span class="meta">PDF &middot; 41 slides &middot; 2026</span><a class="p2-btn-sm" href="resource.html#guide">Download slides</a></div>
+    </article>
+    </div>
+  </section>
+  <section class="p2-res-group" id="links" data-cat="links">
+    <div class="p2-res-group-head"><h3>Helpful Links <span class="count"></span></h3><p>Partner portals and libraries CPPDC points to.</p></div>
+    <div class="p2-res-grid">
+    <article class="p2-res p2-media p2-link" data-cat="links" data-aud="providers">
+      <a class="p2-thumb p2-thumb-link" href="https://txpdportal.instructure.com/login/canvas" target="_blank" rel="noopener"><span class="lk" aria-hidden="true">&#8599;</span><span class="type">Helpful link</span></a>
+      <div class="p2-res-body"><h3>TCALL PD Portal</h3><p>Professional development portal for the Texas AEL community, run by TCALL. AEL providers register for CPPDC events here.</p><span class="meta">External site</span><a class="p2-btn-sm" href="https://txpdportal.instructure.com/login/canvas" target="_blank" rel="noopener">Open the PD Portal</a></div>
+    </article>
+    <article class="p2-res p2-media p2-link" data-cat="links" data-aud="providers boards employers">
+      <a class="p2-thumb p2-thumb-link" href="#"><span class="lk" aria-hidden="true">&#8599;</span><span class="type">Helpful link</span><span class="p2-ph ex">Link from CPPDC</span></a>
+      <div class="p2-res-body"><h3>TCALL shared recordings</h3><p>Recordings CPPDC shares with its partner agency TCALL live in TCALL's library.</p><span class="meta">External site</span><a class="p2-btn-sm" href="#">Open the library</a></div>
+    </article>
+    </div>
+  </section>
   </div>
-  <p class="p2-events-note" id="resEmpty" hidden>No resources match that filter yet.</p>
+<p class="p2-events-note" id="resEmpty" hidden>No resources match that filter yet.</p>
   <p class="p2-events-note has-text-align-center">New resources are added after every webinar, summit and Symposium.</p>
 </div>
 
@@ -2551,6 +2558,8 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       apply();
     });
   });
+  var h=(location.hash||"").replace("#","");
+  if(["employers","boards","providers"].indexOf(h)>-1){aud=h;document.querySelectorAll("[data-aud].chip").forEach(function(x){x.classList.toggle("is-active",x.getAttribute("data-aud")===h);});}
   apply();
 })();
 </script>

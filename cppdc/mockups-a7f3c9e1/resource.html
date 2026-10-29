@@ -2397,6 +2397,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-month-grid .evt-webinar{background:rgba(218,171,40,.18);border-left-color:#daab28}
 .p2-month .p2-events-note{padding:10px 16px 14px;margin:0;text-align:left}
 @media (max-width:700px){.p2-month-grid .d{min-height:62px;padding:4px}.p2-month-grid .evt{font-size:.6rem;padding:3px 4px}.p2-month-grid .dh{padding:6px 4px;font-size:.58rem}}
+
+/* ---- helpful-link cards ---- */
+.p2-thumb-link{background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%)!important;display:flex!important;align-items:center;justify-content:center}
+.p2-thumb-link .lk{font-size:3rem;color:#9ce37d;font-weight:900;line-height:1}
 </style></head><body><div class="p2-page" data-page="resource" data-nav="resources"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
@@ -2409,7 +2413,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.4 (V2 in progress) · 23 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.5 (V2 in progress) · 29 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2438,7 +2442,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
 <div class="wp-block-cover alignfull cppdc-hero p2-short p2-navy">
   <div class="wp-block-cover__inner-container">
-<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>One page per resource</b><span class="w">Every item in the library gets its own page, generated from the entry CPPDC adds: a title, a one-paragraph summary, the file or video link, a category and an audience. That page is what search engines and AI assistants cite, and it is where a recording plays. This template shows a video (Webinar recording) and a document (Toolkit); switch with the links in the top bar.</span></div></aside>
+<aside class="p2-callout" data-k="new"><span class="n">1</span><div class="body"><span class="k">new</span><b>One page per resource (not a menu item)</b><span class="w">Every item in the library gets its own page, like a blog post, generated from the entry CPPDC adds. These pages never appear in the header menu, so 20 resources means 20 shareable pages and still five menu items. Each page is built from: a title, a one-paragraph summary, the file or video link, a category and an audience. That page is what search engines and AI assistants cite, and it is where a recording plays. This template shows a video (Webinar recording) and a document (Toolkit); switch with the links in the top bar.</span></div></aside>
     <p class="p2-crumbs"><a href="home.html">Home</a> &rsaquo; <a href="resources.html">Resources</a> &rsaquo; <span id="rCat">Webinar recordings</span></p>
     <p class="cppdc-eyebrow has-text-align-center" id="rEyebrow">Webinar recording &middot; 58 min &middot; 2026</p>
     <h1 id="rTitle">Webinar: Cross-Sector Coordination That Sticks</h1>
@@ -2491,7 +2495,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 <script>
 var RESOURCES = {
   webinar: {
-    kind:"video", cat:"Webinar recordings", eyebrow:"Webinar recording &middot; 58 min &middot; 2026",
+    kind:"video", cat:"Presentations", eyebrow:"Webinar recording &middot; 58 min &middot; 2026",
     title:"Webinar: Cross-Sector Coordination That Sticks",
     photo:"assets/img/Symposium-58-1024x683.jpg", dur:"58 min",
     aboutH:"About This Recording",
@@ -2508,7 +2512,7 @@ var RESOURCES = {
       {kind:"doc",ft:"PDF",type:"Presentation",title:"Symposium 2026: employer engagement day slides",meta:"PDF &middot; 41 slides &middot; 2026",btn:"Download slides",href:"resource.html#guide"}]
   },
   guide: {
-    kind:"doc", cat:"Toolkits and guides", eyebrow:"Toolkit &middot; PDF &middot; 24 pages &middot; 2026",
+    kind:"doc", cat:"Desk Aids", eyebrow:"Desk aid &middot; PDF &middot; 24 pages &middot; 2026",
     title:"Integrated Education and Training Planning Guide",
     ft:"PDF",
     aboutH:"About This Guide",
