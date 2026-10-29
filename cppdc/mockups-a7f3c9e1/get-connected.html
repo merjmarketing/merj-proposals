@@ -2401,19 +2401,40 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 /* ---- helpful-link cards ---- */
 .p2-thumb-link{background:linear-gradient(120deg,#1a2456 0%,#2c3b97 55%,#3683c5 100%)!important;display:flex!important;align-items:center;justify-content:center}
 .p2-thumb-link .lk{font-size:3rem;color:#9ce37d;font-weight:900;line-height:1}
+
+/* ---- employer hub ---- */
+.p2-hub-tile{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid rgba(44,59,151,.18);border-top:5px solid #2c3b97;border-radius:14px;padding:26px 24px;text-decoration:none;color:#1a1a1a;box-shadow:0 12px 28px rgba(44,59,151,.12);transition:transform .2s,box-shadow .2s}
+.p2-hub-tile:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(44,59,151,.18);border-top-color:#daab28}
+.p2-hub-tile .ico{width:48px;height:48px;border-radius:50%;background:#9ce37d;display:inline-flex;align-items:center;justify-content:center}
+.p2-hub-tile .ico svg{width:24px;height:24px;fill:none;stroke:#1a2456;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.p2-hub-tile b{color:#2c3b97;font-size:1.15rem;line-height:1.2}
+.p2-hub-tile span:not(.ico){color:#555;font-size:.92rem;line-height:1.5}
+.p2-regions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.p2-regions a{display:block;text-align:center;background:#f8f9fb;border:1px solid rgba(44,59,151,.15);border-radius:8px;padding:9px 6px;font-size:.84rem;font-weight:700;color:#2c3b97;text-decoration:none}
+.p2-regions a:hover{background:#2c3b97;color:#fff}
+.p2-hub-card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.p2-hub-card .p2-head{background:linear-gradient(120deg,#AD4B72 0%,#2c3b97 60%)!important}
+.p2-hub-card .p2-head b{font-size:1.6rem}
+.p2-hub-card-lg .p2-head{background:linear-gradient(120deg,#1a2456 0%,#2c3b97 40%,#9ce37d 140%)!important}
+.p2-hub-card-lg .p2-head b{font-size:1.9rem}
+
+.p2-hub-card .cppdc-mini-title,.p2-hub-card .cppdc-mini-link{color:#fff!important}
+.p2-hub-card .cppdc-mini-desc{color:rgba(255,255,255,.85)!important}
+.p2-hub-card:hover .cppdc-mini-link{color:#9ce37d!important}
 </style></head><body><div class="p2-page" data-page="get-connected" data-nav="get-connected"><div class="mock-bar" role="note" aria-label="Mockup navigation">
   <b>MOCKUP</b>
   <a href="index.html" data-page="index">Index</a>
   <a href="home.html" data-page="home">Home</a>
   <a href="initiatives.html" data-page="initiatives">Initiatives</a>
   <a href="initiative.html#academy" data-page="initiative">Initiative page</a>
+  <a href="hub.html" data-page="hub">Employer Connect Hub</a>
   <a href="events.html" data-page="events">Events</a>
   <a href="resources.html" data-page="resources">Resources</a>
   <a href="resource.html#webinar" data-page="resource">Resource page</a>
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.5 (V2 in progress) · 29 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.6 (V2 in progress) · 29 Oct 2026 · Not live. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2427,10 +2448,10 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
             <li><a href="initiative.html#webinars"><small>Virtual</small>Webinar Series</a></li>
             <li><a href="initiative.html#summits"><small>Regional</small>Regional Summits</a></li>
             <li><a href="initiative.html#symposium"><small>Statewide</small>Career Pathways Symposium</a></li>
-            <li><a href="initiative.html#hub"><small>Employers</small>Employer Connect Hub</a></li>
             <li><a href="initiative.html#pd"><small>Ongoing</small>Professional Development</a></li>
           </ul>
         </li>
+        <li class="menu-item" data-nav="hub"><a href="hub.html">Employer Connect Hub</a></li>
         <li class="menu-item" data-nav="events"><a href="events.html">Events</a></li>
         <li class="menu-item" data-nav="resources"><a href="resources.html">Resources</a></li>
         <li class="menu-item" data-nav="about"><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a></li>
@@ -2502,7 +2523,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       <p class="ok" hidden>Thanks. CPPDC will reply with the right entry point for your organization.</p>
     </form>
     <form class="p2-form" id="employer" data-tabpanel="employer" hidden>
-      <p class="full hint">For employers who want to advise on training, join the Employer Connect Hub, or meet programs preparing their next hires.</p>
+      <p class="full hint">For employers joining the <a href="hub.html">Employer Connect Hub</a>: curated information, networking opportunities and the providers preparing your next hires.</p>
       <div><label for="e-name">Your name</label><input id="e-name" type="text" autocomplete="name"></div>
       <div><label for="e-title">Role / title</label><input id="e-title" type="text"></div>
       <div><label for="e-company">Company</label><input id="e-company" type="text" autocomplete="organization"></div>
@@ -2573,7 +2594,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
       </div>
       <div class="cppdc-footer-col">
         <h4>Explore</h4>
-        <p><a href="initiatives.html">Initiatives</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
+        <p><a href="initiatives.html">Initiatives</a><a href="hub.html">Employer Connect Hub</a><a href="events.html">Events</a><a href="resources.html">Resources</a><a href="https://txcareerpathways.org/about/" target="_blank" rel="noopener">About</a><a href="get-connected.html">Get Connected</a></p>
       </div>
       <div class="cppdc-footer-col">
         <h4>Contact</h4>
