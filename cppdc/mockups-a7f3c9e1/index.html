@@ -2331,6 +2331,15 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-res-body .p2-btn-sm{align-self:flex-start;margin-top:4px}
 
 .p2-media .p2-thumb-doc{display:flex}
+/* real first-page previews */
+.p2-thumb-img{background-color:#eef1f7!important;background-position:top center!important;border-bottom:1px solid rgba(44,59,151,.1)}
+.p2-thumb-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,36,86,0) 60%,rgba(26,36,86,.45))}
+.p2-thumb-img .ft{position:absolute;right:12px;bottom:12px;background:#2c3b97;color:#fff;font-size:.7rem;font-weight:900;letter-spacing:.1em;padding:4px 10px;border-radius:4px}
+.p2-res-sub{max-width:1200px;margin:34px auto 0!important;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.p2-res-sub .p2-ph{text-transform:none;letter-spacing:0}
+.p2-res-group .p2-res-sub+.p2-res-grid{margin-top:12px}
+.p2-docimg{background-size:cover!important;background-position:top center!important;background-color:#eef1f7}
+.p2-docimg::before{display:none}
 
 /* ---- library groups ---- */
 .p2-res-group{max-width:1200px;margin:36px auto 0}
@@ -2445,11 +2454,11 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.6 (V2 in progress) · 29 Oct 2026 · Not live. Callouts mark what changed since your feedback. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.7 (V2 in progress) · 30 Oct 2026 · Not live. Callouts mark what changed since your feedback. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 
 <div class="p2-index">
-  <p class="cppdc-eyebrow">CPPDC Website Phase 2 &middot; Mockups v0.6, V2 in progress &middot; 29 October 2026</p>
+  <p class="cppdc-eyebrow">CPPDC Website Phase 2 &middot; Mockups v0.7, V2 in progress &middot; 30 October 2026</p>
   <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);color:#2c3b97;line-height:1.1">Page Mockups for the Proposed Sitemap</h1>
   <p style="max-width:720px;color:#555">Seven templates cover all eleven pages (Partners lives on Get Connected; the Employer Connect Hub is now its own top-level page, per CPPDC). Every mockup uses the live site's own design system (colors, type, buttons, cards, header and footer), so what you see here is what the Phase 2 pages will look like on txcareerpathways.org. Dashed gold labels mark content CPPDC supplies. Initiative names follow CPPDC's decisions of 21 October.</p>
   <p style="max-width:760px;color:#555">Callouts now mark only what changed since your feedback: <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#AD4B72;color:#fff">New</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#266F99;color:#fff">Rebuilt</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#35A48E;color:#fff">Updated</span></span> <span class="p2-callout" style="display:inline-flex;padding:2px 8px;margin:0;gap:6px;font-size:.78rem"><span class="k" style="background:#5F5F5F;color:#fff">Same</span></span>, with the reason. Switch them off with the Callouts button in the top bar to see the page clean. Sections without a callout are unchanged from the version you reviewed.</p>
@@ -2459,7 +2468,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
     <a class="p2-index-card" href="initiative.html#academy"><b>Initiative page template</b><span>One template for the five initiatives: what it is, who it serves, how to get involved, next dates, FAQ. Switch initiatives from the menu.</span><small>New &middot; pages 3 to 7</small></a>
     <a class="p2-index-card" href="hub.html"><b>Employer Connect Hub</b><span>Top-level page for employers: curated information, broader networks, the talent pipeline, employer sign-up.</span><small>New &middot; page 8</small></a>
     <a class="p2-index-card" href="events.html"><b>Events</b><span>Upcoming and past, filter by type, one registration path per event type.</span><small>New &middot; page 9</small></a>
-    <a class="p2-index-card" href="resources.html"><b>Resources</b><span>Filterable library by category and audience, with a summary on every item.</span><small>New &middot; page 10</small></a>
+    <a class="p2-index-card" href="resources.html"><b>Resources</b><span>Filterable library in your four sections, now holding the first 11 real items: two newsletters and nine presentation decks, grouped by event.</span><small>New &middot; page 10 &middot; updated 30 Oct</small></a>
     <a class="p2-index-card" href="get-connected.html"><b>Get Connected</b><span>Forms hub plus the partner showcase: interest form, partner inquiry, employer sign-up, logos, profiles, FAQ.</span><small>Rebuilt &middot; page 11</small></a>
   </div>
   <h2 style="margin-top:48px;font-size:1.4rem;color:#2c3b97">The Sitemap These Pages Follow</h2>
@@ -2467,7 +2476,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <h2 style="margin-top:40px;font-size:1.4rem;color:#2c3b97">What Is Not in These Mockups</h2>
   <ul style="color:#555;max-width:720px">
     <li>About and the three legal pages: copy updates and revisions, no layout change, so not mocked.</li>
-    <li>Real event dates, resources, partner logos and profiles: placeholders until CPPDC sends them.</li>
+    <li>Real event dates, desk aids, partner logos and profiles: placeholders until CPPDC sends them. The 11 resources received on 30 October are in.</li>
     <li>Photography: the three Symposium 2026 photos already on the site are reused as stand-ins.</li>
     <li>Forms and filters work on the page but do not send anything.</li>
   </ul>

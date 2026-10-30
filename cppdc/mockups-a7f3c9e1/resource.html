@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Resource page template | CPPDC Phase 2 mockup</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>Resource page template | CPPDC Phase 2 mockup</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"><style>
 /* =========================================================
    Career Pathways Professional Development Center (CPPDC)
    Customizer → Additional CSS
@@ -2331,6 +2331,15 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 .p2-res-body .p2-btn-sm{align-self:flex-start;margin-top:4px}
 
 .p2-media .p2-thumb-doc{display:flex}
+/* real first-page previews */
+.p2-thumb-img{background-color:#eef1f7!important;background-position:top center!important;border-bottom:1px solid rgba(44,59,151,.1)}
+.p2-thumb-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,36,86,0) 60%,rgba(26,36,86,.45))}
+.p2-thumb-img .ft{position:absolute;right:12px;bottom:12px;background:#2c3b97;color:#fff;font-size:.7rem;font-weight:900;letter-spacing:.1em;padding:4px 10px;border-radius:4px}
+.p2-res-sub{max-width:1200px;margin:34px auto 0!important;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.p2-res-sub .p2-ph{text-transform:none;letter-spacing:0}
+.p2-res-group .p2-res-sub+.p2-res-grid{margin-top:12px}
+.p2-docimg{background-size:cover!important;background-position:top center!important;background-color:#eef1f7}
+.p2-docimg::before{display:none}
 
 /* ---- library groups ---- */
 .p2-res-group{max-width:1200px;margin:36px auto 0}
@@ -2445,7 +2454,7 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
   <a href="get-connected.html" data-page="get-involved">Get Connected</a>
   <span class="sp"></span>
   <button type="button" id="calloutToggle" aria-pressed="true">Callouts: on</button>
-  <span class="note">CPPDC Website Phase 2 · v0.6 (V2 in progress) · 29 Oct 2026 · Not live. Callouts mark what changed since your feedback. Dashed items are placeholders for content CPPDC supplies.</span>
+  <span class="note">CPPDC Website Phase 2 · v0.7 (V2 in progress) · 30 Oct 2026 · Not live. Callouts mark what changed since your feedback. Dashed items are placeholders for content CPPDC supplies.</span>
 </div>
 <header class="site-header" id="masthead">
   <div class="hdr">
@@ -2524,6 +2533,40 @@ figure.p2-banner figcaption{position:absolute;left:24px;bottom:16px;background:r
 
 <script>
 var RESOURCES = {
+  "employer-partnerships": {
+    kind:"img", cat:"Presentations", eyebrow:"Slides &middot; PDF &middot; 23 slides &middot; 4 June 2026",
+    title:"Building Workforce Literacy Together: Employer Partnerships that Work",
+    photo:"assets/img/res/employer-partnerships-that-work-2026-06.jpg", ft:"PDF",
+    aboutH:"About This Presentation",
+    summary:["How two Texas adult education programs, Irving ISD and the Wilkinson Center, built workforce literacy programs with named employer partners, from AirVent, Cintas and Kenco Logistics to Parkland Hospital and Dallas College, and what made the partnerships hold. Presented at the 2026 Career Pathways Symposium in San Antonio.","<span class='p2-ph'>Summary written from the deck; CPPDC confirms</span>"],
+    takeaways:["Start with one employer and one occupation, then widen.","Put the employer's hiring calendar on the program calendar.","Name a single point of contact on each side."],
+    presenters:"<b>Presenters</b> Rachael Berhe and Samuel PJ Lopez",
+    details:[["Type","Slides"],["Format","PDF, 23 slides (2.6 MB)"],["Presented","4 June 2026"],["Part of","<a href='initiative.html#symposium'>Career Pathways Symposium</a>"],["For","AEL providers, employers"],["Also available","PowerPoint on request <span class='p2-ph'>CPPDC decides</span>"]],
+    primary:["Download the slides (PDF)","#"], secondary:["Open in a new tab","#"],
+    url:"txcareerpathways.org/resources/employer-partnerships-that-work/",
+    band:["See the Next Symposium.","The 2027 Career Pathways Symposium dates are announced to the list first.","Get Symposium updates","get-connected.html#interest"],
+    related:[
+      {kind:"img",photo:"assets/img/res/classroom-to-career-portfolios-2026-06.jpg",ft:"PDF",type:"Slides",title:"From Classroom to Career: portfolios that work",meta:"PDF &middot; 52 slides &middot; 4 June 2026",btn:"Download the slides",href:"resource.html#employer-partnerships"},
+      {kind:"img",photo:"assets/img/res/literacy-to-livelihood-framework.jpg",ft:"PDF",type:"Slides",title:"From Literacy to Livelihood: a Purpose-to-Performance framework",meta:"PDF &middot; 26 slides &middot; 2026",btn:"Download the slides",href:"resource.html#employer-partnerships"},
+      {kind:"img",photo:"assets/img/res/newsletter-2026-08.jpg",ft:"PDF",type:"Newsletter",title:"CPPDC Newsletter, August 2026",meta:"PDF &middot; 1 page &middot; 28 August 2026",btn:"Read the newsletter",href:"resource.html#newsletter-2026-09"}]
+  },
+  "newsletter-2026-09": {
+    kind:"img", cat:"Publications", eyebrow:"Newsletter &middot; PDF &middot; 1 page &middot; September 2026",
+    title:"CPPDC Newsletter, September 2026",
+    photo:"assets/img/res/newsletter-2026-09.jpg", ft:"PDF",
+    aboutH:"About This Newsletter",
+    summary:["Two learner stories from the career pathway (a Certified Medical Administrative Assistant credential, and a learner who rode and rode the train to class and became a leader in it), the new CPPDC LinkedIn page, and how to reach the team.","<span class='p2-ph'>Phone number in the newsletter differs from the site; CPPDC confirms</span>"],
+    takeaways:["CPPDC is now on LinkedIn.","Learner stories show the pathway working end to end.","Contact: CPPDC@restoreeducation.org."],
+    presenters:"<b>Published by</b> Career Pathways Professional Development Center",
+    details:[["Type","Newsletter"],["Format","PDF, 1 page (2.2 MB)"],["Published","September 2026"],["Part of","CPPDC newsletter"],["For","All partners"],["Subscribe","<a href='get-connected.html#interest'>Join the list</a>"]],
+    primary:["Read the newsletter (PDF)","#"], secondary:["Open in a new tab","#"],
+    url:"txcareerpathways.org/resources/newsletter-september-2026/",
+    band:["Get the Next Issue First.","Join the CPPDC list and the newsletter lands in your inbox each month.","Join the list","get-connected.html#interest"],
+    related:[
+      {kind:"img",photo:"assets/img/res/newsletter-2026-08.jpg",ft:"PDF",type:"Newsletter",title:"CPPDC Newsletter, August 2026",meta:"PDF &middot; 1 page &middot; 28 August 2026",btn:"Read the newsletter",href:"resource.html#newsletter-2026-09"},
+      {kind:"img",photo:"assets/img/res/employer-partnerships-that-work-2026-06.jpg",ft:"PDF",type:"Slides",title:"Employer Partnerships that Work",meta:"PDF &middot; 23 slides &middot; 4 June 2026",btn:"Download the slides",href:"resource.html#employer-partnerships"},
+      {kind:"img",photo:"assets/img/res/twc-institute-2026-02.jpg",ft:"PDF",type:"Slides",title:"CPPDC: Driving Student Success Through Workforce Alignment",meta:"PDF &middot; 41 pages &middot; 10 February 2026",btn:"Download the slides",href:"resource.html#employer-partnerships"}]
+  },
   webinar: {
     kind:"video", cat:"Presentations", eyebrow:"Webinar recording &middot; 58 min &middot; 2026",
     title:"Webinar: Cross-Sector Coordination That Sticks",
@@ -2562,6 +2605,8 @@ var RESOURCES = {
 function card(r){
   var thumb = r.kind==="video"
     ? '<a class="p2-thumb p2-thumb-video" href="'+r.href+'" style="background-image:url('+r.photo+')"><span class="play"></span><span class="dur">'+r.dur+'</span><span class="type">'+r.type+'</span></a>'
+    : r.kind==="img"
+    ? '<a class="p2-thumb p2-thumb-img" href="'+r.href+'" style="background-image:url('+r.photo+')"><span class="type">'+r.type+'</span><span class="ft">'+r.ft+'</span></a>'
     : '<a class="p2-thumb p2-thumb-doc" href="'+r.href+'"><span class="page"><i></i><i></i><i></i><i></i></span><span class="ft">'+r.ft+'</span><span class="type">'+r.type+'</span></a>';
   return '<article class="p2-res p2-media">'+thumb+'<div class="p2-res-body"><h3>'+r.title+'</h3><span class="meta">'+r.meta+'</span><a class="p2-btn-sm" href="'+r.href+'">'+r.btn+'</a></div></article>';
 }
@@ -2571,6 +2616,8 @@ function renderResource(){
   $("rCat").textContent=d.cat; $("rEyebrow").innerHTML=d.eyebrow; $("rTitle").textContent=d.title; document.title=d.title+" | CPPDC";
   $("rPlayer").innerHTML = d.kind==="video"
     ? '<div class="p2-video" style="background-image:url('+d.photo+')"><span class="play" aria-hidden="true"></span><span class="dur">'+d.dur+'</span><span class="p2-ph embed">YouTube embed plays here</span></div>'
+    : d.kind==="img"
+    ? '<div class="p2-video p2-docimg" style="background-image:url('+d.photo+')"><span class="p2-ph embed">PDF viewer opens here; first page shown</span></div>'
     : '<div class="p2-docview"><span class="page" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="ft">'+d.ft+'</span><span class="p2-ph embed">First-page preview, generated on upload</span></div>';
   $("rAboutH").textContent=d.aboutH;
   $("rSummary").innerHTML=d.summary.map(function(p){return "<p>"+p+"</p>";}).join("");
